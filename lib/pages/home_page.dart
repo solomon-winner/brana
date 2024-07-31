@@ -1,5 +1,6 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:brana/components/home/search_bar.dart';
 
 class home extends StatefulWidget {
   const home({super.key});
@@ -23,6 +24,7 @@ class _homeState extends State<home> {
         centerTitle: true,
         backgroundColor: Color.fromARGB(255, 25, 25, 26),
       ),
+      body: AnimatedSearchBar(),
       backgroundColor: Colors.deepPurpleAccent,
       bottomNavigationBar: CurvedNavigationBar(
         backgroundColor: Colors.deepPurpleAccent,
