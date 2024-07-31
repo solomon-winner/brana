@@ -13,10 +13,20 @@ class _homeState extends State<home> {
   Widget build(BuildContext context) {
 
     return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          "Brana Library",
+          style: TextStyle(
+            color: Colors.white
+          ),
+          ),
+        centerTitle: true,
+        backgroundColor: Color.fromARGB(255, 25, 25, 26),
+      ),
       backgroundColor: Colors.deepPurpleAccent,
       bottomNavigationBar: CurvedNavigationBar(
         backgroundColor: Colors.deepPurpleAccent,
-        color: Color.fromARGB(255, 25, 25, 26),
+        color:Color.fromARGB(255, 25, 25, 26),
         animationDuration: Duration(milliseconds: 300),
         onTap: (index) {
           print(index);
