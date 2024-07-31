@@ -1,8 +1,5 @@
 import 'dart:math';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class SearchBar extends StatefulWidget {
   const SearchBar({super.key});
@@ -14,17 +11,22 @@ class SearchBar extends StatefulWidget {
 class _SearchBarState extends State<SearchBar> 
 with SingleTickerProviderStateMixin{
   late TextEditingController _textEditingController;
+  late AnimationController _animationController;
+  bool isExpanded = false;
+
   @override
+  void initState() {
+    super.initState();
+    _textEditingController = TextEditingController();
+    _animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 400),
+      );
+  }
+
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Container(
-        child: Center(
-          child: AnimatedContainer(
-            duration: const Duration(milliseconds: 400),
-            width: 280,
-            ),
-        ),
-      ),
+    return Scaffold(
+      body: Container(),
     );
   }
 }
