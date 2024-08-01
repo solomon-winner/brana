@@ -1,3 +1,4 @@
+import 'package:brana/components/home/bodyContainer.dart';
 import 'package:brana/utils/colors.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
@@ -25,11 +26,7 @@ class _homeState extends State<home> {
         centerTitle: true,
         backgroundColor: Color.fromARGB(255, 25, 25, 26),
       ),
-      body: Container(
-
-        color: BranaColor.WhiteColor ,
-
-        child: AnimatedSearchBar()),
+      body:bodyContainer(),
       
       bottomNavigationBar: CurvedNavigationBar(
         backgroundColor: BranaColor.light_background,
