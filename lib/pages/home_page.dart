@@ -33,7 +33,7 @@ class _homeState extends State<home> {
       
       bottomNavigationBar: CurvedNavigationBar(
         backgroundColor: BranaColor.light_background,
-        color:Color.fromARGB(255, 25, 25, 26),
+        color:BranaColor.navigationColor,
         animationDuration: Duration(milliseconds: 300),
         onTap: (index) {
           print(index);
