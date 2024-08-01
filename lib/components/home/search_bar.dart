@@ -90,7 +90,10 @@ with SingleTickerProviderStateMixin{
                         ),
                       ),
                     )
-                   )
+                   ),
+                   Expanded(
+                    child: Icon(Icons.mic, size:20),
+                    )
               ],
               )
           ),
