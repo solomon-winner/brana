@@ -38,7 +38,7 @@ class _homeState extends State<home> {
         },
         items: [
         Icon(
-          Icons.shelves,
+          Icons.home,
           color: Colors.white,
         ),
         Icon(
