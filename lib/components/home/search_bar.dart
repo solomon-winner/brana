@@ -1,14 +1,14 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 
-class SearchBar extends StatefulWidget {
-  const SearchBar({super.key});
+class AnimatedSearchBar extends StatefulWidget {
+  const AnimatedSearchBar({super.key});
 
   @override
-  State<SearchBar> createState() => _SearchBarState();
+  State<AnimatedSearchBar> createState() => _AnimatedSearchBarState();
 }
 
-class _SearchBarState extends State<SearchBar> 
+class _AnimatedSearchBarState extends State<AnimatedSearchBar> 
 with SingleTickerProviderStateMixin{
   late TextEditingController _textEditingController;
   late AnimationController _animationController;
@@ -23,10 +23,18 @@ with SingleTickerProviderStateMixin{
       duration: const Duration(milliseconds: 400),
       );
   }
-
+  
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(),
+      body: Container(
+        color: Color(0xFFE3F2FD),
+        child: Center(
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 400),
+            ),
+        ),
+      ),
     );
   }
 }

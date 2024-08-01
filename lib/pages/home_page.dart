@@ -1,3 +1,4 @@
+import 'package:brana/utils/colors.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:brana/components/home/search_bar.dart';
@@ -23,10 +24,10 @@ class _homeState extends State<home> {
         centerTitle: true,
         backgroundColor: Color.fromARGB(255, 25, 25, 26),
       ),
-      body: SearchBar(),
-      backgroundColor: Colors.deepPurpleAccent,
+      body: AnimatedSearchBar(),
+      backgroundColor: BranaColor.light_background,
       bottomNavigationBar: CurvedNavigationBar(
-        backgroundColor: Colors.deepPurpleAccent,
+        backgroundColor: BranaColor.light_background,
         color:Color.fromARGB(255, 25, 25, 26),
         animationDuration: Duration(milliseconds: 300),
         onTap: (index) {
