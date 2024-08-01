@@ -55,6 +55,12 @@ with SingleTickerProviderStateMixin{
                     onTap: () {
                       setState((){
                         isExpanded = !isExpanded;
+                        if(isExpanded){
+                          _animationController.forward();                         
+                        } else {
+                          _textEditingController.clear();
+                          _animationController.reverse();
+                        }
                       });
                     },
                     child: CircleAvatar(
@@ -102,7 +108,7 @@ with SingleTickerProviderStateMixin{
                             animation: _animationController,
                             builder: (context, child) {
                               return Transform.rotate(
-                                angle: _animationController.value * 2,
+                                angle: _animationController.value * 2 * pi,
                                 child: child,
                                 );
                             },
