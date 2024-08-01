@@ -35,6 +35,15 @@ with SingleTickerProviderStateMixin{
             duration: const Duration(milliseconds: 400),
             width: 280,
             height: 50,
+            decoration: BoxDecoration(
+              color: BranaColor.WhiteColor,
+              borderRadius: BorderRadius.circular(30),
+              boxShadow: const [
+                BoxShadow(
+                  color: Colors.black26
+                )
+              ]
+            ),
             ),
         ),
       ),
