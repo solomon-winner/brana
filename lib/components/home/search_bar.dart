@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'package:brana/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class AnimatedSearchBar extends StatefulWidget {
@@ -28,10 +29,12 @@ with SingleTickerProviderStateMixin{
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: Color(0xFFE3F2FD),
+        color: BranaColor.light_background,
         child: Center(
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 400),
+            width: 280,
+            height: 50,
             ),
         ),
       ),
