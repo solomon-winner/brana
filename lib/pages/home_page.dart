@@ -24,7 +24,7 @@ class _homeState extends State<home> {
           ),
           ),
         centerTitle: true,
-        backgroundColor: Color.fromARGB(255, 25, 25, 26),
+        backgroundColor: BranaColor.navigationColor,
       ),
       body:bodyContainer(),
       

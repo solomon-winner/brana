@@ -12,19 +12,18 @@ class bodyContainer extends StatefulWidget {
 class _bodyContainerState extends State<bodyContainer> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
+    return Container(
         child: Column(
           
           children: [
             Row(
               children: [
-                AnimatedSearchBar()
+                // AnimatedSearchBar()
               ],
             )
           ],
         ),
-      ),
-    );
+      );
+    
   }
 }
