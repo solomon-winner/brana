@@ -66,6 +66,19 @@ with SingleTickerProviderStateMixin{
                     ),
                   ),
                   ),
+
+                  Expanded(
+                    child:TextField(
+                      decoration: InputDecoration(
+                        floatingLabelBehavior: FloatingLabelBehavior.never,
+                        labelText: "Search...",
+                        labelStyle: TextStyle(
+                          color: BranaColor.ShadowColor,
+                          fontSize: 17.0,
+                          fontWeight: FontWeight.bold,
+                        )
+                      ),
+                    ) )
               ],
               )
           ),
