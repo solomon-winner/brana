@@ -38,13 +38,19 @@ with SingleTickerProviderStateMixin{
             decoration: BoxDecoration(
               color: BranaColor.WhiteColor,
               borderRadius: BorderRadius.circular(30),
-              boxShadow: const [
+              boxShadow:  [
                 BoxShadow(
-                  color: Colors.black26
+                  color: BranaColor.ShadowColor,
+                  spreadRadius: -5.0,
+                  blurRadius: 5.0,
+                  offset: Offset(0.0, 7.0)
                 )
               ]
             ),
-            ),
+            child: Row(
+              children: [],
+              )
+          ),
         ),
       ),
     );
