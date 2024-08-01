@@ -30,7 +30,7 @@ with SingleTickerProviderStateMixin{
     return Scaffold(
       body: Container(
         color: BranaColor.light_background,
-        child: Center(
+
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 400),
             width: isExpanded? 280 :50,
@@ -120,9 +120,9 @@ with SingleTickerProviderStateMixin{
                      ),
                    )
               ],
-              )
+            )
           ),
-        ),
+        
       ),
     );
   }

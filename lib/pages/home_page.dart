@@ -14,6 +14,7 @@ class _homeState extends State<home> {
   Widget build(BuildContext context) {
 
     return Scaffold(
+      backgroundColor: BranaColor.light_background,
       appBar: AppBar(
         title: const Text(
           "Brana Library",
@@ -24,8 +25,12 @@ class _homeState extends State<home> {
         centerTitle: true,
         backgroundColor: Color.fromARGB(255, 25, 25, 26),
       ),
-      body: AnimatedSearchBar(),
-      backgroundColor: BranaColor.light_background,
+      body: Container(
+
+        color: BranaColor.WhiteColor ,
+
+        child: AnimatedSearchBar()),
+      
       bottomNavigationBar: CurvedNavigationBar(
         backgroundColor: BranaColor.light_background,
         color:Color.fromARGB(255, 25, 25, 26),

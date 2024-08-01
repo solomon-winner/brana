@@ -1,3 +1,4 @@
+import 'package:brana/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:brana/pages/home_page.dart';
 void main() {
@@ -11,6 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      color: BranaColor.light_background,
       debugShowCheckedModeBanner: false,
       home: home(),
     );
