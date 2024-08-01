@@ -68,17 +68,29 @@ with SingleTickerProviderStateMixin{
                   ),
 
                   Expanded(
-                    child:TextField(
-                      decoration: InputDecoration(
-                        floatingLabelBehavior: FloatingLabelBehavior.never,
-                        labelText: "Search...",
-                        labelStyle: TextStyle(
-                          color: BranaColor.ShadowColor,
-                          fontSize: 17.0,
-                          fontWeight: FontWeight.bold,
-                        )
+                    child:AnimatedOpacity(
+                      opacity: isExpanded ? 1.0 : 0.0,
+                      duration: const Duration(
+                        milliseconds: 200
                       ),
-                    ) )
+                      child: TextField(
+                        decoration: InputDecoration(
+                          floatingLabelBehavior: FloatingLabelBehavior.never,
+                          labelText: "Search...",
+                          labelStyle: TextStyle(
+                            color: BranaColor.ShadowColor,
+                            fontSize: 17.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          alignLabelWithHint: true,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20.0),
+                            borderSide: BorderSide.none
+                          )
+                        ),
+                      ),
+                    )
+                   )
               ],
               )
           ),
