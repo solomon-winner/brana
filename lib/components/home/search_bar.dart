@@ -91,17 +91,27 @@ with SingleTickerProviderStateMixin{
                       ),
                     )
                    ),
-                   AnimatedBuilder(
-                    animation: _animationController,
-                    builder: (context, child) {
-                      return Transform.rotate(
-                        angle: _animationController.value * 2,
-                        child: child,
-                        );
-                    },
-                     child: Expanded(
-                      child: Icon(Icons.mic, size:20),
-                      ),
+                   Expanded(
+                     child: Align(
+                      alignment: Alignment.centerRight,
+                       child: Visibility(
+                        visible: isExpanded,
+                         child: Padding(
+                          padding: EdgeInsets.all(8),
+                           child: AnimatedBuilder(
+                            animation: _animationController,
+                            builder: (context, child) {
+                              return Transform.rotate(
+                                angle: _animationController.value * 2,
+                                child: child,
+                                );
+                            },
+                            child: Icon(Icons.mic, size:20),
+                              
+                           ),
+                         ),
+                       ),
+                     ),
                    )
               ],
               )
