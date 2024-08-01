@@ -33,7 +33,7 @@ with SingleTickerProviderStateMixin{
         child: Center(
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 400),
-            width: 280,
+            width: isExpanded? 280 :50,
             height: 50,
             decoration: BoxDecoration(
               color: BranaColor.WhiteColor,
@@ -48,7 +48,25 @@ with SingleTickerProviderStateMixin{
               ]
             ),
             child: Row(
-              children: [],
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(left:5),
+                  child: InkWell(
+                    onTap: () {
+                      setState((){
+                        isExpanded = !isExpanded;
+                      });
+                    },
+                    child: CircleAvatar(
+                      backgroundColor: BranaColor.WhiteColor,
+                      child: Icon(
+                        Icons.search,
+                        size: 30
+                      ),
+                    ),
+                  ),
+                  ),
+              ],
               )
           ),
         ),
