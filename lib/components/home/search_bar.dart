@@ -27,11 +27,7 @@ with SingleTickerProviderStateMixin{
   
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        color: BranaColor.light_background,
-
-          child: AnimatedContainer(
+    return  AnimatedContainer(
             duration: const Duration(milliseconds: 400),
             width: isExpanded? 280 :50,
             height: 50,
@@ -121,9 +117,9 @@ with SingleTickerProviderStateMixin{
                    )
               ],
             )
-          ),
+          
         
-      ),
+      
     );
   }
 }

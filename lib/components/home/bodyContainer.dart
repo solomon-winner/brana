@@ -13,12 +13,15 @@ class _bodyContainerState extends State<bodyContainer> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      decoration: BoxDecoration(
+      ),
         child: Column(
           
           children: [
             Row(
+              
               children: [
-                // AnimatedSearchBar()
+                 AnimatedSearchBar()
               ],
             )
           ],
