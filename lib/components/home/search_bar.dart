@@ -91,9 +91,18 @@ with SingleTickerProviderStateMixin{
                       ),
                     )
                    ),
-                   Expanded(
-                    child: Icon(Icons.mic, size:20),
-                    )
+                   AnimatedBuilder(
+                    animation: _animationController,
+                    builder: (context, child) {
+                      return Transform.rotate(
+                        angle: _animationController.value * 2,
+                        child: child,
+                        );
+                    },
+                     child: Expanded(
+                      child: Icon(Icons.mic, size:20),
+                      ),
+                   )
               ],
               )
           ),
