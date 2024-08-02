@@ -19,10 +19,13 @@ class _bodyContainerState extends State<bodyContainer> {
           
           children: [
             Row(
-              
               children: [
                  AnimatedSearchBar(),
-                 Icon(Icons.shelves)
+                 
+                //  Icon(
+                //   Icons.shelves,
+                //   size: 30,
+                //   )
               ],
             )
           ],
