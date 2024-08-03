@@ -22,6 +22,54 @@ class _trendingTabsState extends State<trendingTabs> {
             child: FilledButton(
               onPressed: (){},
               child: Text("Fiction"),),
+            ),
+                      Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 5.0,
+            ),
+            child: FilledButton(
+              onPressed: (){},
+              child: Text("Fiction"),),
+            ),
+                      Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 5.0,
+            ),
+            child: FilledButton(
+              onPressed: (){},
+              child: Text("Fiction"),),
+            ),
+                      Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 5.0,
+            ),
+            child: FilledButton(
+              onPressed: (){},
+              child: Text("Fiction"),),
+            ),
+                      Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 5.0,
+            ),
+            child: FilledButton(
+              onPressed: (){},
+              child: Text("Fiction"),),
+            ),
+                      Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 5.0,
+            ),
+            child: FilledButton(
+              onPressed: (){},
+              child: Text("Fiction"),),
+            ),
+                      Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 5.0,
+            ),
+            child: FilledButton(
+              onPressed: (){},
+              child: Text("Fiction"),),
             )
         ],
       ),
