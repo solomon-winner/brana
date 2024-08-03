@@ -21,10 +21,14 @@ class _bodyContainerState extends State<bodyContainer> {
             Row(
               children: [
                 Expanded(
-                  child: Row(
-                    children: [
-                      
-                    ]
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      children: [
+                        Spacer(),
+                        AnimatedSearchBar()
+                      ]
+                    ),
                   )
                  )
                  
