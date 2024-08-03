@@ -29,7 +29,7 @@ with SingleTickerProviderStateMixin{
   Widget build(BuildContext context) {
     return  AnimatedContainer(
             duration: const Duration(milliseconds: 400),
-            width: isExpanded? 280 :50,
+            width: 280 ,
             height: 50,
             decoration: BoxDecoration(
               color: BranaColor.WhiteColor,
@@ -50,7 +50,7 @@ with SingleTickerProviderStateMixin{
                   child: InkWell(
                     onTap: () {
                       setState((){
-                        isExpanded = !isExpanded;
+                        isExpanded = isExpanded;
                         if(isExpanded){
                           _animationController.forward();                         
                         } else {
