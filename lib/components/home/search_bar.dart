@@ -47,18 +47,6 @@ with SingleTickerProviderStateMixin{
               children: [
                 Padding(
                   padding: EdgeInsets.only(left:5),
-                  child: InkWell(
-                    onTap: () {
-                      setState((){
-                        isExpanded = isExpanded;
-                        if(isExpanded){
-                          _animationController.forward();                         
-                        } else {
-                          _textEditingController.clear();
-                          _animationController.reverse();
-                        }
-                      });
-                    },
                     child: CircleAvatar(
                       backgroundColor: BranaColor.WhiteColor,
                       child: Icon(
@@ -66,12 +54,12 @@ with SingleTickerProviderStateMixin{
                         size: 30
                       ),
                     ),
-                  ),
+                  
                   ),
 
                   Expanded(
                     child:AnimatedOpacity(
-                      opacity: isExpanded ? 1.0 : 0.0,
+                      opacity: 1.0 ,
                       duration: const Duration(
                         milliseconds: 200
                       ),
