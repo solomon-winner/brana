@@ -18,6 +18,10 @@ class _homeState extends State<home> {
     return Scaffold(
       backgroundColor: BranaColor.light_background,
       appBar: AppBar(
+        leading: Icon(
+          Icons.menu,
+          color: BranaColor.WhiteColor,
+          ),
         actions: [
           Icon(Icons.shelves,
           color: BranaColor.WhiteColor,
