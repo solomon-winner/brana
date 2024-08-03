@@ -10,8 +10,24 @@ class Booklist extends StatefulWidget {
 class _BooklistState extends State<Booklist> {
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      children: [],
+    return Column(
+      children: [
+        Row(
+         children: [
+          Container(),
+          Column(
+            children: [
+              Text("Tittle"),
+              Text("Author"),
+              Text("Genere"),
+              Icon(Icons.star_half_outlined
+              
+              )
+            ],
+          )
+          ] 
+        )
+      ],
     );
   }
 }
