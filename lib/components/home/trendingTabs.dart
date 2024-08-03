@@ -10,6 +10,21 @@ class trendingTabs extends StatefulWidget {
 class _trendingTabsState extends State<trendingTabs> {
   @override
   Widget build(BuildContext context) {
-    return  Scaffold();
+    return  SizedBox(
+      height: MediaQuery.sizeOf(context).height * 0.05,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 5.0,
+            ),
+            child: FilledButton(
+              onPressed: (){},
+              child: Text("Fiction"),),
+            )
+        ],
+      ),
+    );
   }
 }
