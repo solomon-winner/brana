@@ -1,3 +1,4 @@
+import 'package:brana/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class Booklist extends StatefulWidget {
@@ -12,20 +13,42 @@ class _BooklistState extends State<Booklist> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
-         children: [
-          Container(),
-          Column(
-            children: [
-              Text("Tittle"),
-              Text("Author"),
-              Text("Genere"),
-              Icon(Icons.star_half_outlined
+        Padding(
+          
+          padding: const EdgeInsets.all(8.0),
+          child: Container(
+            width: MediaQuery.sizeOf(context).width,
+            height: 150,
+            decoration: BoxDecoration(
+              color: BranaColor.WhiteColor,
+              boxShadow:  [
+                BoxShadow(
+                  color: BranaColor.ShadowColor,
+                  spreadRadius: -5.0,
+                  blurRadius: 5.0,
+                  offset: Offset(0.0, 7.0)
+                )
+              ]
+            ),
+            child: Row(
               
+             children: [
+              Container(
+                width: MediaQuery.sizeOf(context).width / 2,
+              ),
+              Column(
+                children: [
+                  Text("Tittle"),
+                  Text("Author"),
+                  Text("Genere"),
+                  Icon(Icons.star_half_outlined
+                  
+                  )
+                ],
               )
-            ],
-          )
-          ] 
+              ] 
+            ),
+          ),
         )
       ],
     );

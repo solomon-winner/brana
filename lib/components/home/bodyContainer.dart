@@ -1,3 +1,4 @@
+import 'package:brana/components/home/bookList.dart';
 import 'package:brana/components/home/search_bar.dart';
 import 'package:brana/components/home/trendingTabs.dart';
 import 'package:flutter/material.dart';
@@ -40,7 +41,8 @@ class _bodyContainerState extends State<bodyContainer> {
                  
               ],
             ),
-            
+            SizedBox(height: 20,),
+            Booklist()
           ],
         ),
       );
