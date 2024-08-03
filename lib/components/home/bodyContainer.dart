@@ -27,7 +27,8 @@ class _bodyContainerState extends State<bodyContainer> {
                       children: [
                         Spacer(),
                         AnimatedSearchBar()
-                      ]
+                      ],
+                      
                     ),
                   )
                  )
