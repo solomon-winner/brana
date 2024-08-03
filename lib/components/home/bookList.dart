@@ -34,13 +34,18 @@ class _BooklistState extends State<Booklist> {
               
              children: [
               Container(
-                width: MediaQuery.sizeOf(context).width / 2,
+                // margin: EdgeInsets.only(top: 30),
+                width: MediaQuery.sizeOf(context).width / 3,
               ),
               Column(
                 children: [
-                  Text("Tittle"),
-                  Text("Author"),
-                  Text("Genere"),
+                  Text("The_mind_of_the_strategies",
+                  style: TextStyle(
+                  )
+                  ),
+                  
+                  Text("Author: Kenichi Ohmae"),
+                  Text("Genere: Leadership"),
                   Icon(Icons.star_half_outlined
                   
                   )
