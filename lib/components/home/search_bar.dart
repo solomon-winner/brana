@@ -85,20 +85,12 @@ with SingleTickerProviderStateMixin{
                      child: Align(
                       alignment: Alignment.centerRight,
                        child: Visibility(
-                        visible: isExpanded,
+                        visible: true,
                          child: Padding(
                           padding: EdgeInsets.all(8),
-                           child: AnimatedBuilder(
-                            animation: _animationController,
-                            builder: (context, child) {
-                              return Transform.rotate(
-                                angle: _animationController.value * 2 * pi,
-                                child: child,
-                                );
-                            },
-                            child: Icon(Icons.mic, size:20),
+                             child: Icon(Icons.mic, size:20),
                               
-                           ),
+                           
                          ),
                        ),
                      ),
