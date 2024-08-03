@@ -1,4 +1,5 @@
 import 'package:brana/components/home/search_bar.dart';
+import 'package:brana/components/home/trendingTabs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -18,6 +19,10 @@ class _bodyContainerState extends State<bodyContainer> {
         child: Column(
           
           children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: trendingTabs(),
+            ),
             Row(
               children: [
                 Expanded(
@@ -28,7 +33,7 @@ class _bodyContainerState extends State<bodyContainer> {
                         Spacer(),
                         AnimatedSearchBar()
                       ],
-                      
+
                     ),
                   )
                  )

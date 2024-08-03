@@ -1,3 +1,4 @@
+import 'package:brana/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class trendingTabs extends StatefulWidget {
@@ -21,6 +22,10 @@ class _trendingTabsState extends State<trendingTabs> {
             ),
             child: FilledButton(
               onPressed: (){},
+              style:FilledButton.styleFrom(
+                backgroundColor: BranaColor.dark_background,
+                foregroundColor: BranaColor.WhiteColor
+              ),
               child: Text("Fiction"),),
             ),
                       Padding(
@@ -29,7 +34,11 @@ class _trendingTabsState extends State<trendingTabs> {
             ),
             child: FilledButton(
               onPressed: (){},
-              child: Text("Fiction"),),
+                style:FilledButton.styleFrom(
+                backgroundColor: BranaColor.dark_background,
+                foregroundColor: BranaColor.WhiteColor
+              ),
+              child: Text("Entairtainment"),),
             ),
                       Padding(
             padding: const EdgeInsets.symmetric(
@@ -37,7 +46,11 @@ class _trendingTabsState extends State<trendingTabs> {
             ),
             child: FilledButton(
               onPressed: (){},
-              child: Text("Fiction"),),
+              style:FilledButton.styleFrom(
+                backgroundColor: BranaColor.dark_background,
+                foregroundColor: BranaColor.WhiteColor
+              ),              
+              child: Text("Horror"),),
             ),
                       Padding(
             padding: const EdgeInsets.symmetric(
@@ -45,7 +58,11 @@ class _trendingTabsState extends State<trendingTabs> {
             ),
             child: FilledButton(
               onPressed: (){},
-              child: Text("Fiction"),),
+              style:FilledButton.styleFrom(
+                backgroundColor: BranaColor.dark_background,
+                foregroundColor: BranaColor.WhiteColor
+              ),              
+              child: Text("History"),),
             ),
                       Padding(
             padding: const EdgeInsets.symmetric(
@@ -53,7 +70,11 @@ class _trendingTabsState extends State<trendingTabs> {
             ),
             child: FilledButton(
               onPressed: (){},
-              child: Text("Fiction"),),
+              style:FilledButton.styleFrom(
+                backgroundColor: BranaColor.dark_background,
+                foregroundColor: BranaColor.WhiteColor
+              ),              
+              child: Text("politics"),),
             ),
                       Padding(
             padding: const EdgeInsets.symmetric(
@@ -61,7 +82,11 @@ class _trendingTabsState extends State<trendingTabs> {
             ),
             child: FilledButton(
               onPressed: (){},
-              child: Text("Fiction"),),
+              style:FilledButton.styleFrom(
+                backgroundColor: BranaColor.dark_background,
+                foregroundColor: BranaColor.WhiteColor
+              ),              
+              child: Text("Economics"),),
             ),
                       Padding(
             padding: const EdgeInsets.symmetric(
@@ -69,7 +94,47 @@ class _trendingTabsState extends State<trendingTabs> {
             ),
             child: FilledButton(
               onPressed: (){},
-              child: Text("Fiction"),),
+               style:FilledButton.styleFrom(
+                backgroundColor: BranaColor.dark_background,
+                foregroundColor: BranaColor.WhiteColor
+              ),             
+              child: Text("Military"),),
+            ),
+                                  Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 5.0,
+            ),
+            child: FilledButton(
+              onPressed: (){},
+              style:FilledButton.styleFrom(
+                backgroundColor: BranaColor.dark_background,
+                foregroundColor: BranaColor.WhiteColor
+              ),              
+              child: Text("Biography"),),
+            ),
+                                  Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 5.0,
+            ),
+            child: FilledButton(
+              onPressed: (){},
+              style:FilledButton.styleFrom(
+                backgroundColor: BranaColor.dark_background,
+                foregroundColor: BranaColor.WhiteColor
+              ),              
+              child: Text("Comic books"),),
+            ),
+                                  Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 5.0,
+            ),
+            child: FilledButton(
+              onPressed: (){},
+              style:FilledButton.styleFrom(
+                backgroundColor: BranaColor.dark_background,
+                foregroundColor: BranaColor.WhiteColor
+              ),              
+              child: Text("Sci-Fi"),),
             )
         ],
       ),
