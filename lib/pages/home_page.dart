@@ -18,6 +18,16 @@ class _homeState extends State<home> {
     return Scaffold(
       backgroundColor: BranaColor.light_background,
       appBar: AppBar(
+        actions: [
+          Icon(Icons.shelves,
+          color: BranaColor.WhiteColor,
+          ),
+          SizedBox(width: 20,),
+          Icon(Icons.person,
+          color: BranaColor.WhiteColor,
+          ),
+          SizedBox(width: 10,)
+        ],
         title: const Text(
           "Brana Library",
           style: TextStyle(
