@@ -11,11 +11,9 @@ class Booklist extends StatefulWidget {
 class _BooklistState extends State<Booklist> {
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          Padding(
-            
+    return ListView(
+      children: [
+        Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(
               width: MediaQuery.sizeOf(context).width,
@@ -131,8 +129,8 @@ class _BooklistState extends State<Booklist> {
               ),
             ),
           )
-        ],
-      ),
+      ]
+      
     );
   }
 }
