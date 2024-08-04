@@ -63,6 +63,7 @@ class _BooklistState extends State<Booklist> {
                         Row(
                           children: [
                             Text("Author:"),
+                            SizedBox(width: 5,),
                             Text("Trevor Noah"),
                           ],
                         ),
