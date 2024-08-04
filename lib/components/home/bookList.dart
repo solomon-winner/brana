@@ -56,36 +56,44 @@ class _BooklistState extends State<Booklist> {
                         Text("Born A Crime",
                         style: TextStyle(
                           fontSize: 20,
-                          color: Color.fromARGB(255, 1, 65, 28)
+                          color: BranaColor.BookTitleColor
                         )
                         ),
                         SizedBox(height: 10,),
-                        Text("Author: Kenichi Ohmae"),
+                        Row(
+                          children: [
+                            Text("Author:"),
+                            Text("Trevor Noah"),
+                          ],
+                        ),
                          SizedBox(height: 3,),
-                        Text("Genere: Leadership"),
+                        Text("Biography"),
                         SizedBox(height: 3,),
                         Row(
                           children: [
                             Icon(
                               Icons.star,
-                              color: Colors.amber,
+                              color: BranaColor.StarColor ,
                               ),
                             Icon(Icons.star,
-                            color: Colors.amber,),
+                            color: BranaColor.StarColor,),
                             Icon(Icons.star,
-                            color: Colors.amber,
+                            color: BranaColor.StarColor,
                             ),
                             Icon(Icons.star,
-                            color: Colors.amber,
+                            color: BranaColor.StarColor,
                             ),
                            Icon(
                             Icons.star_half_outlined,
-                            color: Colors.amber,)                             
-                          ]
-                         
+                            color: Colors.amber,)
+                          ] 
                         ),
                         Text(
-                          "5 Books left"
+                          "5 Books left",
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: BranaColor.LeftBookColor
+                          ),
                         )
                       ],
                     ),
