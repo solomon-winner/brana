@@ -174,7 +174,9 @@ class _BooklistState extends State<Booklist> {
                             style: TextStyle(
                               fontSize: 20,
                               color: BranaColor.BookTitleColor
-                            )
+                            ),
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 1,
                             ),
                             SizedBox(height: 10,),
                             Row(
