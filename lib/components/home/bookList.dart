@@ -26,7 +26,7 @@ class _BooklistState extends State<Booklist> {
                   width: MediaQuery.sizeOf(context).width,
                   height: 150,
                   decoration: BoxDecoration(
-                    color: BranaColor.WhiteColor,
+                    color: _isClicked ? BranaColor.ClickedBookColor : BranaColor.WhiteColor,
                     boxShadow:  [
                       BoxShadow(
                         color: BranaColor.ShadowColor,
