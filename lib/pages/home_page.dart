@@ -23,8 +23,13 @@ class _homeState extends State<home> {
           color: BranaColor.WhiteColor,
           ),
         actions: [
-          Icon(Icons.shelves,
-          color: BranaColor.WhiteColor,
+          Badge(
+            backgroundColor: BranaColor.BadgeBackground,
+            textColor: BranaColor.BadgeLabelColor,
+            label: Text("2"),
+            child: Icon(Icons.shelves,
+            color: BranaColor.WhiteColor,
+            ),
           ),
           SizedBox(width: 20,),
           Icon(Icons.person,
@@ -53,18 +58,35 @@ class _homeState extends State<home> {
             print(index);
           },
           items: [
-          Icon(
-            Icons.home,
-            color: Colors.white,
+          Badge(
+            backgroundColor: BranaColor.BadgeBackground,
+            textColor: BranaColor.BadgeLabelColor,
+            label: Text("2"),
+            isLabelVisible: false,
+            child: Icon(
+              Icons.home,
+              color: Colors.white,
+            ),
           ),
-          Icon(
-            Icons.favorite,
-            color: Colors.white,
-            ),
-          Icon(
-            Icons.settings,
-            color: Colors.white,
-            ),
+          Badge(
+            backgroundColor: BranaColor.BadgeBackground,
+            textColor: BranaColor.BadgeLabelColor,
+            label: Text("2"),
+            child: Icon(
+              Icons.favorite,
+              color: Colors.white,
+              ),
+          ),
+          Badge(
+            backgroundColor: BranaColor.BadgeBackground,
+            textColor: BranaColor.BadgeLabelColor,
+            label: Text("2"),
+            isLabelVisible: false,
+            child: Icon(
+              Icons.settings,
+              color: Colors.white,
+              ),
+          ),
         ]),
       ),
     );
