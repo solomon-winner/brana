@@ -167,10 +167,11 @@ class _BooklistState extends State<Booklist> {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Container(
+                        width: MediaQuery.sizeOf(context).width/2,  
                         child: Column(
                           crossAxisAlignment:  CrossAxisAlignment.start,
                           children: [
-                            Text("How Leaders...",
+                            Text("How Leaders become strategist",
                             style: TextStyle(
                               fontSize: 20,
                               color: BranaColor.BookTitleColor
