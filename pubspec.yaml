@@ -60,6 +60,7 @@ dependencies:
   # animations: ^2.0.11
   # url_launcher: ^6.3.0
   curved_navigation_bar: ^1.0.6
+  badges: ^3.1.2
   
 dev_dependencies:
   flutter_test:

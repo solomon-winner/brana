@@ -10,4 +10,5 @@ static Color BookTitleColor = Color(0xFF01411C);
 static Color StarColor = Color(0xFFFFC107);
 static Color LeftBookColor = Color(0xFF6496AE);
 static Color AddLibrary = Color(0xFFBCB7B7);
+static Color ClickedBookColor = Color(0xFFBCB7B7);
 }

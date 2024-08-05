@@ -18,7 +18,6 @@ class _bodyContainerState extends State<bodyContainer> {
       decoration: BoxDecoration(
       ),
         child: Column(
-          
           children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -34,7 +33,6 @@ class _bodyContainerState extends State<bodyContainer> {
                       children: [
                         AnimatedSearchBar()
                       ],
-
                     ),
                   )
                  )
@@ -42,7 +40,6 @@ class _bodyContainerState extends State<bodyContainer> {
               ],
             ),
             SizedBox(height: 20,),
-            
             Booklist()
           ],
         ),
