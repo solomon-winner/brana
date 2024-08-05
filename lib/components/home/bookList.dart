@@ -9,7 +9,7 @@ class Booklist extends StatefulWidget {
 }
 
 class _BooklistState extends State<Booklist> {
-
+  bool _isClicked = false;
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -114,10 +114,17 @@ class _BooklistState extends State<Booklist> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
-                            Icon(
-                              Icons.favorite_border,
-                              size: 25,
-                              color: BranaColor.AddLibrary,
+                            GestureDetector(
+                              onTap: () => setState(() => _isClicked = !_isClicked),
+                              child: _isClicked ?Icon(
+                                Icons.favorite_border,
+                                size: 25,
+                                color: BranaColor.AddLibrary,
+                              ): Icon(
+                                Icons.favorite,
+                                color: BranaColor.BadgeBackground,
+                                size: 25,
+                                ),
                             ),
                               SizedBox(height: 10,),
                                Icon(
@@ -234,17 +241,28 @@ class _BooklistState extends State<Booklist> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
-                          Icon(
-                            Icons.favorite_border,
-                            size: 25,
-                            color: BranaColor.AddLibrary,
+                          GestureDetector(
+                           onTap: () => setState(() => _isClicked = !_isClicked),
+                            child: _isClicked ?Icon(
+                              Icons.favorite_border,
+                              size: 25,
+                              color: BranaColor.AddLibrary,
+                            ): Icon(
+                              Icons.favorite,
+                              color: BranaColor.BadgeBackground,
+                              size: 25,
+                            ),
                           ),
                             SizedBox(height: 10,),
-                             Icon(
-                            Icons.my_library_add_outlined,
-                            size: 25,
-                            color: BranaColor.AddLibrary,
-                          ),
+                             
+                             GestureDetector(
+                              onTap:()=> setState(() => _isClicked = !_isClicked),
+                               child: Icon(
+                                Icons.my_library_add_outlined,
+                                size: 25,
+                                color: BranaColor.AddLibrary,
+                                 ),
+                             ),
                         ],
                       ),
                     ),
