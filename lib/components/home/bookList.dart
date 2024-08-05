@@ -20,9 +20,8 @@ class _BooklistState extends State<Booklist> {
           Padding(
               padding: const EdgeInsets.all(8.0),
               child: GestureDetector(
-                onTapDown: (_) {
-                  setState(()=> _isClicked = true);
-                },
+                onTapDown: (_) => setState(()=> _isClicked = true),
+                onTapUp: (_) => setState(() => _isClicked = false),
                 child: Container(
                   width: MediaQuery.sizeOf(context).width,
                   height: 150,
