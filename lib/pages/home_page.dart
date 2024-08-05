@@ -43,27 +43,30 @@ class _homeState extends State<home> {
       ),
       body:bodyContainer(),
       
-      bottomNavigationBar: CurvedNavigationBar(
-        backgroundColor: BranaColor.light_background,
-        color:BranaColor.navigationColor,
-        animationDuration: Duration(milliseconds: 300),
-        onTap: (index) {
-          print(index);
-        },
-        items: [
-        Icon(
-          Icons.home,
-          color: Colors.white,
-        ),
-        Icon(
-          Icons.favorite,
-          color: Colors.white,
+      bottomNavigationBar: Container(
+        child: CurvedNavigationBar(
+          backgroundColor: BranaColor.light_background,
+          color:BranaColor.navigationColor,
+          height: 60,
+          animationDuration: Duration(milliseconds: 300),
+          onTap: (index) {
+            print(index);
+          },
+          items: [
+          Icon(
+            Icons.home,
+            color: Colors.white,
           ),
-        Icon(
-          Icons.settings,
-          color: Colors.white,
-          ),
-      ]),
+          Icon(
+            Icons.favorite,
+            color: Colors.white,
+            ),
+          Icon(
+            Icons.settings,
+            color: Colors.white,
+            ),
+        ]),
+      ),
     );
   }
 }
