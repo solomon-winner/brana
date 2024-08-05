@@ -9,7 +9,6 @@ class Booklist extends StatefulWidget {
 }
 
 class _BooklistState extends State<Booklist> {
-  bool _isClicked = false;
 
   @override
   Widget build(BuildContext context) {
@@ -20,13 +19,11 @@ class _BooklistState extends State<Booklist> {
           Padding(
               padding: const EdgeInsets.all(8.0),
               child: GestureDetector(
-                onTapDown: (_) => setState(()=> _isClicked = true),
-                onTapUp: (_) => setState(() => _isClicked = false),
                 child: Container(
                   width: MediaQuery.sizeOf(context).width,
                   height: 150,
                   decoration: BoxDecoration(
-                    color: _isClicked ? BranaColor.ClickedBookColor : BranaColor.WhiteColor,
+                    color: BranaColor.WhiteColor,
                     boxShadow:  [
                       BoxShadow(
                         color: BranaColor.ShadowColor,
