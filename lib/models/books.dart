@@ -22,8 +22,8 @@ class Book {
   final bool isTrending;
   final bool isOnSale;
   final bool isDiscounted;
-  final num discount;
-  final num discountedPrice;
+  final double discount;
+  final double discountedPrice;
   final bool isComingSoon;
   final bool isPreOrdered;
   final bool isSoldOut;
@@ -92,8 +92,8 @@ class Book {
       isTrending: json['isTrending'],
       isOnSale: json['isOnSale'],
       isDiscounted: json['isDiscounted'],
-      discount: json['discount'],
-      discountedPrice: json['discountedPrice'],
+      discount: json['discount'].toDouble(),
+      discountedPrice: json['discountedPrice'].toDouble(),
       isComingSoon: json['isComingSoon'],
       isPreOrdered: json['isPreOrdered'],
       isSoldOut: json['isSoldOut'],
