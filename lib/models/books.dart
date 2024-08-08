@@ -7,7 +7,7 @@ class Book {
   final String img;
   final double rating;
   final String category;
-  final String price;
+  final double price;
   final String description;
   final int availableBooks;
   final String language;
@@ -77,7 +77,7 @@ class Book {
       img: json['img'],
       rating: json['rating'].toDouble(),
       category: json['category'],
-      price: json['price'],
+      price: json['price'].toDouble(),
       description: json['description'],
       availableBooks: json['availableBooks'],
       language: json['language'],
