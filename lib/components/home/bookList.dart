@@ -34,6 +34,7 @@ class _BooklistState extends State<Booklist> {
           return  Padding(
               padding: const EdgeInsets.all(8.0),
               child: GestureDetector(
+                onTap: () => print("................${book['id']}"),
                 child: Container(
                   width: MediaQuery.sizeOf(context).width,
                   height: 150,
