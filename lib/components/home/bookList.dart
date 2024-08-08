@@ -83,17 +83,12 @@ class _BooklistState extends State<Booklist> {
                               maxLines: 1,
                               ),
                               SizedBox(height: 10,),
-                              Row(
-                                children: [
-                                  Text("Author:",
-                                ),
-                                  SizedBox(width: 5,),
-                                  Text(book['Author'],
+                                
+                                Text("Author: ${book['Author']}",
                                   overflow: TextOverflow.ellipsis,
                                   maxLines: 1,
                                   ),
-                                ],
-                              ),
+                              
                                SizedBox(height: 3,),
                               Text(book['category'],
                               overflow: TextOverflow.ellipsis,
