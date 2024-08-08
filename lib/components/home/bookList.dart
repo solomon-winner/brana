@@ -1,6 +1,7 @@
+import 'dart:convert';
 import 'package:brana/utils/colors.dart';
 import 'package:flutter/material.dart';
- 
+
 class Booklist extends StatefulWidget {
   const Booklist({super.key});
 
@@ -10,10 +11,22 @@ class Booklist extends StatefulWidget {
 
 class _BooklistState extends State<Booklist> {
   bool _isClicked = false;
+  List bookList = [];
+  _initData() {
+    DefaultAssetBundle.of(context).loadString("assets/info.json").then((value) => {
+      bookList = json.decode(value)
+    });
+  }
+  @override
+  void initState() {
+    super.initState();
+    _initData();
+  }
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: ListView(
+      child: ListView.builder(
+        itemCount: ,
         scrollDirection: Axis.vertical,
         children: [
           Padding(
