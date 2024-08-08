@@ -5,7 +5,8 @@ import 'package:brana/utils/consts.dart';
 
 class BookService {
   Future<List<Book>>fetchBooks() async {
-    final response = await http.get(Uri.parse(API_BASE_URL));
+    final response = await http.get(Uri.file(r'info.json', windows: true));
+    print("${response} *******");
      if (response.statusCode == 200) {
       List<dynamic> data = json.decode(response.body);
       return data.map((book) =>Book.fromJson(book)).toList();

@@ -1,1 +1,3 @@
-const String API_BASE_URL = "file:///C:/Users/solya/OneDrive/Documents/Projects/Mobile/Flutter/brana/assets/info.json";
+import 'dart:io';
+
+ File API_BASE_URL = File("info.json");
