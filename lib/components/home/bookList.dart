@@ -1,6 +1,8 @@
 import 'dart:convert';
+import 'package:brana/Providers/book_provider.dart';
 import 'package:brana/utils/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class Booklist extends StatefulWidget {
   const Booklist({super.key});
@@ -11,30 +13,39 @@ class Booklist extends StatefulWidget {
 
 class _BooklistState extends State<Booklist> {
   bool _isClicked = false;
-  List bookList = [];
-  _initData() {
-    DefaultAssetBundle.of(context).loadString("assets/info.json").then((value) => {
-      bookList = json.decode(value)
-    });
-  }
+  // List bookList = [];
+  // _initData() {
+  //   DefaultAssetBundle.of(context).loadString("assets/info.json").then((value) => {
+  //     bookList = json.decode(value)
+  //   });
+  // }
   @override
   void initState() {
     super.initState();
-    _initData();
+    // _initData();
+    Provider.of<BookProvider>(context, listen: false).fetchBooks();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    final bookProvider = Provider.of<BookProvider>(context);
+    return bookProvider.isLoading 
+    ? Center(
+      child: CircularProgressIndicator(
+        color: BranaColor.dark_background,
+      )
+      )
+      : Expanded(
+        
       child: ListView.builder(
-        itemCount: bookList.length,
+        itemCount: bookProvider.books.length,
         scrollDirection: Axis.vertical,
         itemBuilder: (context, index) {
-          final book = bookList[index];
+          final book = bookProvider.books[index];
           return  Padding(
               padding: const EdgeInsets.all(8.0),
               child: GestureDetector(
-                onTap: () => print("................${book['id']}"),
+                onTap: () => print("................${book.id}"),
                 child: Container(
                   width: MediaQuery.sizeOf(context).width,
                   height: 150,
@@ -62,7 +73,7 @@ class _BooklistState extends State<Booklist> {
                             image: DecorationImage(
                               fit: BoxFit.contain,
                               image: AssetImage(
-                                book['img']
+                                book.img
                               ))
                           ),
                         ),
@@ -75,7 +86,7 @@ class _BooklistState extends State<Booklist> {
                           child: Column(
                             crossAxisAlignment:  CrossAxisAlignment.start,
                             children: [
-                              Text(book['title'],
+                              Text(book.title,
                               style: TextStyle(
                                 fontSize: 20,
                                 color: BranaColor.BookTitleColor
@@ -84,13 +95,13 @@ class _BooklistState extends State<Booklist> {
                               maxLines: 1,
                               ),
                               SizedBox(height: 10,),
-                                Text("Author: ${book['Author']}",
+                                Text("Author: ${book.author}",
                                   overflow: TextOverflow.ellipsis,
                                   maxLines: 1,
                                   ),
                               
                                SizedBox(height: 3,),
-                              Text(book['category'],
+                              Text(book.category,
                               overflow: TextOverflow.ellipsis,
                               maxLines: 1,
                               ),
@@ -115,7 +126,7 @@ class _BooklistState extends State<Booklist> {
                                 ] 
                               ),
                               Text(
-                               " ${bookList[index]['Available_Books']} Books Left",
+                               " ${book.availableBooks} Books Left",
                                 style: TextStyle(
                                   fontSize: 12,
                                   color: BranaColor.LeftBookColor
