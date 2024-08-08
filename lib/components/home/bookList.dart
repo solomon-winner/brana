@@ -60,7 +60,9 @@ class _BooklistState extends State<Booklist> {
                           decoration: BoxDecoration(
                             image: DecorationImage(
                               fit: BoxFit.contain,
-                              image: AssetImage("assets/Born_a_crime.PNG"))
+                              image: AssetImage(
+                                book['img']
+                              ))
                           ),
                         ),
                       ),
@@ -68,14 +70,17 @@ class _BooklistState extends State<Booklist> {
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Container(
+                          width: MediaQuery.sizeOf(context).width/2,
                           child: Column(
                             crossAxisAlignment:  CrossAxisAlignment.start,
                             children: [
-                              Text("Born A Crime",
+                              Text(book['title'],
                               style: TextStyle(
                                 fontSize: 20,
                                 color: BranaColor.BookTitleColor
-                              )
+                              ),
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 1,
                               ),
                               SizedBox(height: 10,),
                               Row(
@@ -83,12 +88,17 @@ class _BooklistState extends State<Booklist> {
                                   Text("Author:",
                                 ),
                                   SizedBox(width: 5,),
-                                  Text("Trevor Noah",
+                                  Text(book['Author'],
+                                  overflow: TextOverflow.ellipsis,
+                                  maxLines: 1,
                                   ),
                                 ],
                               ),
                                SizedBox(height: 3,),
-                              Text("Biography"),
+                              Text(book['category'],
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 1,
+                              ),
                               SizedBox(height: 3,),
                               Row(
                                 children: [
@@ -110,11 +120,13 @@ class _BooklistState extends State<Booklist> {
                                 ] 
                               ),
                               Text(
-                                "5 Books left",
+                               " ${bookList[index]['Available_Books']} Books Left",
                                 style: TextStyle(
                                   fontSize: 12,
                                   color: BranaColor.LeftBookColor
                                 ),
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 1,
                               )
                             ],
                           ),
