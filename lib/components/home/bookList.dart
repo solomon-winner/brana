@@ -27,17 +27,16 @@ class _BooklistState extends State<Booklist> {
 
   @override
   Widget build(BuildContext context) {
-    final bookProvider = Provider.of<BookProvider>(context);
     return Expanded(
       child: ListView.builder(
-        itemCount: bookProvider.books.length,
+        itemCount: bookList.length,
         scrollDirection: Axis.vertical,
         itemBuilder: (context, index) {
-          final book = bookProvider.books[index];
+          final book = bookList[index];
           return  Padding(
               padding: const EdgeInsets.all(8.0),
               child: GestureDetector(
-                onTap: () => print("................${book.id}"),
+                onTap: () => print("................${book['id']}"),
                 child: Container(
                   width: MediaQuery.sizeOf(context).width,
                   height: 150,
@@ -65,7 +64,7 @@ class _BooklistState extends State<Booklist> {
                             image: DecorationImage(
                               fit: BoxFit.contain,
                               image: AssetImage(
-                                book.img
+                                book['img']
                               ))
                           ),
                         ),
@@ -87,7 +86,7 @@ class _BooklistState extends State<Booklist> {
                               maxLines: 1,
                               ),
                               SizedBox(height: 10,),
-                                Text("Author: ${book.author}",
+                                Text("Author: ${book['author']}",
                                   overflow: TextOverflow.ellipsis,
                                   maxLines: 1,
                                   ),
@@ -118,7 +117,7 @@ class _BooklistState extends State<Booklist> {
                                 ] 
                               ),
                               Text(
-                               " ${book.availableBooks} Books Left",
+                               " ${book['availableBooks']} Books Left",
                                 style: TextStyle(
                                   fontSize: 12,
                                   color: BranaColor.LeftBookColor
