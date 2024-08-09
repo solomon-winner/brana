@@ -1,4 +1,8 @@
 import 'package:brana/Providers/book_provider.dart';
+import 'package:brana/pages/details_page.dart';
+import 'package:brana/pages/favourite.dart';
+import 'package:brana/pages/profile_page.dart';
+import 'package:brana/pages/setting_page.dart';
 import 'package:brana/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:brana/pages/home_page.dart';
@@ -16,7 +20,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       color: BranaColor.light_background,
       debugShowCheckedModeBanner: false,
-      home: home(),
+      initialRoute: "/home",
+      routes: {
+        "/home": (context) => home(),
+        "/detail": (context) => Detail(),
+        "/favourite": (context) => Favourite(),
+        "/setting": (context) => Setting(),
+        "/profile": (context) => Profile(),
+      },
     );
   }
 }
