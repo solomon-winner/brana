@@ -73,7 +73,7 @@ class Book {
     return Book(
       id: json['id'],
       title: json['title'],
-      author: json['Author'],
+      author: json['author'],
       img: json['img'],
       rating: json['rating'].toDouble(),
       category: json['category'],
@@ -104,4 +104,5 @@ class Book {
       isDeactivated: json['isDeactivated']
     );
   }
+
 }
