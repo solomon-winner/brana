@@ -77,7 +77,7 @@ class _BooklistState extends State<Booklist> {
                           child: Column(
                             crossAxisAlignment:  CrossAxisAlignment.start,
                             children: [
-                              Text(book.title,
+                              Text(book['title'],
                               style: TextStyle(
                                 fontSize: 20,
                                 color: BranaColor.BookTitleColor
@@ -92,7 +92,7 @@ class _BooklistState extends State<Booklist> {
                                   ),
                               
                                SizedBox(height: 3,),
-                              Text(book.category,
+                              Text(book['category'],
                               overflow: TextOverflow.ellipsis,
                               maxLines: 1,
                               ),
@@ -117,7 +117,7 @@ class _BooklistState extends State<Booklist> {
                                 ] 
                               ),
                               Text(
-                               " ${book['availableBooks']} Books Left",
+                               " ${book['Available_Books']} Books Left",
                                 style: TextStyle(
                                   fontSize: 12,
                                   color: BranaColor.LeftBookColor
