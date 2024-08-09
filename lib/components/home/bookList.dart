@@ -13,30 +13,22 @@ class Booklist extends StatefulWidget {
 
 class _BooklistState extends State<Booklist> {
   bool _isClicked = false;
-  // List bookList = [];
-  // _initData() {
-  //   DefaultAssetBundle.of(context).loadString("assets/info.json").then((value) => {
-  //     bookList = json.decode(value)
-  //   });
-  // }
+  List bookList = [];
+  _initData() {
+    DefaultAssetBundle.of(context).loadString("assets/info.json").then((value) => {
+      bookList = json.decode(value)
+    });
+  }
   @override
   void initState() {
     super.initState();
-    // _initData();
-    Provider.of<BookProvider>(context, listen: false).fetchBooks();
+     _initData();
   }
 
   @override
   Widget build(BuildContext context) {
     final bookProvider = Provider.of<BookProvider>(context);
-    return bookProvider.isLoading 
-    ? Center(
-      child: CircularProgressIndicator(
-        color: BranaColor.dark_background,
-      )
-      )
-      : Expanded(
-        
+    return Expanded(
       child: ListView.builder(
         itemCount: bookProvider.books.length,
         scrollDirection: Axis.vertical,
