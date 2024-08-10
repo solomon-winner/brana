@@ -18,7 +18,9 @@ class _BooklistState extends State<Booklist> {
   _initData() async{
    String data = await DefaultAssetBundle.of(context).loadString("assets/info.json");
    List<dynamic> jsonResult = json.decode(data);
-   setState((){});
+   setState((){
+    bookList = jsonResult.map((json) => Book.fromJson(json)).toList();
+   });
   }
   @override
   void initState() {
