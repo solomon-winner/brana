@@ -75,20 +75,27 @@ class _homeState extends State<home> {
             backgroundColor: BranaColor.BadgeBackground,
             textColor: BranaColor.BadgeLabelColor,
             label: Text("2"),
-            child: Icon(
-              Icons.favorite,
-              color: Colors.white,
-              ),
+            child: GestureDetector(
+              onTap:() => Navigator.pushReplacementNamed(context, "/favourites"),
+              child: Icon(
+                Icons.favorite,
+                color: Colors.white,
+                ),
+            ),
           ),
           Badge(
             backgroundColor: BranaColor.BadgeBackground,
             textColor: BranaColor.BadgeLabelColor,
             label: Text("2"),
             isLabelVisible: false,
-            child: Icon(
-              Icons.settings,
-              color: Colors.white,
-              ),
+            child: GestureDetector(
+             onTap:() => Navigator.pushReplacementNamed(context, "/settings"),
+
+              child: Icon(
+                Icons.settings,
+                color: Colors.white,
+                ),
+            ),
           ),
         ]),
       ),
