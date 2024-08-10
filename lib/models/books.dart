@@ -25,7 +25,7 @@ class Book {
   final double discount;
   final double discountedPrice;
   final bool isComingSoon;
-  final bool isPreOrdered;
+  final bool isPreOrder;
   final bool isSoldOut;
   final bool isApproaved;
   final bool isBanned;
@@ -58,7 +58,7 @@ class Book {
     required this.discount,
     required this.discountedPrice,
     required this.isComingSoon,
-    required this.isPreOrdered,
+    required this.isPreOrder,
     required this.isSoldOut,
     required this.isApproaved,
     required this.isBanned,
@@ -95,7 +95,7 @@ class Book {
       discount: json['discount'].toDouble(),
       discountedPrice: json['discountedPrice'].toDouble(),
       isComingSoon: json['isComingSoon'],
-      isPreOrdered: json['isPreOrdered'],
+      isPreOrder: json['isPreOrder'],
       isSoldOut: json['isSoldOut'],
       isApproaved: json['isApproaved'],
       isBanned: json['isBanned'],
