@@ -18,14 +18,11 @@ class _BooklistState extends State<Booklist> {
 
   _initData() async{
    String data = await DefaultAssetBundle.of(context).loadString("assets/info.json");
-   print("****^^^^^^^&&^%^&_____-----___${data}");
    List<dynamic> jsonResult = json.decode(data);
-      print("****^^^^^^^&&^%^& after......${jsonResult}");
 
    setState((){
     bookList = jsonResult.map((json) => Book.fromJson(json)).toList();
    });
-      print("****^^^^^^^finally the list====>>>${bookList}");
 
   }
   @override
@@ -42,7 +39,6 @@ class _BooklistState extends State<Booklist> {
         scrollDirection: Axis.vertical,
         itemBuilder: (context, index) {
           final book = bookList[index];
-          print("********???${book}");
           bool _isClicked = book.isFavourite;
           return  Padding(
               padding: const EdgeInsets.all(8.0),

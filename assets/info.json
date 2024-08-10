@@ -14,7 +14,7 @@
         "year": "2016",
         "publisher": "Penguin Random House",
         "isbn": "9780399588174",
-        "isFavourite": false,
+        "isFavourite": true,
         "isPopular": true,
         "isRecommended": true,
         "isBestSeller": true,
