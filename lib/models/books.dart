@@ -17,7 +17,7 @@ class Book {
   final String isbn;
   final bool isFavourite;
   final bool isPopular;
-  final bool isRecomended;
+  final bool isRecommended;
   final bool isBestSeller;
   final bool isTrending;
   final bool isOnSale;
@@ -50,7 +50,7 @@ class Book {
     required this.isbn,
     required this.isFavourite,
     required this.isPopular,
-    required this.isRecomended,
+    required this.isRecommended,
     required this.isBestSeller,
     required this.isTrending,
     required this.isOnSale,
@@ -87,7 +87,7 @@ class Book {
       isbn: json['isbn'],
       isFavourite: json['isFavourite'],
       isPopular: json['isPopular'],
-      isRecomended: json['isRecomended'],
+      isRecommended: json['isRecommended'],
       isBestSeller: json['isBestSeller'],
       isTrending: json['isTrending'],
       isOnSale: json['isOnSale'],
