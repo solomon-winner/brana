@@ -11,7 +11,7 @@
         "availableBooks": 10,
         "language": "English",
         "pages": 200,
-        "year": 2016,
+        "year": "2016",
         "publisher": "Penguin Random House",
         "isbn": "9780399588174",
         "isFavourite": false,
@@ -24,7 +24,6 @@
         "discount": 20,
         "discountedPrice": 8.79,
         "isAvailable": true,
-        "isOutOfStock": false,
         "isComingSoon": false,
         "isPreOrder": false,
         "isSoldOut": false,
@@ -32,7 +31,6 @@
         "isBanned": false,
         "isBlocked": false,
         "isReported": false,
-        "isVerified": true,
         "isDeactivated": false
 
     },
@@ -49,7 +47,7 @@
         "availableBooks": 10,
         "language": "English",
         "pages": 200,
-        "year": 2016,
+        "year": "2016",
         "publisher": "Penguin Random House",
         "isbn": "9780399588174",
         "isFavourite": false,
@@ -69,7 +67,6 @@
         "isBanned": false,
         "isBlocked": false,
         "isReported": false,
-        "isVerified": true,
         "isDeactivated": false
 
     },
@@ -85,7 +82,7 @@
         "language": "English",
         "availableBooks": 10,
         "pages": 400,
-        "year": 2016,
+        "year": "2016",
         "publisher": "Penguin Random House",
         "isbn": "9780399588174",
         "isFavourite": false,
@@ -98,7 +95,6 @@
         "discount": 20,
         "discountedPrice": 8.79,
         "isAvailable": true,
-        "isOutOfStock": false,
         "isComingSoon": false,
         "isPreOrder": false,
         "isSoldOut": true,
@@ -106,7 +102,6 @@
         "isBanned": false,
         "isBlocked": false,
         "isReported": false,
-        "isVerified": true,
         "isDeactivated": false
 
     },
@@ -122,7 +117,7 @@
         "availableBooks": 10,
         "language": "English",
         "pages": 400,
-        "year": 2016,
+        "year": "2016",
         "publisher": "Penguin Random House",
         "isbn": "9780399588174",
         "isFavourite": false,
@@ -135,7 +130,6 @@
         "discount": 20,
         "discountedPrice": 8.79,
         "isAvailable": true,
-        "isOutOfStock": false,
         "isComingSoon": false,
         "isPreOrder": false,
         "isSoldOut": true,
@@ -143,7 +137,6 @@
         "isBanned": false,
         "isBlocked": false,
         "isReported": false,
-        "isVerified": true,
         "isDeactivated": false
 
     },
@@ -159,7 +152,7 @@
         "availableBooks": 10,
         "language": "English",
         "pages": 400,
-        "year": 2016,
+        "year": "2016",
         "publisher": "Penguin Random House",
         "isbn": "9780399588174",
         "isFavourite": false,
@@ -172,7 +165,6 @@
         "discount": 20,
         "discountedPrice": 8.79,
         "isAvailable": true,
-        "isOutOfStock": false,
         "isComingSoon": false,
         "isPreOrder": false,
         "isSoldOut": true,
@@ -180,7 +172,6 @@
         "isBanned": false,
         "isBlocked": false,
         "isReported": false,
-        "isVerified": true,
         "isDeactivated": false
 
     }

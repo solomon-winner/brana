@@ -15,14 +15,18 @@ class Booklist extends StatefulWidget {
 
 class _BooklistState extends State<Booklist> {
   List<Book> bookList = [];
-            bool _isClicked = false;
 
   _initData() async{
    String data = await DefaultAssetBundle.of(context).loadString("assets/info.json");
+   print("****^^^^^^^&&^%^&_____-----___${data}");
    List<dynamic> jsonResult = json.decode(data);
+      print("****^^^^^^^&&^%^& after......${jsonResult}");
+
    setState((){
     bookList = jsonResult.map((json) => Book.fromJson(json)).toList();
    });
+      print("****^^^^^^^finally the list====>>>${bookList}");
+
   }
   @override
   void initState() {
@@ -38,7 +42,8 @@ class _BooklistState extends State<Booklist> {
         scrollDirection: Axis.vertical,
         itemBuilder: (context, index) {
           final book = bookList[index];
-          bool Fav_Book = _isClicked;
+          print("********???${book}");
+          bool _isClicked = book.isFavourite;
           return  Padding(
               padding: const EdgeInsets.all(8.0),
               child: GestureDetector(
@@ -155,7 +160,7 @@ class _BooklistState extends State<Booklist> {
                           children: [
                             GestureDetector(
                               onTap: () => setState(() => _isClicked = !_isClicked),
-                              child: Fav_Book ? Icon(
+                              child: _isClicked ? Icon(
                                 Icons.favorite,
                                 color: BranaColor.BadgeBackground,
                                 size: 25,
