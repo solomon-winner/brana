@@ -15,7 +15,7 @@ class Book {
   final String year;
   final String publisher;
   final String isbn;
-  final bool isFavourite;
+   bool isFavourite;
   final bool isPopular;
   final bool isRecommended;
   final bool isBestSeller;

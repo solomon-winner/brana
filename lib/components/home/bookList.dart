@@ -38,7 +38,7 @@ class _BooklistState extends State<Booklist> {
         itemCount: bookList.length,
         scrollDirection: Axis.vertical,
         itemBuilder: (context, index) {
-          final book = bookList[index];
+          Book book = bookList[index];
           bool _isClicked = book.isFavourite;
           return  Padding(
               padding: const EdgeInsets.all(8.0),
@@ -155,7 +155,7 @@ class _BooklistState extends State<Booklist> {
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             GestureDetector(
-                              onTap: () => setState(() => _isClicked = !_isClicked),
+                              onTap: () => setState(() => book.isFavourite = !book.isFavourite),
                               child: _isClicked ? Icon(
                                 Icons.favorite,
                                 color: BranaColor.BadgeBackground,
