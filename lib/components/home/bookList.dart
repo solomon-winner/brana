@@ -14,11 +14,11 @@ class Booklist extends StatefulWidget {
 }
 
 class _BooklistState extends State<Booklist> {
-  List bookList = [];
-  _initData() {
-    DefaultAssetBundle.of(context).loadString("assets/info.json").then((value) => {
-      bookList = json.decode(value)
-    });
+  List<Book> bookList = [];
+  _initData() async{
+   String data = await DefaultAssetBundle.of(context).loadString("assets/info.json");
+   List<dynamic> jsonResult = json.decode(data);
+   setState((){});
   }
   @override
   void initState() {
@@ -151,7 +151,7 @@ class _BooklistState extends State<Booklist> {
                           children: [
                             GestureDetector(
                               onTap: () => setState(() => _isClicked = !_isClicked),
-                              child: _isClicked ?Icon(
+                              child: _isClicked ? Icon(
                                 Icons.favorite_border,
                                 size: 25,
                                 color: BranaColor.AddLibrary,
