@@ -14,7 +14,6 @@ class Booklist extends StatefulWidget {
 }
 
 class _BooklistState extends State<Booklist> {
-  bool _isClicked = false;
   List bookList = [];
   _initData() {
     DefaultAssetBundle.of(context).loadString("assets/info.json").then((value) => {
@@ -35,6 +34,7 @@ class _BooklistState extends State<Booklist> {
         scrollDirection: Axis.vertical,
         itemBuilder: (context, index) {
           final book = bookList[index];
+          bool _isClicked = false;
           return  Padding(
               padding: const EdgeInsets.all(8.0),
               child: GestureDetector(
