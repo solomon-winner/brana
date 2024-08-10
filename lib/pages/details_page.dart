@@ -17,7 +17,7 @@ class Detail extends StatelessWidget {
         child: Center(child: Text(
           "Detail page for ${book.title}",
           style: TextStyle(
-            color: BranaColor.WhiteColor,
+            color: BranaColor.dark_background,
           ),
         ),),
       ),
