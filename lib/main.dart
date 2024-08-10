@@ -23,7 +23,6 @@ class MyApp extends StatelessWidget {
       initialRoute: "/home",
       routes: {
         "/home": (context) => home(),
-        "/detail": (context) => Detail(),
         "/favourite": (context) => Favourite(),
         "/setting": (context) => Setting(),
         "/profile": (context) => Profile(),
