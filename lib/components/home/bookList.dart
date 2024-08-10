@@ -1,5 +1,7 @@
 import 'dart:convert';
 import 'package:brana/Providers/book_provider.dart';
+import 'package:brana/models/books.dart';
+import 'package:brana/pages/details_page.dart';
 import 'package:brana/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -32,11 +34,19 @@ class _BooklistState extends State<Booklist> {
         itemCount: bookList.length,
         scrollDirection: Axis.vertical,
         itemBuilder: (context, index) {
-          final book = bookList[index];
+          Book book = bookList[index];
           return  Padding(
               padding: const EdgeInsets.all(8.0),
               child: GestureDetector(
-                onTap: () => print("................${book['id']}"),
+                onTap: () => {
+                  Navigator.push(
+                    context,
+                     MaterialPageRoute(
+                      builder: (context) {
+                        return Detail(book: book);
+                      })
+                     )
+                },
                 child: Container(
                   width: MediaQuery.sizeOf(context).width,
                   height: 150,

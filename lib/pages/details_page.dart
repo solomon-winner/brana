@@ -1,15 +1,14 @@
+import 'package:brana/models/books.dart';
 import 'package:flutter/material.dart';
 
-class Detail extends StatefulWidget {
-  const Detail({super.key});
+class Detail extends StatelessWidget {
 
-  @override
-  State<Detail> createState() => _DetailState();
-}
-
-class _DetailState extends State<Detail> {
+    final Book book;
+  Detail({required this.book});
+  
   @override
   Widget build(BuildContext context) {
+    print("************?????????::::::${book}");
     return  Container();
   }
 }
