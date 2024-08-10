@@ -35,6 +35,7 @@ class _BooklistState extends State<Booklist> {
         scrollDirection: Axis.vertical,
         itemBuilder: (context, index) {
           Book book = bookList[index];
+          print("${book} ???????******??????");
           return  Padding(
               padding: const EdgeInsets.all(8.0),
               child: GestureDetector(
@@ -74,7 +75,7 @@ class _BooklistState extends State<Booklist> {
                             image: DecorationImage(
                               fit: BoxFit.contain,
                               image: AssetImage(
-                                book['img']
+                                book.img
                               ))
                           ),
                         ),
@@ -87,7 +88,7 @@ class _BooklistState extends State<Booklist> {
                           child: Column(
                             crossAxisAlignment:  CrossAxisAlignment.start,
                             children: [
-                              Text(book['title'],
+                              Text(book.title,
                               style: TextStyle(
                                 fontSize: 20,
                                 color: BranaColor.BookTitleColor
@@ -96,13 +97,13 @@ class _BooklistState extends State<Booklist> {
                               maxLines: 1,
                               ),
                               SizedBox(height: 10,),
-                                Text("Author: ${book['author']}",
+                                Text("Author: ${book.author}",
                                   overflow: TextOverflow.ellipsis,
                                   maxLines: 1,
                                   ),
                               
                                SizedBox(height: 3,),
-                              Text(book['category'],
+                              Text(book.category,
                               overflow: TextOverflow.ellipsis,
                               maxLines: 1,
                               ),
@@ -127,7 +128,7 @@ class _BooklistState extends State<Booklist> {
                                 ] 
                               ),
                               Text(
-                               " ${book['Available_Books']} Books Left",
+                               " ${book.availableBooks} Books Left",
                                 style: TextStyle(
                                   fontSize: 12,
                                   color: BranaColor.LeftBookColor
