@@ -3,6 +3,7 @@ import 'package:brana/pages/details_page.dart';
 import 'package:brana/pages/favourite.dart';
 import 'package:brana/pages/profile_page.dart';
 import 'package:brana/pages/setting_page.dart';
+import 'package:brana/pages/shelves.dart';
 import 'package:brana/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:brana/pages/home_page.dart';
@@ -26,6 +27,8 @@ class MyApp extends StatelessWidget {
         "/favourite": (context) => Favourite(),
         "/setting": (context) => Setting(),
         "/profile": (context) => Profile(),
+        "/shelves": (context) => Shelves(),
+
       },
     );
   }
