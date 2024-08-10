@@ -27,8 +27,11 @@ class _homeState extends State<home> {
             backgroundColor: BranaColor.BadgeBackground,
             textColor: BranaColor.BadgeLabelColor,
             label: Text("2"),
-            child: Icon(Icons.shelves,
-            color: BranaColor.WhiteColor,
+            child: GestureDetector(
+              onTap:() => Navigator.pushReplacementNamed(context, "/shelves"),
+              child: Icon(Icons.shelves,
+              color: BranaColor.WhiteColor,
+              ),
             ),
           ),
           SizedBox(width: 20,),
