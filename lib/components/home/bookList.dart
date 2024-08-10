@@ -15,6 +15,8 @@ class Booklist extends StatefulWidget {
 
 class _BooklistState extends State<Booklist> {
   List<Book> bookList = [];
+            bool _isClicked = false;
+
   _initData() async{
    String data = await DefaultAssetBundle.of(context).loadString("assets/info.json");
    List<dynamic> jsonResult = json.decode(data);
@@ -36,7 +38,7 @@ class _BooklistState extends State<Booklist> {
         scrollDirection: Axis.vertical,
         itemBuilder: (context, index) {
           final book = bookList[index];
-          bool _isClicked = false;
+          bool Fav_Book = _isClicked;
           return  Padding(
               padding: const EdgeInsets.all(8.0),
               child: GestureDetector(
@@ -45,7 +47,7 @@ class _BooklistState extends State<Booklist> {
                     context,
                      MaterialPageRoute(
                       builder: (context) {
-                        return Detail();
+                        return Detail(book: book);
                       })
                      )
                 },
@@ -76,7 +78,7 @@ class _BooklistState extends State<Booklist> {
                             image: DecorationImage(
                               fit: BoxFit.contain,
                               image: AssetImage(
-                                book['img']
+                                book.img
                               ))
                           ),
                         ),
@@ -89,7 +91,7 @@ class _BooklistState extends State<Booklist> {
                           child: Column(
                             crossAxisAlignment:  CrossAxisAlignment.start,
                             children: [
-                              Text(book['title'],
+                              Text(book.title,
                               style: TextStyle(
                                 fontSize: 20,
                                 color: BranaColor.BookTitleColor
@@ -98,13 +100,13 @@ class _BooklistState extends State<Booklist> {
                               maxLines: 1,
                               ),
                               SizedBox(height: 10,),
-                                Text("Author: ${book['author']}",
+                                Text("Author: ${book.author}",
                                   overflow: TextOverflow.ellipsis,
                                   maxLines: 1,
                                   ),
                               
                                SizedBox(height: 3,),
-                              Text(book['category'],
+                              Text(book.category,
                               overflow: TextOverflow.ellipsis,
                               maxLines: 1,
                               ),
@@ -129,7 +131,7 @@ class _BooklistState extends State<Booklist> {
                                 ] 
                               ),
                               Text(
-                               " ${book['availableBooks']} Books Left",
+                               " ${book.availableBooks} Books Left",
                                 style: TextStyle(
                                   fontSize: 12,
                                   color: BranaColor.LeftBookColor
@@ -153,15 +155,15 @@ class _BooklistState extends State<Booklist> {
                           children: [
                             GestureDetector(
                               onTap: () => setState(() => _isClicked = !_isClicked),
-                              child: _isClicked ? Icon(
-                                Icons.favorite_border,
-                                size: 25,
-                                color: BranaColor.AddLibrary,
-                              ): Icon(
+                              child: Fav_Book ? Icon(
                                 Icons.favorite,
                                 color: BranaColor.BadgeBackground,
                                 size: 25,
-                                ),
+                                ) :Icon(
+                                Icons.favorite_border,
+                                size: 25,
+                                color: BranaColor.AddLibrary,
+                              ) ,
                             ),
                               SizedBox(height: 10,),
                                Icon(
