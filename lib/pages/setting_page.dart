@@ -1,3 +1,4 @@
+import 'package:brana/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class Setting extends StatefulWidget {
@@ -10,6 +11,17 @@ class Setting extends StatefulWidget {
 class _SettingState extends State<Setting> {
   @override
   Widget build(BuildContext context) {
-    return  Container();
-  }
+    return  Scaffold(
+      appBar: AppBar(
+        title: Text("Setting Page"),
+      ),
+      body: Container(
+        child: Center(child: Text(
+          "Detail page for Setting",
+          style: TextStyle(
+            color: BranaColor.dark_background
+          ),
+        ),),
+      ),
+    );  }
 }

@@ -23,6 +23,6 @@ class _ShelvesState extends State<Shelves> {
           ),
         ),),
       ),
-    );;
+    );
   }
 }
