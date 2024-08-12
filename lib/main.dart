@@ -23,15 +23,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       color: BranaColor.light_background,
       debugShowCheckedModeBanner: false,
-      initialRoute: "/home",
-      routes: {
-        "/home": (context) => home(),
-        "/favourites": (context) => Favourite(),
-        "/settings": (context) => Setting(),
-        "/profile": (context) => Profile(),
-        "/shelves": (context) => Shelves(),
-
-      },
     );
   }
 }
