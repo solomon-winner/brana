@@ -57,6 +57,7 @@ class _homeState extends State<home> {
           color:BranaColor.navigationColor,
           height: 60,
           animationDuration: Duration(milliseconds: 300),
+          index: 0,
           onTap: (index) {
             print(index);
           },
