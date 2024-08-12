@@ -75,7 +75,7 @@ class _MainScaffoldState extends State<MainScaffold> {
         centerTitle: true,
         backgroundColor: BranaColor.navigationColor,
       ),
-      body:bodyContainer(),
+      body: widget.body,
       
       bottomNavigationBar: Container(
         child: CurvedNavigationBar(
@@ -83,9 +83,7 @@ class _MainScaffoldState extends State<MainScaffold> {
           color:BranaColor.navigationColor,
           height: 60,
           animationDuration: Duration(milliseconds: 300),
-          onTap: (index) {
-            print(index);
-          },
+          onTap: _onItemTapped, 
           items: [
           Badge(
             backgroundColor: BranaColor.BadgeBackground,
@@ -126,11 +124,13 @@ class _MainScaffoldState extends State<MainScaffold> {
                 ),
             ),
           ),
-        ]),
+        ],
+        ),
       ),
     );
-  }  }
+  }
 }
+
 /////////////////////////////////
 ///
 
