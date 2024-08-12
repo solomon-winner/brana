@@ -86,6 +86,7 @@ class _MainScaffoldState extends State<MainScaffold> {
           backgroundColor: BranaColor.light_background,
           color:BranaColor.navigationColor,
           height: 60,
+          animationCurve: Curves.easeInOut,
           animationDuration: Duration(milliseconds: 300),
           onTap: _onItemTapped, 
           items: [

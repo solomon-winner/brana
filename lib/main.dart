@@ -25,11 +25,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: "/home",
       routes: {
-        "/home": (context) => MainScaffold(body:bodyContainer()),
-        "/favourites": (context) => MainScaffold(body: Favourite(),),
-        "/settings": (context) => MainScaffold(body: Setting(),) ,
-        "/profile": (context) => MainScaffold(body: Profile(),) ,
-        "/shelves": (context) => MainScaffold(body: Shelves(),) 
+        "/home": (context) => home(),
+        "/favourites": (context) => Favourite(),
+        "/settings": (context) => Setting(),
+        "/profile": (context) => Profile(),
+        "/shelves": (context) => Shelves(),
 
       },
     );
