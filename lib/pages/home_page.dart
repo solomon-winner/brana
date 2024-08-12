@@ -1,5 +1,6 @@
 import 'package:brana/components/home/bodyContainer.dart';
 import 'package:brana/pages/favourite.dart';
+import 'package:brana/pages/profile_page.dart';
 import 'package:brana/pages/setting_page.dart';
 import 'package:brana/pages/shelves.dart';
 import 'package:brana/utils/colors.dart';
@@ -16,7 +17,7 @@ class home extends StatefulWidget {
 
 class _homeState extends State<home> {
   var _page = 0;
-  final pages = [bodyContainer(),Shelves(),Favourite(), Setting()];
+  final pages = [bodyContainer(),Shelves(),Favourite(),Profile()];
 
   @override
   Widget build(BuildContext context) {
@@ -29,20 +30,18 @@ class _homeState extends State<home> {
           color: BranaColor.WhiteColor,
           ),
         actions: [
-          Badge(
+
+          SizedBox(width: 20,),
+                    Badge(
             backgroundColor: BranaColor.BadgeBackground,
             textColor: BranaColor.BadgeLabelColor,
             label: Text("2"),
-            child: GestureDetector(
-              onTap:() => Navigator.pushReplacementNamed(context, "/shelves"),
-              child: Icon(Icons.shelves,
-              color: BranaColor.WhiteColor,
-              ),
-            ),
-          ),
-          SizedBox(width: 20,),
-          Icon(Icons.person,
-          color: BranaColor.WhiteColor,
+            isLabelVisible: false,
+            child: Icon(
+                Icons.settings,
+                color: Colors.white,
+                ),
+            
           ),
           SizedBox(width: 10,)
         ],
@@ -98,16 +97,8 @@ class _homeState extends State<home> {
                 ),
             
           ),
-          Badge(
-            backgroundColor: BranaColor.BadgeBackground,
-            textColor: BranaColor.BadgeLabelColor,
-            label: Text("2"),
-            isLabelVisible: false,
-            child: Icon(
-                Icons.settings,
-                color: Colors.white,
-                ),
-            
+          Icon(Icons.person,
+          color: BranaColor.WhiteColor,
           ),
         ],
         ),
