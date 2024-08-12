@@ -24,16 +24,16 @@ class _MainScaffoldState extends State<MainScaffold> {
       case 0:
         Navigator.pushReplacementNamed(context, "/home");
         break;
-      case 2:
+      case 1:
         Navigator.pushReplacementNamed(context, "/favourites");
         break;
-      case 3:
+      case 2:
         Navigator.pushReplacementNamed(context, "/settings");
         break;
-      case 4:
+      case 3:
         Navigator.pushReplacementNamed(context, "/profile");
         break;
-      case 5:
+      case 4:
         Navigator.pushReplacementNamed(context, "/shelves");
         break;
     }
@@ -55,7 +55,7 @@ class _MainScaffoldState extends State<MainScaffold> {
             textColor: BranaColor.BadgeLabelColor,
             label: Text("2"),
             child: GestureDetector(
-              onTap: () =>_onItemTapped(5),
+              onTap: () =>_onItemTapped(4),
               child: Icon(Icons.shelves,
               color: BranaColor.WhiteColor,
               ),
@@ -63,8 +63,7 @@ class _MainScaffoldState extends State<MainScaffold> {
           ),
           SizedBox(width: 20,),
           GestureDetector(
-            onTap: () =>_onItemTapped(4),
-
+            onTap: () =>_onItemTapped(3),
             child: Icon(Icons.person,
             color: BranaColor.WhiteColor,
             ),
@@ -95,37 +94,33 @@ class _MainScaffoldState extends State<MainScaffold> {
             textColor: BranaColor.BadgeLabelColor,
             label: Text("2"),
             isLabelVisible: false,
-            child: GestureDetector(
               child: Icon(
                 Icons.home,
                 color: Colors.white,
               ),
-            ),
+            
           ),
           Badge(
             backgroundColor: BranaColor.BadgeBackground,
             textColor: BranaColor.BadgeLabelColor,
             label: Text("2"),
-            child: GestureDetector(
               child: Icon(
                 Icons.favorite,
                 color: Colors.white,
                 ),
-            ),
+            
           ),
           Badge(
             backgroundColor: BranaColor.BadgeBackground,
             textColor: BranaColor.BadgeLabelColor,
             label: Text("2"),
             isLabelVisible: false,
-            child: GestureDetector(
 
               child: Icon(
                 Icons.settings,
                 color: Colors.white,
                 ),
             ),
-          ),
         ],
         ),
       ),
