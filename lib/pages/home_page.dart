@@ -54,7 +54,7 @@ class _homeState extends State<home> {
         centerTitle: true,
         backgroundColor: BranaColor.navigationColor,
       ),
-      body:bodyContainer(),
+      body: pages[_page],
       
       bottomNavigationBar: Container(
         child: CurvedNavigationBar(
@@ -108,7 +108,8 @@ class _homeState extends State<home> {
                 ),
             ),
           ),
-        ]),
+        ],
+        ),
       ),
     );
   }
