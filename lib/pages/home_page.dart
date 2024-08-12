@@ -74,8 +74,6 @@ class _homeState extends State<home> {
             textColor: BranaColor.BadgeLabelColor,
             label: Text("2"),
             isLabelVisible: false,
-            child: GestureDetector(
-              onTap: () => Navigator.pushReplacementNamed(context, "/home"),
               child: Icon(
                 Icons.home,
                 color: Colors.white,
@@ -86,27 +84,22 @@ class _homeState extends State<home> {
             backgroundColor: BranaColor.BadgeBackground,
             textColor: BranaColor.BadgeLabelColor,
             label: Text("2"),
-            child: GestureDetector(
-              onTap:() => Navigator.pushReplacementNamed(context, "/favourites"),
               child: Icon(
                 Icons.favorite,
                 color: Colors.white,
                 ),
-            ),
+            
           ),
           Badge(
             backgroundColor: BranaColor.BadgeBackground,
             textColor: BranaColor.BadgeLabelColor,
             label: Text("2"),
             isLabelVisible: false,
-            child: GestureDetector(
-             onTap:() => Navigator.pushReplacementNamed(context, "/settings"),
-
-              child: Icon(
+            child: Icon(
                 Icons.settings,
                 color: Colors.white,
                 ),
-            ),
+            
           ),
         ],
         ),
