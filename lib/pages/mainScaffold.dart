@@ -55,20 +55,19 @@ class _MainScaffoldState extends State<MainScaffold> {
             textColor: BranaColor.BadgeLabelColor,
             label: Text("2"),
             child: GestureDetector(
-              onTap: () {
-                // setState(() {
-                // _selectedIndex = 5;                
-                // });
-                _onItemTapped(5);
-              },
+              onTap: () =>_onItemTapped(5),
               child: Icon(Icons.shelves,
               color: BranaColor.WhiteColor,
               ),
             ),
           ),
           SizedBox(width: 20,),
-          Icon(Icons.person,
-          color: BranaColor.WhiteColor,
+          GestureDetector(
+            onTap: () =>_onItemTapped(4),
+
+            child: Icon(Icons.person,
+            color: BranaColor.WhiteColor,
+            ),
           ),
           SizedBox(width: 10,)
         ],
