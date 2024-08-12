@@ -1,6 +1,8 @@
 import 'package:brana/Providers/book_provider.dart';
+import 'package:brana/components/home/bodyContainer.dart';
 import 'package:brana/pages/details_page.dart';
 import 'package:brana/pages/favourite.dart';
+import 'package:brana/pages/mainScaffold.dart';
 import 'package:brana/pages/profile_page.dart';
 import 'package:brana/pages/setting_page.dart';
 import 'package:brana/pages/shelves.dart';
@@ -23,11 +25,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: "/home",
       routes: {
-        "/home": (context) => home(),
-        "/favourites": (context) => Favourite(),
-        "/settings": (context) => Setting(),
-        "/profile": (context) => Profile(),
-        "/shelves": (context) => Shelves(),
+        "/home": (context) => MainScaffold(body:bodyContainer()),
+        "/favourites": (context) => MainScaffold(body: Favourite(),),
+        "/settings": (context) => MainScaffold(body: Setting(),) ,
+        "/profile": (context) => MainScaffold(body: Profile(),) ,
+        "/shelves": (context) => MainScaffold(body: Shelves(),) 
 
       },
     );
