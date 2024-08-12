@@ -44,7 +44,7 @@ class _MainScaffoldState extends State<MainScaffold> {
     return Scaffold(
       backgroundColor: BranaColor.light_background,
       appBar: AppBar(
-        
+
         leading: Icon(
           Icons.menu,
           color: BranaColor.WhiteColor,
@@ -55,6 +55,12 @@ class _MainScaffoldState extends State<MainScaffold> {
             textColor: BranaColor.BadgeLabelColor,
             label: Text("2"),
             child: GestureDetector(
+              onTap: () {
+                // setState(() {
+                // _selectedIndex = 5;                
+                // });
+                _onItemTapped(5);
+              },
               child: Icon(Icons.shelves,
               color: BranaColor.WhiteColor,
               ),
