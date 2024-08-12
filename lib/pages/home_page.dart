@@ -1,4 +1,6 @@
 import 'package:brana/components/home/bodyContainer.dart';
+import 'package:brana/pages/favourite.dart';
+import 'package:brana/pages/setting_page.dart';
 import 'package:brana/utils/colors.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +14,9 @@ class home extends StatefulWidget {
 }
 
 class _homeState extends State<home> {
+  var _page = 0;
+  final pages = [bodyContainer(),Favourite(), Setting()];
+
   @override
   Widget build(BuildContext context) {
 
@@ -59,7 +64,9 @@ class _homeState extends State<home> {
           animationDuration: Duration(milliseconds: 300),
           index: 0,
           onTap: (index) {
-            print(index);
+            setState(() {
+              _page = index;
+            });
           },
           items: [
           Badge(
