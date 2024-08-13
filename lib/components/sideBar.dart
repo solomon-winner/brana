@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class SideBar extends StatefulWidget {
-  const SideBar({super.key});
+  final GlobalKey<_SideBarState> key;
+  const SideBar({required this.key}) : super(key: key);
 
   @override
   State<SideBar> createState() => _SideBarState();
@@ -9,7 +10,7 @@ class SideBar extends StatefulWidget {
 
 class _SideBarState extends State<SideBar> {
   bool _isExpanded = false;
-  
+
   void _toggleSidebar() {
     setState(() {
       _isExpanded = !_isExpanded;

@@ -7,6 +7,7 @@ import 'package:brana/utils/colors.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:brana/components/home/search_bar.dart';
+import 'package:brana/components/sideBar.dart';
 
 class home extends StatefulWidget {
   const home({super.key});
@@ -18,7 +19,7 @@ class home extends StatefulWidget {
 class _homeState extends State<home> {
   var _page = 0;
   final pages = [bodyContainer(),Shelves(),Favourite(),Profile()];
-
+  final GlobalKey<_SideBarState> _sidebarKey= GlobalKey<_SideBarState>();
   @override
   Widget build(BuildContext context) {
 
