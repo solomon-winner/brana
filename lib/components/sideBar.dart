@@ -8,8 +8,13 @@ class SideBar extends StatefulWidget {
 }
 
 class _SideBarState extends State<SideBar> {
+  bool _isExpanded = false;
+  
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return AnimatedContainer(
+      duration: Duration(milliseconds: 300),
+      width: 250,
+    );
   }
 }
