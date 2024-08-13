@@ -26,10 +26,14 @@ class _homeState extends State<home> {
     return Scaffold(
       backgroundColor: BranaColor.light_background,
       appBar: AppBar(
-        leading: Icon(
-          Icons.menu,
-          color: BranaColor.WhiteColor,
-          ),
+        leading: IconButton(
+          icon: Icon(
+            Icons.menu),
+            color: BranaColor.WhiteColor,
+            onPressed: () {
+              _sidebarKey.currentState?.toggleSidebar();
+            },
+        ),
         actions: [
 
           SizedBox(width: 20,),

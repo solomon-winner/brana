@@ -11,7 +11,7 @@ class SideBar extends StatefulWidget {
 class SideBarState extends State<SideBar> {
   bool _isExpanded = false;
 
-  void _toggleSidebar() {
+  void toggleSidebar() {
     setState(() {
       _isExpanded = !_isExpanded;
     });
@@ -30,7 +30,7 @@ class SideBarState extends State<SideBar> {
                 icon: Icon(_isExpanded ?
                 Icons.arrow_back:
                 Icons.arrow_forward),
-                onPressed: _toggleSidebar,
+                onPressed: toggleSidebar,
                 ),
               ),
           ]
