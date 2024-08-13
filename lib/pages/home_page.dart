@@ -19,7 +19,8 @@ class home extends StatefulWidget {
 class _homeState extends State<home> {
   var _page = 0;
   final pages = [bodyContainer(),Shelves(),Favourite(),Profile()];
-  final GlobalKey<SideBarState> _sidebarKey= GlobalKey<SideBarState>();
+  final GlobalKey<SideBarState> _sidebarKey = GlobalKey<SideBarState>();
+  
   @override
   Widget build(BuildContext context) {
 
@@ -59,7 +60,14 @@ class _homeState extends State<home> {
         centerTitle: true,
         backgroundColor: BranaColor.navigationColor,
       ),
-      body: pages[_page],
+      body: Stack(
+        children: [
+          SideBar(key: _sidebarKey,),
+          Expanded(
+            child: pages[_page],
+          ),
+        ],
+      ),
       
       bottomNavigationBar: Container(
         child: CurvedNavigationBar(

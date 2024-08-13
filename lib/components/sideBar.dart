@@ -1,3 +1,4 @@
+import 'package:brana/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class SideBar extends StatefulWidget {
@@ -16,6 +17,7 @@ class SideBarState extends State<SideBar> {
       _isExpanded = !_isExpanded;
     });
   }
+  
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
@@ -25,7 +27,10 @@ class SideBarState extends State<SideBar> {
         child: Column(
           children: [
             ListTile(
-              title: Text('Home'),
+              title: Text('Home',
+              style: TextStyle(
+                color: BranaColor.WhiteColor
+              ),),
               trailing: IconButton(
                 icon: Icon(_isExpanded ?
                 Icons.arrow_back:
