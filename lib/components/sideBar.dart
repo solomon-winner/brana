@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 class SideBar extends StatefulWidget {
-  final GlobalKey<_SideBarState> key;
+  final GlobalKey<SideBarState> key;
   const SideBar({required this.key}) : super(key: key);
 
   @override
-  State<SideBar> createState() => _SideBarState();
+  State<SideBar> createState() => SideBarState();
 }
 
-class _SideBarState extends State<SideBar> {
+class SideBarState extends State<SideBar> {
   bool _isExpanded = false;
 
   void _toggleSidebar() {

@@ -19,7 +19,7 @@ class home extends StatefulWidget {
 class _homeState extends State<home> {
   var _page = 0;
   final pages = [bodyContainer(),Shelves(),Favourite(),Profile()];
-  final GlobalKey<_SideBarState> _sidebarKey= GlobalKey<_SideBarState>();
+  final GlobalKey<SideBarState> _sidebarKey= GlobalKey<SideBarState>();
   @override
   Widget build(BuildContext context) {
 
