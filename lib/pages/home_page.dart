@@ -27,17 +27,17 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
       backgroundColor: BranaColor.light_background,
+      drawer: SideBar(),
       appBar: AppBar(
         leading:  IconButton(
-          icon: !_isSideBarExpanded ? Icon(
+          icon: Icon(
               Icons.menu,
-              ): Icon(
-              Icons.arrow_back,
               ),
-             color: BranaColor.WhiteColor,           
+             color: BranaColor.WhiteColor, 
+
             onPressed: () {
               setState(() {
-                _isSideBarExpanded = !_isSideBarExpanded;
+                Scaffold.of(context).openDrawer();
               });
             },
         ),
@@ -68,8 +68,7 @@ class _HomePageState extends State<HomePage> {
         centerTitle: true,
         backgroundColor: BranaColor.navigationColor,
       ),
-      body: Stack(
-        children: [
+      body: 
           Column(
             children:[
               Expanded(
@@ -78,10 +77,7 @@ class _HomePageState extends State<HomePage> {
                   )
             ] ,
           ),
-          _isSideBarExpanded ? SideBar() : Container(),
 
-        ],
-      ),
       
       bottomNavigationBar: Container(
         child: CurvedNavigationBar(
