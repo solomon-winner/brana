@@ -50,6 +50,14 @@ class _SideBarState extends State<SideBar> {
               ),),
 
               ),
+              Spacer(),
+              IconButton(
+                onPressed: () {
+                  setState() => _isExpanded = false;
+                }, icon: Icon(
+                  Icons.arrow_back_ios,
+                  color: BranaColor.BookTitleColor,
+                ))
           ]
             )
         ),
