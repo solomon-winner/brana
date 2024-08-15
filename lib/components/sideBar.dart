@@ -9,11 +9,14 @@ class SideBar extends StatefulWidget {
 }
 
 class _SideBarState extends State<SideBar> {
-  bool _isDrawerOpen = true;
+  bool _isDrawerOpen = false;
 
   void _toggleDrawer() {
     setState() {
+      print("before: $_isDrawerOpen");
       _isDrawerOpen = !_isDrawerOpen;
+      print("after: $_isDrawerOpen");
+
     }
   }
   
