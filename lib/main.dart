@@ -10,6 +10,8 @@ import 'package:brana/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:brana/pages/home_page.dart';
 import 'package:provider/provider.dart';
+import 'package:brana/components/sideBar.dart';
+
 void main() {
   runApp(MyApp());
 }
