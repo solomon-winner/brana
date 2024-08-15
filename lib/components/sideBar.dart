@@ -42,7 +42,13 @@ class _SideBarState extends State<SideBar> {
                 
                     currentAccountPicture: CircleAvatar(
                    backgroundColor: BranaColor.WhiteColor,
-                   child: ClipOval(child: Text("S")),
+                   child: ClipOval(child: Text("S",
+                   style: TextStyle(
+                    color: BranaColor.dark_background,
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold,
+                   ),
+                   )),
                  ),
                  decoration: BoxDecoration(
                    color: BranaColor.dark_background,
@@ -51,8 +57,14 @@ class _SideBarState extends State<SideBar> {
                      fit: BoxFit.cover
                    )
                  ),
-                accountName: Text("Solomon Yalew"),
-                 accountEmail: Text("solomonyalew664@gmail.com"),
+                accountName: const Text("Solomon Yalew"),
+                 accountEmail:  Text("solomonyalew664@gmail.com",
+                 style: TextStyle(
+                   color: BranaColor.WhiteColor,
+                    fontSize: 12,
+
+                 ),
+                 ),
               )
             ],
           )
