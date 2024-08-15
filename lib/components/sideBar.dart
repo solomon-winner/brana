@@ -36,12 +36,20 @@ class _SideBarState extends State<SideBar> {
           borderRadius: BorderRadius.zero
         ),
           child: ListView(
+            padding: EdgeInsets.zero,
             children: [
               UserAccountsDrawerHeader(
                 
                     currentAccountPicture: CircleAvatar(
                    backgroundColor: BranaColor.WhiteColor,
                    child: ClipOval(child: Text("S")),
+                 ),
+                 decoration: BoxDecoration(
+                   color: BranaColor.dark_background,
+                   image: DecorationImage(
+                     image: AssetImage("assets/Green.PNG"),
+                     fit: BoxFit.cover
+                   )
                  ),
                 accountName: Text("Solomon Yalew"),
                  accountEmail: Text("solomonyalew664@gmail.com"),
