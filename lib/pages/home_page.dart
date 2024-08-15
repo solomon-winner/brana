@@ -29,7 +29,8 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: BranaColor.light_background,
       drawer: SideBar(),
       appBar: AppBar(
-        leading:  IconButton(
+        leading: Builder(
+          builder: (context) => IconButton(
           icon: Icon(
               Icons.menu,
               ),
@@ -40,7 +41,8 @@ class _HomePageState extends State<HomePage> {
                 Scaffold.of(context).openDrawer();
               });
             },
-        ),
+        )
+      ),
 
         
         actions: [
@@ -73,8 +75,7 @@ class _HomePageState extends State<HomePage> {
             children:[
               Expanded(
               child: pages[_page],
-            
-                  )
+              ),
             ] ,
           ),
 
