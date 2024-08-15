@@ -34,8 +34,8 @@ class _SideBarState extends State<SideBar> {
         ],
         borderRadius: BorderRadius.zero
       ),
-      width:  250 ,
-      child: Drawer(
+      width:  _isDrawerOpen ? 250 : 0,
+      child: _isDrawerOpen ? Drawer(
         shadowColor: BranaColor.ShadowColor,
         backgroundColor: BranaColor.light_background,
         shape: RoundedRectangleBorder(
@@ -65,7 +65,7 @@ class _SideBarState extends State<SideBar> {
                 ))
           ]
             )
-        ),
+        ) : null,
     );
   }
 }
