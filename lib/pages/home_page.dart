@@ -7,19 +7,19 @@ import 'package:brana/utils/colors.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:brana/components/home/search_bar.dart';
-import 'package:brana/components/sideBar.dart';
+// import 'package:brana/components/sideBar.dart';
 
-class home extends StatefulWidget {
-  const home({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
   @override
-  State<home> createState() => _homeState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _homeState extends State<home> {
+class _HomePageState extends State<HomePage> {
   var _page = 0;
   final pages = [bodyContainer(),Shelves(),Favourite(),Profile()];
-  final GlobalKey<SideBarState> _sidebarKey = GlobalKey<SideBarState>();
+  // final GlobalKey<SideBarState> _sidebarKey = GlobalKey<SideBarState>();
   
   @override
   Widget build(BuildContext context) {
@@ -27,14 +27,14 @@ class _homeState extends State<home> {
     return Scaffold(
       backgroundColor: BranaColor.light_background,
       appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(
-            Icons.menu),
-            color: BranaColor.WhiteColor,
-            onPressed: () {
-              _sidebarKey.currentState?.toggleSidebar();
-            },
-        ),
+        leading:  Icon(
+            Icons.menu,
+            color: BranaColor.WhiteColor,           
+            ),
+            // onPressed: () {
+            //   _sidebarKey.currentState?.toggleSidebar();
+            // },
+        
         actions: [
 
           SizedBox(width: 20,),
@@ -62,10 +62,14 @@ class _homeState extends State<home> {
       ),
       body: Stack(
         children: [
-          SideBar(key: _sidebarKey,),
-          Expanded(
-            child: pages[_page],
-          ),
+          Column(
+            children:[
+              Expanded(
+              child: pages[_page],
+            
+                  )
+            ] ,
+          )
         ],
       ),
       

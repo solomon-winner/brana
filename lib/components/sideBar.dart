@@ -1,100 +1,100 @@
-import 'package:brana/utils/colors.dart';
-import 'package:flutter/material.dart';
-
-class SideBar extends StatefulWidget {
-  final GlobalKey<SideBarState> key;
-  const SideBar({required this.key}) : super(key: key);
-
-  @override
-  State<SideBar> createState() => SideBarState();
-}
-
-class SideBarState extends State<SideBar> {
-  bool _isExpanded = false;
-
-  void toggleSidebar() {
-    setState(() {
-      _isExpanded = !_isExpanded;
-    });
-  }
-  
-  @override
-  Widget build(BuildContext context) {
-    return AnimatedContainer(
-      duration: Duration(milliseconds: 300),
-      width: _isExpanded ? 250 : 0,
-      child: Drawer(
-        child: Column(
-          children: [
-            ListTile(
-              title: Text('Home',
-              style: TextStyle(
-                color: BranaColor.WhiteColor
-              ),),
-              trailing: IconButton(
-                icon: Icon(_isExpanded ?
-                Icons.arrow_back:
-                Icons.arrow_forward),
-                onPressed: toggleSidebar,
-                ),
-              ),
-          ]
-            )
-        ),
-    );
-  }
-}
-
-// ???
+// import 'package:brana/utils/colors.dart';
 // import 'package:flutter/material.dart';
 
 // class SideBar extends StatefulWidget {
-//   const SideBar({super.key});
+//   final GlobalKey<SideBarState> key;
+//   const SideBar({required this.key}) : super(key: key);
 
 //   @override
-//   State<SideBar> createState() => _SideBarState();
+//   State<SideBar> createState() => SideBarState();
 // }
 
-// class _SideBarState extends State<SideBar> {
-//   bool _isExpanded = true;
+// class SideBarState extends State<SideBar> {
+//   bool _isExpanded = false;
 
-//   void _toggleSidebar() {
+//   void toggleSidebar() {
 //     setState(() {
 //       _isExpanded = !_isExpanded;
 //     });
 //   }
-
+  
 //   @override
 //   Widget build(BuildContext context) {
 //     return AnimatedContainer(
 //       duration: Duration(milliseconds: 300),
-//       width: _isExpanded ? 250.0 : 70.0,
+//       width: _isExpanded ? 250 : 0,
 //       child: Drawer(
 //         child: Column(
 //           children: [
 //             ListTile(
-//               title: Text('Menu'),
+//               title: Text('Home',
+//               style: TextStyle(
+//                 color: BranaColor.WhiteColor
+//               ),),
 //               trailing: IconButton(
-//                 icon: Icon(_isExpanded ? Icons.arrow_back : Icons.arrow_forward),
-//                 onPressed: _toggleSidebar,
+//                 icon: Icon(_isExpanded ?
+//                 Icons.arrow_back:
+//                 Icons.arrow_forward),
+//                 onPressed: toggleSidebar,
+//                 ),
 //               ),
-//             ),
-//             // Add your menu items here
-//             ListTile(
-//               leading: Icon(Icons.home),
-//               title: _isExpanded ? Text('Home') : null,
-//             ),
-//             ListTile(
-//               leading: Icon(Icons.search),
-//               title: _isExpanded ? Text('Search') : null,
-//             ),
-//             ListTile(
-//               leading: Icon(Icons.person),
-//               title: _isExpanded ? Text('Profile') : null,
-//             ),
-//           ],
+//           ]
+//             )
 //         ),
-//       ),
 //     );
 //   }
 // }
+
+// // ???
+// // import 'package:flutter/material.dart';
+
+// // class SideBar extends StatefulWidget {
+// //   const SideBar({super.key});
+
+// //   @override
+// //   State<SideBar> createState() => _SideBarState();
+// // }
+
+// // class _SideBarState extends State<SideBar> {
+// //   bool _isExpanded = true;
+
+// //   void _toggleSidebar() {
+// //     setState(() {
+// //       _isExpanded = !_isExpanded;
+// //     });
+// //   }
+
+// //   @override
+// //   Widget build(BuildContext context) {
+// //     return AnimatedContainer(
+// //       duration: Duration(milliseconds: 300),
+// //       width: _isExpanded ? 250.0 : 70.0,
+// //       child: Drawer(
+// //         child: Column(
+// //           children: [
+// //             ListTile(
+// //               title: Text('Menu'),
+// //               trailing: IconButton(
+// //                 icon: Icon(_isExpanded ? Icons.arrow_back : Icons.arrow_forward),
+// //                 onPressed: _toggleSidebar,
+// //               ),
+// //             ),
+// //             // Add your menu items here
+// //             ListTile(
+// //               leading: Icon(Icons.home),
+// //               title: _isExpanded ? Text('Home') : null,
+// //             ),
+// //             ListTile(
+// //               leading: Icon(Icons.search),
+// //               title: _isExpanded ? Text('Search') : null,
+// //             ),
+// //             ListTile(
+// //               leading: Icon(Icons.person),
+// //               title: _isExpanded ? Text('Profile') : null,
+// //             ),
+// //           ],
+// //         ),
+// //       ),
+// //     );
+// //   }
+// // }

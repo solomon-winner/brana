@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       color: BranaColor.light_background,
       debugShowCheckedModeBanner: false,
+      home: HomePage(),
     );
   }
 }
