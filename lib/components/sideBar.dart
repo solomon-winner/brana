@@ -9,16 +9,7 @@ class SideBar extends StatefulWidget {
 }
 
 class _SideBarState extends State<SideBar> {
-  bool _isDrawerOpen = false;
 
-  void _toggleDrawer() {
-    setState() {
-      print("before: $_isDrawerOpen");
-      _isDrawerOpen = !_isDrawerOpen;
-      print("after: $_isDrawerOpen");
-
-    }
-  }
   
   @override
   Widget build(BuildContext context) {
@@ -37,38 +28,19 @@ class _SideBarState extends State<SideBar> {
         ],
         borderRadius: BorderRadius.zero
       ),
-      width:  _isDrawerOpen ? 250 : 0,
-      child: _isDrawerOpen ? Drawer(
+      width:  250 ,
+      child: Drawer(
         shadowColor: BranaColor.ShadowColor,
         backgroundColor: BranaColor.light_background,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.zero
         ),
-        child: Column(
-          children: [
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: 150,
-              color: BranaColor.dark_background,
-            ),
-            ListTile(
-              title: Text('Home',
-              style: TextStyle(
-                color: BranaColor.BookTitleColor
-              ),),
+          child: ListView(
+            
+          )
 
-              ),
-              Spacer(),
-              IconButton(
-                onPressed: () {
-                  _toggleDrawer();
-                }, icon: Icon(
-                  Icons.arrow_back_ios,
-                  color: BranaColor.BookTitleColor,
-                ))
-          ]
-            )
-        ) : null,
+
+        ),
     );
   }
 }
