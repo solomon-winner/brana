@@ -7,7 +7,7 @@ import 'package:brana/utils/colors.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:brana/components/home/search_bar.dart';
-// import 'package:brana/components/sideBar.dart';
+ import 'package:brana/components/sideBar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -17,9 +17,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  bool _isSideBarExpanded = false;
+
   var _page = 0;
   final pages = [bodyContainer(),Shelves(),Favourite(),Profile()];
-  // final GlobalKey<SideBarState> _sidebarKey = GlobalKey<SideBarState>();
   
   @override
   Widget build(BuildContext context) {
@@ -27,13 +28,21 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: BranaColor.light_background,
       appBar: AppBar(
-        leading:  Icon(
-            Icons.menu,
-            color: BranaColor.WhiteColor,           
-            ),
-            // onPressed: () {
-            //   _sidebarKey.currentState?.toggleSidebar();
-            // },
+        leading:  IconButton(
+          icon: !_isSideBarExpanded ? Icon(
+              Icons.menu,
+              ): Icon(
+              Icons.arrow_back,
+              ),
+             color: BranaColor.WhiteColor,           
+            onPressed: () {
+              setState(() {
+                _isSideBarExpanded = !_isSideBarExpanded;
+              });
+              print("SideBar is Expanded: %%%%%%%% $_isSideBarExpanded");
+            },
+        ),
+
         
         actions: [
 
@@ -69,7 +78,9 @@ class _HomePageState extends State<HomePage> {
             
                   )
             ] ,
-          )
+          ),
+          _isSideBarExpanded ? SideBar() : Container(),
+
         ],
       ),
       
