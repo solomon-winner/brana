@@ -9,8 +9,13 @@ class SideBar extends StatefulWidget {
 }
 
 class _SideBarState extends State<SideBar> {
-  bool _isExpanded = false;
+  bool _isDrawerOpen = false;
 
+  void _toggleDrawer() {
+    setState() {
+      _isDrawerOpen = !_isDrawerOpen;
+    }
+  }
   
   @override
   Widget build(BuildContext context) {
@@ -53,7 +58,7 @@ class _SideBarState extends State<SideBar> {
               Spacer(),
               IconButton(
                 onPressed: () {
-                  setState() => _isExpanded = false;
+
                 }, icon: Icon(
                   Icons.arrow_back_ios,
                   color: BranaColor.BookTitleColor,
