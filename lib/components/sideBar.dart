@@ -40,7 +40,7 @@ class _SideBarState extends State<SideBar> {
           children: [
             Container(
               width: MediaQuery.of(context).size.width,
-              height: 200,
+              height: 150,
               color: BranaColor.dark_background,
             ),
             ListTile(
