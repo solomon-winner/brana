@@ -18,7 +18,7 @@ class _SideBarState extends State<SideBar> {
       curve: Curves.easeInOutBack,
       duration: Duration(milliseconds: 300),
       decoration: BoxDecoration(
-        color: BranaColor.dark_background,
+        color: BranaColor.light_background,
         boxShadow: [
           BoxShadow(
             color: BranaColor.ShadowColor,
@@ -33,12 +33,20 @@ class _SideBarState extends State<SideBar> {
       child: Drawer(
         shadowColor: BranaColor.ShadowColor,
         backgroundColor: BranaColor.light_background,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.zero
+        ),
         child: Column(
           children: [
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: 200,
+              color: BranaColor.dark_background,
+            ),
             ListTile(
               title: Text('Home',
               style: TextStyle(
-                color: BranaColor.WhiteColor
+                color: BranaColor.BookTitleColor
               ),),
 
               ),
