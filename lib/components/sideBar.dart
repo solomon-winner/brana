@@ -57,7 +57,12 @@ class _SideBarState extends State<SideBar> {
                      fit: BoxFit.cover
                    )
                  ),
-                accountName: const Text("Solomon Yalew"),
+                accountName: const Text("Solomon Yalew",
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                )
+                ),
                  accountEmail:  Text("solomonyalew664@gmail.com",
                  style: TextStyle(
                    color: BranaColor.WhiteColor,
