@@ -39,7 +39,6 @@ class _HomePageState extends State<HomePage> {
               setState(() {
                 _isSideBarExpanded = !_isSideBarExpanded;
               });
-              print("SideBar is Expanded: %%%%%%%% $_isSideBarExpanded");
             },
         ),
 

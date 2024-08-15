@@ -11,18 +11,28 @@ class SideBar extends StatefulWidget {
 class _SideBarState extends State<SideBar> {
   bool _isExpanded = false;
 
-  void _toggleSidebar() {
-    setState(() {
-      _isExpanded = !_isExpanded;
-    });
-  }
   
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
+      curve: Curves.easeInOutBack,
       duration: Duration(milliseconds: 300),
+      decoration: BoxDecoration(
+        color: BranaColor.dark_background,
+        boxShadow: [
+          BoxShadow(
+            color: BranaColor.ShadowColor,
+            blurRadius: 10,
+            spreadRadius: 1,
+            offset: Offset(0, 0),
+          ),
+        ],
+        borderRadius: BorderRadius.zero
+      ),
       width:  250 ,
       child: Drawer(
+        shadowColor: BranaColor.ShadowColor,
+        backgroundColor: BranaColor.light_background,
         child: Column(
           children: [
             ListTile(
