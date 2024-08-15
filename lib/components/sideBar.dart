@@ -9,7 +9,7 @@ class SideBar extends StatefulWidget {
 }
 
 class _SideBarState extends State<SideBar> {
-  bool _isDrawerOpen = false;
+  bool _isDrawerOpen = true;
 
   void _toggleDrawer() {
     setState() {
@@ -58,7 +58,7 @@ class _SideBarState extends State<SideBar> {
               Spacer(),
               IconButton(
                 onPressed: () {
-
+                  _toggleDrawer();
                 }, icon: Icon(
                   Icons.arrow_back_ios,
                   color: BranaColor.BookTitleColor,
