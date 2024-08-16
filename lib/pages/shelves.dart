@@ -11,21 +11,13 @@ class Shelves extends StatefulWidget {
 class _ShelvesState extends State<Shelves> {
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-            backgroundColor: BranaColor.light_background,
-      appBar: AppBar(
-              backgroundColor: BranaColor.light_background,
-
-        title: Text("Shelves Page"),
-      ),
-      body: Container(
+    return Container(
         child: Center(child: Text(
           "Detail page for Shelves",
           style: TextStyle(
             color: BranaColor.dark_background,
           ),
         ),),
-      ),
     );
   }
 }
