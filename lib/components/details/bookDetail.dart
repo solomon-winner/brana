@@ -87,13 +87,7 @@ class BookDetail extends StatelessWidget {
             color: BranaColor.BookTitleColor
           ),
         ),
-           Text(
-          "isbn: 9780399588174",
-          style:TextStyle(
-            fontSize: 15,
-            color: BranaColor.BookTitleColor
-          ),
-        ),
+
         ]
       ),
     );
