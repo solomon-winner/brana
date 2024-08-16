@@ -106,7 +106,7 @@ class _HomePageState extends State<HomePage> {
                 ),
             
           ),
-          Icon(Icons.person,
+          Icon(Icons.trending_up_sharp,
           color: BranaColor.WhiteColor,
           ),
         ],
