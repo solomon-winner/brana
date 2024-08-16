@@ -9,11 +9,21 @@ class BookDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: BranaColor.WhiteColor,
       width: MediaQuery.sizeOf(context).width,
       padding: const EdgeInsets.symmetric(
         vertical: 15.0,
         horizontal: 20.0
+      ),
+      decoration: BoxDecoration(
+        color: BranaColor.WhiteColor,
+        boxShadow: [
+          BoxShadow(
+            color: BranaColor.ShadowColor,
+            spreadRadius: -5.0,
+            blurRadius: 5.0,
+            offset: Offset(0.0,7.0)
+          )
+        ]
       ),
       child: Column(
         mainAxisSize: MainAxisSize.max,
@@ -28,15 +38,18 @@ class BookDetail extends StatelessWidget {
             color: BranaColor.BookTitleColor
           ),
           overflow: TextOverflow.ellipsis,
-           maxLines: 3,
+          maxLines: 3,
         ),
           Text(
           "SubTitle: Born a Crime",
           style:TextStyle(
-            fontSize: 22,
+            fontSize: 20,
             color: BranaColor.BookTitleColor
-          )
-        ),        
+          ),
+          overflow: TextOverflow.ellipsis,
+          maxLines: 3,
+        ),
+
         ]
       ),
     );
