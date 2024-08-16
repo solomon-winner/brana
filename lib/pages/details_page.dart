@@ -11,8 +11,9 @@ class Detail extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
       backgroundColor: BranaColor.light_background,
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
-              backgroundColor: BranaColor.light_background,
+       backgroundColor: BranaColor.light_background,
 
         title: Text(book.title),
       ),
