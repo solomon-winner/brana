@@ -73,9 +73,9 @@ class _SideBarState extends State<SideBar> {
               ),
               ListTile(
                 leading: Icon(
-                  Icons.home_filled,
+                  Icons.account_circle,
                 ),
-                title: Text("Home"),
+                title: Text("Profile"),
                 onTap: () => print(this),
               ),
                             ListTile(
@@ -111,6 +111,13 @@ class _SideBarState extends State<SideBar> {
                   Icons.nightlight,
                 ),
                 title: Text("Dark Mode"),
+                onTap: () => print(this),
+              ),
+              ListTile(
+                leading: Icon(
+                  Icons.logout,
+                ),
+                title: Text("Signout"),
                 onTap: () => print(this),
               )
             ],
