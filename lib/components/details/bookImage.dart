@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
 
 class BookImage extends StatelessWidget {
-  const BookImage({super.key});
+  final String image;
+
+  BookImage({required this.image});
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(image)
+          )
+      ),
+    );
   }
 }
