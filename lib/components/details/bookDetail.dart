@@ -49,7 +49,51 @@ class BookDetail extends StatelessWidget {
           overflow: TextOverflow.ellipsis,
           maxLines: 3,
         ),
-
+        SizedBox(height: 10,),
+          Text(
+          "Author: Trevor Noah",
+          style:TextStyle(
+            fontSize: 16,
+            color: BranaColor.BookTitleColor
+          ),
+          overflow: TextOverflow.ellipsis,
+          maxLines: 2,
+        ),
+           Text(
+          "Year: 2024",
+          style:TextStyle(
+            fontSize: 15,
+            color: BranaColor.BookTitleColor
+          ),
+        ),
+           Text(
+          "Pages: 300",
+          style:TextStyle(
+            fontSize: 15,
+            color: BranaColor.BookTitleColor
+          ),
+        ),
+           Text(
+          "Language: English",
+          style:TextStyle(
+            fontSize: 15,
+            color: BranaColor.BookTitleColor
+          ),
+        ),
+           Text(
+          "Publisher: Penguin Random House",
+          style:TextStyle(
+            fontSize: 15,
+            color: BranaColor.BookTitleColor
+          ),
+        ),
+           Text(
+          "isbn: 9780399588174",
+          style:TextStyle(
+            fontSize: 15,
+            color: BranaColor.BookTitleColor
+          ),
+        ),
         ]
       ),
     );
