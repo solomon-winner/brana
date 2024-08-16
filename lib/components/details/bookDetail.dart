@@ -9,12 +9,25 @@ class BookDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text(
-        "Born a Crime",
-        style:TextStyle(
-          fontSize: 20,
-          color: BranaColor.BookTitleColor
-        )
+      color: BranaColor.WhiteColor,
+      width: MediaQuery.sizeOf(context).width,
+      padding: const EdgeInsets.symmetric(
+        vertical: 15.0,
+        horizontal: 20.0
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Text(
+          "Born a Crime",
+          style:TextStyle(
+            fontSize: 23,
+            fontWeight: FontWeight.bold,
+            color: BranaColor.BookTitleColor
+          )
+        ),
+        ]
       ),
     );
   }
