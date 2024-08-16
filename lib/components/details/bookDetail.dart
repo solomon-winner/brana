@@ -26,8 +26,17 @@ class BookDetail extends StatelessWidget {
             fontSize: 23,
             fontWeight: FontWeight.bold,
             color: BranaColor.BookTitleColor
-          )
+          ),
+          overflow: TextOverflow.ellipsis,
+           maxLines: 3,
         ),
+          Text(
+          "SubTitle: Born a Crime",
+          style:TextStyle(
+            fontSize: 22,
+            color: BranaColor.BookTitleColor
+          )
+        ),        
         ]
       ),
     );
