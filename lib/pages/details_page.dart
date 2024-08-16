@@ -10,7 +10,10 @@ class Detail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
+      backgroundColor: BranaColor.light_background,
       appBar: AppBar(
+              backgroundColor: BranaColor.light_background,
+
         title: Text(book.title),
       ),
       body: Container(
