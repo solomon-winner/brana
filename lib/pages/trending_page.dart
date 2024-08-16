@@ -4,14 +4,14 @@ import 'package:brana/components/home/trendingTabs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class TrendinPage extends StatefulWidget {
-  const TrendinPage({super.key});
+class TrendingPage extends StatefulWidget {
+  const TrendingPage({super.key});
 
   @override
-  State<TrendinPage> createState() => _TrendinPageState();
+  State<TrendingPage> createState() => _TrendingPageState();
 }
 
-class _TrendinPageState extends State<TrendinPage> {
+class _TrendingPageState extends State<TrendingPage> {
   @override
   Widget build(BuildContext context) {
     return Container(

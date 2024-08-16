@@ -1,6 +1,6 @@
 import 'package:brana/components/home/bodyContainer.dart';
 import 'package:brana/pages/favourite.dart';
-import 'package:brana/pages/profile_page.dart';
+import 'package:brana/pages/trending_page.dart';
 import 'package:brana/pages/setting_page.dart';
 import 'package:brana/pages/shelves.dart';
 import 'package:brana/utils/colors.dart';
@@ -20,7 +20,7 @@ class _HomePageState extends State<HomePage> {
   bool _isSideBarExpanded = false;
 
   var _page = 0;
-  final pages = [bodyContainer(),Shelves(),Favourite(),Profile()];
+  final pages = [bodyContainer(),Shelves(),Favourite(),TrendingPage()];
   
   @override
   Widget build(BuildContext context) {
