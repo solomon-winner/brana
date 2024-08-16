@@ -87,7 +87,25 @@ class BookDetail extends StatelessWidget {
             color: BranaColor.BookTitleColor
           ),
         ),
-
+                              Row(
+                                children: [
+                                  Icon(
+                                    Icons.star,
+                                    color: BranaColor.StarColor ,
+                                    ),
+                                  Icon(Icons.star,
+                                  color: BranaColor.StarColor,),
+                                  Icon(Icons.star,
+                                  color: BranaColor.StarColor,
+                                  ),
+                                  Icon(Icons.star,
+                                  color: BranaColor.StarColor,
+                                  ),
+                                 Icon(
+                                  Icons.star_half_outlined,
+                                  color: Colors.amber,)
+                                ] 
+                              ),
         ]
       ),
     );
