@@ -30,6 +30,7 @@ class BookDetail extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+
           Text(
           "Born a Crime",
           style:TextStyle(
