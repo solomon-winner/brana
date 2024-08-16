@@ -14,7 +14,7 @@ class Detail extends StatelessWidget {
       backgroundColor: BranaColor.light_background,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-       backgroundColor: BranaColor.light_background,
+       backgroundColor: BranaColor.AppBarTransparent,
        centerTitle: true,
         title: Text(book.title),
       ),
