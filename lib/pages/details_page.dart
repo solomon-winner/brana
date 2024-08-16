@@ -1,3 +1,4 @@
+import 'package:brana/components/details/bookDetail.dart';
 import 'package:brana/components/details/bookImage.dart';
 import 'package:brana/models/books.dart';
 import 'package:brana/utils/colors.dart';
@@ -21,7 +22,8 @@ class Detail extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            BookImage(image: book.img)
+            BookImage(image: book.img),
+            BookDetail(),
           ],
         )
       ),
