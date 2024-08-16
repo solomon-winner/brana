@@ -10,6 +10,7 @@ class BookImage extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
+          fit: BoxFit.contain,
           image: AssetImage(image)
           )
       ),
