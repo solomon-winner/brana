@@ -45,22 +45,7 @@ class _HomePageState extends State<HomePage> {
       ),
 
         
-        actions: [
-
-          SizedBox(width: 20,),
-                    Badge(
-            backgroundColor: BranaColor.BadgeBackground,
-            textColor: BranaColor.BadgeLabelColor,
-            label: Text("2"),
-            isLabelVisible: false,
-            child: Icon(
-                Icons.settings,
-                color: Colors.white,
-                ),
-            
-          ),
-          SizedBox(width: 10,)
-        ],
+        actions: [],
         title: const Text(
           "Brana Library",
           style: TextStyle(
