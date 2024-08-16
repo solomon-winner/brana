@@ -80,30 +80,37 @@ class _SideBarState extends State<SideBar> {
               ),
                             ListTile(
                 leading: Icon(
-                  Icons.home_filled,
+                  Icons.share,
                 ),
-                title: Text("Home"),
+                title: Text("Share"),
+                onTap: () => print(this),
+              ),
+                ListTile(
+                leading: Icon(
+                  Icons.settings,
+                ),
+                title: Text("Setting"),
                 onTap: () => print(this),
               ),
                             ListTile(
                 leading: Icon(
-                  Icons.home_filled,
+                  Icons.money,
                 ),
-                title: Text("Home"),
+                title: Text("Purchase History"),
                 onTap: () => print(this),
               ),
-                            ListTile(
+              ListTile(
                 leading: Icon(
-                  Icons.home_filled,
+                  Icons.notifications,
                 ),
-                title: Text("Home"),
+                title: Text("Notification"),
                 onTap: () => print(this),
               ),
-                            ListTile(
+              ListTile(
                 leading: Icon(
-                  Icons.home_filled,
+                  Icons.nightlight,
                 ),
-                title: Text("Home"),
+                title: Text("Dark Mode"),
                 onTap: () => print(this),
               )
             ],
