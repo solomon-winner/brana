@@ -11,7 +11,11 @@ class Detail extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
       backgroundColor: BranaColor.light_background,
+      appBar: AppBar(
+              backgroundColor: BranaColor.light_background,
 
+        title: Text(book.title),
+      ),
       body: Container(
         child: Center(child: Text(
           "Detail page for ${book.title}",
