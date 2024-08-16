@@ -17,13 +17,12 @@ class Detail extends StatelessWidget {
 
         title: Text(book.title),
       ),
-      body: Container(
-        child: Center(child: Text(
-          "Detail page for ${book.title}",
-          style: TextStyle(
-            color: BranaColor.dark_background,
-          ),
-        ),),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            
+          ],
+        )
       ),
     );
   }
