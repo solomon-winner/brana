@@ -15,7 +15,7 @@ class Detail extends StatelessWidget {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
        backgroundColor: BranaColor.light_background,
-
+       centerTitle: true,
         title: Text(book.title),
       ),
       body: SingleChildScrollView(
