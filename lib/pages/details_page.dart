@@ -56,7 +56,7 @@ class Detail extends StatelessWidget {
           ),
           Description(description: book.description,), 
           Booksbyauthor(),
-          Testimonies(testimony: book.description)
+          Testimonies(testimonies: [book.description, book.description, book.description,book.description,book.description,book.description,book.description]),
           ]
         )
       ),
