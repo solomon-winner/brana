@@ -63,19 +63,39 @@ class _TestimoniesState extends State<Testimonies> {
             ],
           )),
           if (hasMore) 
-            Column(
-              children: [
-                FilledButton(
-                  onPressed: _loadMore,
-                  child: Text(
-                    "Show More",
-                    style: TextStyle(
-                      color: BranaColor.BookTitleColor,
-                      fontSize: 15,
+            Container(
+              width: MediaQuery.sizeOf(context).width,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  FilledButton(
+                    onPressed: _loadMore,
+                    style: FilledButton.styleFrom(
+                      backgroundColor: BranaColor.BookTitleColor,
+                      foregroundColor: BranaColor.WhiteColor,
+                    ),
+                    child: Container(
+                      width: 105,
+                      child: Row(
+                        children: [
+                          Text(
+                            "Show More",
+                            style: TextStyle(
+                              color: BranaColor.WhiteColor,
+                              fontSize: 15,
+                            ),
+                          ),
+                          Icon(
+                            Icons.arrow_drop_down,
+                            color: BranaColor.WhiteColor,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             )
           
 
