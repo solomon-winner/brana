@@ -1,5 +1,6 @@
 import 'package:brana/components/details/bookDetail.dart';
 import 'package:brana/components/details/bookImage.dart';
+import 'package:brana/components/details/description.dart';
 import 'package:brana/models/books.dart';
 import 'package:brana/utils/colors.dart';
 import 'package:flutter/material.dart';
@@ -30,24 +31,29 @@ class Detail extends StatelessWidget {
         ),
       ),
       body: SingleChildScrollView(
-        child: Container(
-          height: 500,
-          child: Stack(
-            children: [
-              Positioned(
-          
-              child: BookImage(image: book.img),
-              ),
-              Expanded(
-                child: Positioned(
-                top: 230,
-                left: 0,
-                right: 0,
-                child: BookDetail(),
+        child: Column(
+          children: [Container(
+            height: 500,
+            child: Stack(
+              children: [
+                Positioned(
+            
+                child: BookImage(image: book.img),
                 ),
-              ),
-            ],
+                Expanded(
+                  child: Positioned(
+                  top: 230,
+                  left: 0,
+                  right: 0,
+                  child: BookDetail(),
+                  ),
+                ),
+              ],
+            ),
           ),
+            Description(description: book.description,),
+          
+          ]
         )
       ),
     );

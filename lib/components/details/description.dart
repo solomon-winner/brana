@@ -1,7 +1,9 @@
+import 'package:brana/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class Description extends StatelessWidget {
-  const Description({super.key});
+  final String description;
+  const Description({required this.description});
 
   @override
   Widget build(BuildContext context) {
@@ -10,6 +12,17 @@ class Description extends StatelessWidget {
       padding: const EdgeInsets.symmetric(
         vertical: 15.0,
         horizontal: 20.0,
+      ),
+      decoration: BoxDecoration(
+        color: BranaColor.WhiteColor,
+        boxShadow: [
+          BoxShadow(
+            color: BranaColor.ShadowColor,
+            spreadRadius: -5.0,
+            blurRadius: 5.0,
+            offset: Offset(0.0,7.0)
+          )
+        ]
       ),
     );
   }
