@@ -34,7 +34,7 @@ class Detail extends StatelessWidget {
         child: Column(
           children: [
             Container(
-            height: 500,
+            height: 480,
             child: Stack(
               children: [
                 Positioned(
@@ -52,7 +52,7 @@ class Detail extends StatelessWidget {
               ],
             ),
           ),
-            Description(description: book.description,),          
+          Description(description: book.description,),          
           ]
         )
       ),

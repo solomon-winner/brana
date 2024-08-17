@@ -23,7 +23,7 @@ class Description extends StatelessWidget {
             offset: Offset(0.0,7.0)
           )
         ],
-        
+        borderRadius: BorderRadius.circular(20.0)
       ),
       child: Column(
         mainAxisSize: MainAxisSize.max,
