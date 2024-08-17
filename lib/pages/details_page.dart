@@ -51,8 +51,7 @@ class Detail extends StatelessWidget {
               ],
             ),
           ),
-            Description(description: book.description,),
-          
+            Description(description: book.description,),          
           ]
         )
       ),
