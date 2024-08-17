@@ -26,8 +26,28 @@ class _SeeMoreState extends State<SeeMore> {
         SizedBox(
           height: 10,
         ),
-        Text("${widget.testimonier}${desplayText}",
-            style: TextStyle(fontSize: 15, color: BranaColor.BookTitleColor)),
+        Text.rich(
+          TextSpan(
+            children: [
+              TextSpan(
+                text: widget.testimonier,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15,
+                  color: BranaColor.BookTitleColor,
+                )
+              ),
+              TextSpan(
+                text: desplayText,
+                style: TextStyle(
+                  fontSize: 15,
+                  fontFamily: 'Verdana',
+                  color: BranaColor.BookTitleColor, 
+              )
+              ),
+            ]
+          ),
+        ),
         if (words.length > 20)
           Container(
             width: MediaQuery.sizeOf(context).width,
