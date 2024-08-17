@@ -18,7 +18,11 @@ class _TestimoniesState extends State<Testimonies> {
       _displayCount += 2;
     });
   }
-
+  void _Unload() {
+    setState(() {
+      _displayCount = 2;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     final displayedTestimonies = widget.testimonies.take(_displayCount).toList();
@@ -62,7 +66,7 @@ class _TestimoniesState extends State<Testimonies> {
           ),
             ],
           )),
-          if (hasMore) 
+          hasMore ?
             Container(
               width: MediaQuery.sizeOf(context).width,
               child: Column(
@@ -96,8 +100,42 @@ class _TestimoniesState extends State<Testimonies> {
                   ),
                 ],
               ),
-            )
-          
+            ) :
+
+                     Container(
+              width: MediaQuery.sizeOf(context).width,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  FilledButton(
+                    onPressed: _Unload,
+                    style: FilledButton.styleFrom(
+                      backgroundColor: BranaColor.BookTitleColor,
+                      foregroundColor: BranaColor.WhiteColor,
+                    ),
+                    child: Container(
+                      width: 105,
+                      child: Row(
+                        children: [
+                          Text(
+                            "Show Less",
+                            style: TextStyle(
+                              color: BranaColor.WhiteColor,
+                              fontSize: 15,
+                            ),
+                          ),
+                          Icon(
+                            Icons.arrow_drop_up,
+                            color: BranaColor.WhiteColor,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            )  
 
         ],
       ),
