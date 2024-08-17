@@ -36,7 +36,7 @@ class Detail extends StatelessWidget {
         child: Column(
           children: [
             Container(
-            height: 480,
+            height: 520,
             child: Stack(
               children: [
                 Positioned(
@@ -54,6 +54,7 @@ class Detail extends StatelessWidget {
               ],
             ),
           ),
+          SizedBox(height: 10,),
           Description(description: book.description,), 
           Booksbyauthor(),
           Testimonies(testimonies: [book.description, book.description, book.description,book.description,book.description,book.description,book.description]),

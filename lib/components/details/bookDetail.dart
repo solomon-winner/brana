@@ -70,7 +70,7 @@ class BookDetail extends StatelessWidget {
               Icons.star_half_outlined,
               color: Colors.amber,)
             ] 
-                              ),
+             ),
           Text(
           "Author: Trevor Noah",
           style:TextStyle(
@@ -108,7 +108,71 @@ class BookDetail extends StatelessWidget {
             color: BranaColor.BookTitleColor
           ),
         ),
-
+        Container(
+          width: MediaQuery.sizeOf(context).width,
+          child: Row(
+            children: [
+              FilledButton(
+                onPressed: () {},
+                style: FilledButton.styleFrom(
+                  backgroundColor: BranaColor.WhiteColor,
+                  foregroundColor: BranaColor.BookTitleColor,
+                  side: BorderSide(
+                    color: BranaColor.BorderColor,
+                    style: BorderStyle.solid,
+                    width: 1
+                  )
+                ),
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.favorite_outline,
+                      color: BranaColor.BookTitleColor,
+                      size: 20,
+                    ),
+                    SizedBox(width: 5,),
+                    Text(
+                      "Add to Wishlist",
+                      style: TextStyle(
+                        color: BranaColor.BookTitleColor,
+                        fontSize: 12,
+                      ),
+                    ),
+                  ],
+                )
+                ),
+                SizedBox(width: 10,),
+              FilledButton(
+                onPressed: () {},
+                style: FilledButton.styleFrom(
+                  backgroundColor: BranaColor.WhiteColor,
+                  foregroundColor: BranaColor.BookTitleColor,
+                  side: BorderSide(
+                    color: BranaColor.BorderColor,
+                    style: BorderStyle.solid,
+                    width: 1
+                  )
+                ),
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.my_library_add_outlined,
+                      color: BranaColor.BookTitleColor,
+                    ),
+                    SizedBox(width: 5,),
+                    Text(
+                      "Add to Shelve",
+                      style: TextStyle(
+                        color: BranaColor.BookTitleColor,
+                        fontSize: 12,
+                      ),
+                    ),
+                  ],
+                )
+                )
+            ],
+          ),
+        )
         ]
       ),
     );
