@@ -24,7 +24,7 @@ class Booksbyauthor extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Books by The Author: ",
+            "Other Books by The Author: ",
             style: TextStyle(fontSize: 17, color: BranaColor.BookTitleColor),
           ),
           SizedBox(
@@ -36,9 +36,12 @@ class Booksbyauthor extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
                     decoration: BoxDecoration(
-                      color: BranaColor.WhiteColor,
-                      borderRadius: BorderRadius.circular(5),
-                    ),
+                        color: BranaColor.WhiteColor,
+                        border: Border.all(
+                          color: BranaColor.BorderColor,
+                          width: 1.0,
+                          style: BorderStyle.solid,
+                        )),
                     child: Column(children: [
                       Container(
                         width: 100,
@@ -80,9 +83,12 @@ class Booksbyauthor extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
                     decoration: BoxDecoration(
-                      color: BranaColor.WhiteColor,
-                      borderRadius: BorderRadius.circular(5),
-                    ),
+                        color: BranaColor.WhiteColor,
+                        border: Border.all(
+                          color: BranaColor.BorderColor,
+                          width: 1.0,
+                          style: BorderStyle.solid,
+                        )),
                     child: Column(children: [
                       Container(
                         width: 100,
@@ -124,9 +130,12 @@ class Booksbyauthor extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
                     decoration: BoxDecoration(
-                      color: BranaColor.WhiteColor,
-                      borderRadius: BorderRadius.circular(5),
-                    ),
+                        color: BranaColor.WhiteColor,
+                        border: Border.all(
+                          color: BranaColor.BorderColor,
+                          width: 1.0,
+                          style: BorderStyle.solid,
+                        )),
                     child: Column(children: [
                       Container(
                         width: 100,
@@ -168,9 +177,12 @@ class Booksbyauthor extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
                     decoration: BoxDecoration(
-                      color: BranaColor.WhiteColor,
-                      borderRadius: BorderRadius.circular(5),
-                    ),
+                        color: BranaColor.WhiteColor,
+                        border: Border.all(
+                          color: BranaColor.BorderColor,
+                          width: 1.0,
+                          style: BorderStyle.solid,
+                        )),
                     child: Column(children: [
                       Container(
                         width: 100,
@@ -212,9 +224,12 @@ class Booksbyauthor extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
                     decoration: BoxDecoration(
-                      color: BranaColor.WhiteColor,
-                      borderRadius: BorderRadius.circular(5),
-                    ),
+                        color: BranaColor.WhiteColor,
+                        border: Border.all(
+                          color: BranaColor.BorderColor,
+                          width: 1.0,
+                          style: BorderStyle.solid,
+                        )),
                     child: Column(children: [
                       Container(
                         width: 100,

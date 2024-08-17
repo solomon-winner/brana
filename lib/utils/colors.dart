@@ -14,4 +14,5 @@ static Color ClickedBookColor = Color(0xFF757070);
 static Color BadgeBackground = Color(0xFFF44336);
 static Color BadgeLabelColor = Color(0xFFFFFFFF);
 static Color AppBarTransparent = Color(0x00E3F2FD);
+static Color BorderColor = Color(0x30000000);
 }
