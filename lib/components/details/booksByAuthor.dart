@@ -12,13 +12,17 @@ class Booksbyauthor extends StatelessWidget {
         vertical: 10.0,
         horizontal: 15.0,
       ),
-      decoration: BoxDecoration(color: BranaColor.WhiteColor, boxShadow: [
+      decoration: BoxDecoration(
+        color: BranaColor.WhiteColor,
+         boxShadow: [
         BoxShadow(
             color: BranaColor.ShadowColor,
             spreadRadius: -5.0,
             blurRadius: 5.0,
-            offset: Offset(0.0, 7.0))
-      ]),
+            offset: Offset(0.0, 7.0)),
+            ],
+            borderRadius: BorderRadius.circular(10.0)
+      ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
