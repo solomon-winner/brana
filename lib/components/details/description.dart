@@ -10,8 +10,8 @@ class Description extends StatelessWidget {
     return Container(
       width: MediaQuery.sizeOf(context).width,
       padding: const EdgeInsets.symmetric(
-        vertical: 15.0,
-        horizontal: 20.0,
+        vertical: 7.0,
+        horizontal: 15.0,
       ),
       decoration: BoxDecoration(
         color: BranaColor.WhiteColor,
@@ -22,8 +22,22 @@ class Description extends StatelessWidget {
             blurRadius: 5.0,
             offset: Offset(0.0,7.0)
           )
-        ]
+        ],
+        
       ),
+      child: Column(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment:  MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "Description: ",
+            style: TextStyle(
+              fontSize: 15,
+              color: BranaColor.BookTitleColor
+            ),
+          )
+        ],),
     );
   }
 }
