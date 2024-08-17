@@ -81,7 +81,8 @@ class _DescriptionState extends State<Description> {
           )            
           
 
-        ],),
+        ],
+        ),
     );
   }   
 }
