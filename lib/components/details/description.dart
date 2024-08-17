@@ -1,12 +1,18 @@
 import 'package:brana/utils/colors.dart';
 import 'package:flutter/material.dart';
 
-class Description extends StatelessWidget {
+class Description extends StatefulWidget {
   final String description;
   const Description({required this.description});
 
   @override
+  _DescriptionState createState() => _DescriptionState();
+}
+class _DescriptionState extends State<Description> {
+  bool _isExpanded = false;
+   @override
   Widget build(BuildContext context) {
+    
     return Container(
       width: MediaQuery.sizeOf(context).width,
       padding: const EdgeInsets.symmetric(
@@ -47,5 +53,7 @@ class Description extends StatelessWidget {
           ),
         ],),
     );
-  }
+  }   
+}
+
 }
