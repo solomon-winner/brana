@@ -14,11 +14,6 @@ class _TestimoniesState extends State<Testimonies> {
   bool _isExpanded = false;
    @override
     Widget build(BuildContext context) {
-    final words = widget.testimony.split(' ');
-    final desplayText = _isExpanded ?
-     widget.testimony :
-      words.take(20).join(' ')
-     + (words.length > 20 ? '...' : '');
     return Container(
       width: MediaQuery.sizeOf(context).width,
       padding: const EdgeInsets.symmetric(
@@ -37,6 +32,7 @@ class _TestimoniesState extends State<Testimonies> {
         ],
         borderRadius: BorderRadius.circular(10.0)
       ),
-      child: SeeMore(text: widget.testimony, title: "Testimonies: "),    );
+      child: SeeMore(text: widget.testimony, title: "Testimonies: "),
+      );
   }
 }
