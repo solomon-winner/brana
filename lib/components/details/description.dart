@@ -1,4 +1,5 @@
 import 'package:brana/utils/colors.dart';
+import 'package:brana/utils/seeMore.dart';
 import 'package:flutter/material.dart';
 
 class Description extends StatefulWidget {
@@ -12,11 +13,6 @@ class _DescriptionState extends State<Description> {
   bool _isExpanded = false;
    @override
   Widget build(BuildContext context) {
-    final words = widget.description.split(' ');
-    final desplayText = _isExpanded ?
-     widget.description :
-      words.take(20).join(' ')
-     + (words.length > 20 ? '...' : '');
     return Container(
       width: MediaQuery.sizeOf(context).width,
       padding: const EdgeInsets.symmetric(
@@ -35,54 +31,7 @@ class _DescriptionState extends State<Description> {
         ],
         borderRadius: BorderRadius.circular(10.0)
       ),
-      child: Column(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment:  MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            "Description: ",
-            style: TextStyle(
-              fontSize: 17,
-              color: BranaColor.BookTitleColor
-            ),
-          ),
-          SizedBox(height: 10,),
-          Text(
-            desplayText,
-            style: TextStyle(
-              fontSize: 15,
-              color: BranaColor.BookTitleColor
-            )
-          ),
-          if(words.length > 20) 
-          Container(
-            width: MediaQuery.sizeOf(context).width,
-
-            child: Row(
-              children: [
-                Spacer(),
-                GestureDetector(
-                onTap: () {
-                  setState (() {
-                    _isExpanded = !_isExpanded;
-                  });
-                },
-                child: Text(
-                  _isExpanded ? 'see less' : 'see more',
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: Colors.blue,
-                  ),
-                  ),
-              ),
-              ]
-            ),
-          )            
-          
-
-        ],
-        ),
+      child: SeeMore(text: widget.description, title: "Description: "),
     );
   }   
 }
