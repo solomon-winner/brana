@@ -17,7 +17,6 @@ class Detail extends StatelessWidget {
       appBar: AppBar(
        backgroundColor: BranaColor.AppBarTransparent,
        centerTitle: true,
-        title: Text(book.title),
       ),
       body: SingleChildScrollView(
         child: Column(
