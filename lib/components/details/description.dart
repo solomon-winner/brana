@@ -10,7 +10,7 @@ class Description extends StatefulWidget {
   _DescriptionState createState() => _DescriptionState();
 }
 class _DescriptionState extends State<Description> {
-  bool _isExpanded = false;
+
    @override
   Widget build(BuildContext context) {
     return Container(

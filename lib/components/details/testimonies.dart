@@ -11,7 +11,7 @@ class Testimonies extends StatefulWidget {
 }
 
 class _TestimoniesState extends State<Testimonies> {
-  bool _isExpanded = false;
+
    @override
     Widget build(BuildContext context) {
     return Container(
