@@ -23,7 +23,12 @@ class BookDetail extends StatelessWidget {
             blurRadius: 5.0,
             offset: Offset(0.0,7.0)
           )
-        ]
+        ],
+        borderRadius: BorderRadius.only(
+          topRight: Radius.circular(20),
+          topLeft: Radius.circular(20)
+          
+        )
       ),
       child: Column(
         mainAxisSize: MainAxisSize.max,
