@@ -12,7 +12,11 @@ class _DescriptionState extends State<Description> {
   bool _isExpanded = false;
    @override
   Widget build(BuildContext context) {
-    
+    final words = widget.description.split(' ');
+    final desplayText = _isExpanded ?
+     widget.description :
+      words.take(20).join(' ')
+     + (words.length > 20 ? '...' : '');
     return Container(
       width: MediaQuery.sizeOf(context).width,
       padding: const EdgeInsets.symmetric(
@@ -45,7 +49,7 @@ class _DescriptionState extends State<Description> {
           ),
           SizedBox(height: 10,),
           Text(
-            description,
+            desplayText,
             style: TextStyle(
               fontSize: 15,
               color: BranaColor.BookTitleColor
@@ -56,4 +60,3 @@ class _DescriptionState extends State<Description> {
   }   
 }
 
-}
