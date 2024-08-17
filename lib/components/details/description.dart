@@ -55,6 +55,32 @@ class _DescriptionState extends State<Description> {
               color: BranaColor.BookTitleColor
             )
           ),
+          if(words.length > 20) 
+          Container(
+            width: MediaQuery.sizeOf(context).width,
+
+            child: Row(
+              children: [
+                Spacer(),
+                GestureDetector(
+                onTap: () {
+                  setState (() {
+                    _isExpanded = !_isExpanded;
+                  });
+                },
+                child: Text(
+                  _isExpanded ? 'see less' : 'see more',
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.blue,
+                  ),
+                  ),
+              ),
+              ]
+            ),
+          )            
+          
+
         ],),
     );
   }   
