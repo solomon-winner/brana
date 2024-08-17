@@ -48,7 +48,7 @@ class Booksbyauthor extends StatelessWidget {
                         height: 120,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
-                          image: DecorationImage(
+                          image: const DecorationImage(
                             image: AssetImage('assets/Born_a_crime.PNG'),
                             fit: BoxFit.contain,
                           ),
