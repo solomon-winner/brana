@@ -17,6 +17,15 @@ class Detail extends StatelessWidget {
       appBar: AppBar(
        backgroundColor: BranaColor.AppBarTransparent,
        centerTitle: true,
+        leading: Container(
+          color: BranaColor.WhiteColor, // Set the background color to white
+          child: IconButton(
+            icon: Icon(Icons.arrow_back, color: Colors.black),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         child: Container(
