@@ -23,34 +23,6 @@ class BookImage extends StatelessWidget {
           Container(
             width: MediaQuery.sizeOf(context).width,
             
-            child: Row(
-                  children: [
-                    Spacer(),
-                    Container(
-                      child: Row(
-                        children: [
-                      Icon(
-                        Icons.star,
-                        color: BranaColor.StarColor ,
-                        ),
-                      Icon(Icons.star,
-                      color: BranaColor.StarColor,),
-                      Icon(Icons.star,
-                      color: BranaColor.StarColor,
-                      ),
-                      Icon(Icons.star,
-                      color: BranaColor.StarColor,
-                      ),
-                                         Icon(
-                      Icons.star_half_outlined,
-                      color: Colors.amber,)                        
-                        ]
-                      
-                      ),
-                    )
-              
-                  ] 
-                 ),
           ),
         ]
       ),

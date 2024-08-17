@@ -51,6 +51,25 @@ class BookDetail extends StatelessWidget {
           maxLines: 3,
         ),
         SizedBox(height: 10,),
+          Row(
+            children: [
+              Icon(
+                Icons.star,
+                color: BranaColor.StarColor ,
+                ),
+              Icon(Icons.star,
+              color: BranaColor.StarColor,),
+              Icon(Icons.star,
+              color: BranaColor.StarColor,
+              ),
+              Icon(Icons.star,
+              color: BranaColor.StarColor,
+              ),
+             Icon(
+              Icons.star_half_outlined,
+              color: Colors.amber,)
+            ] 
+                              ),
           Text(
           "Author: Trevor Noah",
           style:TextStyle(
