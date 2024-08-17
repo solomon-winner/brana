@@ -24,13 +24,9 @@ class BookDetail extends StatelessWidget {
             offset: Offset(0.0,7.0)
           )
         ],
-        borderRadius: BorderRadius.only(
-          topRight: Radius.circular(20),
-          topLeft: Radius.circular(20)
-          
-        )
-      ),
-      child: Column(
+        borderRadius: BorderRadius.circular(20.0),
+        ),
+        child: Column(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.start,

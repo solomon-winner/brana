@@ -19,11 +19,24 @@ class Detail extends StatelessWidget {
        centerTitle: true,
       ),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            BookImage(image: book.img),
-            BookDetail(),
-          ],
+        child: Container(
+          height: 500,
+          child: Stack(
+            children: [
+              Positioned(
+          
+              child: BookImage(image: book.img),
+              ),
+              Expanded(
+                child: Positioned(
+                top: 230,
+                left: 0,
+                right: 0,
+                child: BookDetail(),
+                ),
+              ),
+            ],
+          ),
         )
       ),
     );
