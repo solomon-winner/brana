@@ -43,7 +43,12 @@ class _TestimoniesState extends State<Testimonies> {
             height: 10,
           ),
           SeeMore(text: full_testimony, testimonier: 'Solomon Yalew:  '),
-
+          Divider(
+            color: BranaColor.DividerColor,
+            thickness: 1,
+          ),
+          SeeMore(text: full_testimony, testimonier: 'Solomon Yalew:  '),
+          
         ],
       ),
     );
