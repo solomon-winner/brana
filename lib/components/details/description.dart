@@ -23,7 +23,7 @@ class Description extends StatelessWidget {
             offset: Offset(0.0,7.0)
           )
         ],
-        borderRadius: BorderRadius.circular(20.0)
+        borderRadius: BorderRadius.circular(10.0)
       ),
       child: Column(
         mainAxisSize: MainAxisSize.max,
@@ -33,10 +33,18 @@ class Description extends StatelessWidget {
           Text(
             "Description: ",
             style: TextStyle(
-              fontSize: 15,
+              fontSize: 17,
               color: BranaColor.BookTitleColor
             ),
-          )
+          ),
+          SizedBox(height: 10,),
+          Text(
+            description,
+            style: TextStyle(
+              fontSize: 15,
+              color: BranaColor.BookTitleColor
+            )
+          ),
         ],),
     );
   }
