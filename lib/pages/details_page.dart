@@ -20,7 +20,9 @@ class Detail extends StatelessWidget {
         leading: Container(
           color: BranaColor.WhiteColor, // Set the background color to white
           child: IconButton(
-            icon: Icon(Icons.arrow_back, color: Colors.black),
+            icon: Icon(
+              Icons.arrow_back,
+             color: BranaColor.dark_background),
             onPressed: () {
               Navigator.of(context).pop();
             },
