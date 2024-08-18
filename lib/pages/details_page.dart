@@ -56,7 +56,15 @@ class Detail extends StatelessWidget {
           SizedBox(height: 10,),
           Description(description: book.description,), 
           Booksbyauthor(),
-          Testimonies(testimonies: [book.description, book.description, book.description,book.description,book.description,book.description,book.description]),
+          Testimonies(testimonies: [
+            book.description, 
+            book.description, 
+            book.description,
+            book.description,
+            book.description,
+            book.description,
+            book.description,
+            ]),
           ]
         )
       ),

@@ -1,3 +1,4 @@
+import 'package:brana/pages/profile_page.dart';
 import 'package:brana/utils/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -76,14 +77,20 @@ class _SideBarState extends State<SideBar> {
                   Icons.account_circle,
                 ),
                 title: Text("Profile"),
-                onTap: () => print(this),
+                onTap: () => Navigator.push(context,
+                MaterialPageRoute(
+                  builder: (context) { return Profile();})
+                ),
               ),
                             ListTile(
                 leading: Icon(
                   Icons.share,
                 ),
                 title: Text("Share"),
-                onTap: () => print(this),
+                onTap: () => Navigator.push(context,
+                MaterialPageRoute(
+                  builder: (context) { return Profile();})
+                ),
               ),
                 ListTile(
                 leading: Icon(
