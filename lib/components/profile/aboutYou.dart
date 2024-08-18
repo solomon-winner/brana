@@ -28,50 +28,71 @@ class _AboutyouState extends State<Aboutyou> {
               topLeft: Radius.circular(20), topRight: Radius.circular(20))),
       child: Column(
         children: [
-          Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-            GestureDetector(
-                onTap: () {
-                  setState(() {
-                    selectedTab = "Your Categories";
-                  });
-                },
-                child: Text(
-                  "Your Categories",
-                  style: TextStyle(
-                      fontWeight: selectedTab == "Your Categories"
-                          ? FontWeight.bold
-                          : FontWeight.normal),
-                )),
-            GestureDetector(
-                onTap: () {
-                  setState(() {
-                    selectedTab = "Your Authors";
-                  });
-                },
-                child: Text(
-                  "Your Authors",
-                  style: TextStyle(
-                      fontWeight: selectedTab == "Your Authors"
-                          ? FontWeight.bold
-                          : FontWeight.normal),
-                )),
-            GestureDetector(
-                onTap: () {
-                  setState(() {
-                    selectedTab = "Saved Books";
-                  });
-                },
-                child: Text(
-                  "Saved Books",
-                  style: TextStyle(
-                      fontWeight: selectedTab == "Saved Books"
-                          ? FontWeight.bold
-                          : FontWeight.normal),
-                )),
-          ]),
-          Container(),
+
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              vertical: 10
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+              GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      selectedTab = "Your Categories";
+                    });
+                  },
+                  child: Text(
+                    "Your Categories",
+                    style: TextStyle(
+                        fontWeight: selectedTab == "Your Categories"
+                            ? FontWeight.bold
+                            : FontWeight.normal,
+                        fontSize: 15
+                            ),
+                  )),
+              GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      selectedTab = "Your Authors";
+                    });
+                  },
+                  child: Text(
+                    "Your Authors",
+                    style: TextStyle(
+                        fontWeight: selectedTab == "Your Authors"
+                            ? FontWeight.bold
+                            : FontWeight.normal,
+                        fontSize: 15
+                        ),
+                  )),
+              GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      selectedTab = "Saved Books";
+                    });
+                  },
+                  child: Text(
+                    "Saved Books",
+                    style: TextStyle(
+                        fontWeight: selectedTab == "Saved Books"
+                            ? FontWeight.bold
+                            : FontWeight.normal,
+                        fontSize: 15
+                        ),
+                  )),
+            ]),
+          ),
+          Expanded(
+            child: Container(
+              child: getContent(),
+            )),
         ],
       ),
     );
+  }
+
+  Widget getContent() {
+    return Container();
   }
 }
