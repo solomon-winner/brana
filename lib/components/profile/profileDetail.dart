@@ -49,15 +49,20 @@ class ProfileDetail extends StatelessWidget {
                   ),
                 ],
               ),
+              Spacer(),
               Container(
+                width:60,
+                height:60,
                 decoration: BoxDecoration(
                   boxShadow: [
                     BoxShadow(
                         color: BranaColor.ShadowColor,
                         spreadRadius: -5.0,
                         blurRadius: 5.0,
-                        offset: Offset(0.0, 7.0))
+                        offset: Offset(0.0, 7.0)),
                   ],
+                borderRadius: BorderRadius.all(Radius.circular(50)),
+
                 ),
                 child: CircleAvatar(
                   backgroundColor: BranaColor.WhiteColor,
