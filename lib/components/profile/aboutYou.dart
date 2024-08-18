@@ -2,7 +2,8 @@ import 'package:brana/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class Aboutyou extends StatefulWidget {
-  const Aboutyou({super.key});
+  List<String> categories = [];
+  Aboutyou({required this.categories});
 
   @override
   State<Aboutyou> createState() => _AboutyouState();
@@ -97,7 +98,7 @@ class _AboutyouState extends State<Aboutyou> {
                 padding: const EdgeInsets.all(8.0),
                 child: GestureDetector(
                   onTap: () {},
-                  child: Text("")
+                  child: Text("Fiction")
                 ),
                 );
             },
