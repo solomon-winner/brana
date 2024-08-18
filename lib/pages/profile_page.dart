@@ -1,3 +1,4 @@
+import 'package:brana/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class Profile extends StatefulWidget {
@@ -10,6 +11,15 @@ class Profile extends StatefulWidget {
 class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      backgroundColor: BranaColor.light_background,
+      appBar: AppBar(
+        backgroundColor: BranaColor.AppBarTransparent,
+        centerTitle: true,
+        leading: Container(
+          
+        ),
+      ),
+    );
   }
 }
