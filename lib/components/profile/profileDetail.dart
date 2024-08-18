@@ -29,7 +29,59 @@ class ProfileDetail extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          
+          Column(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+              "Solomon Yalew",
+              style:TextStyle(
+                fontSize: 23,
+                fontWeight: FontWeight.bold,
+                color: BranaColor.BookTitleColor
+              ),
+              overflow: TextOverflow.ellipsis,
+              maxLines: 3,
+                      ),
+          Text(
+          "@sol_african",
+          style:TextStyle(
+            fontSize: 20,
+            color: BranaColor.BookTitleColor
+          ),
+          overflow: TextOverflow.ellipsis,
+          maxLines: 3,
+        ),              
+            ],
+          ),
+
+        SizedBox(height: 10,),  
+
+                  Text(
+          "Email: solomonyalew664@gmail.com",
+          style:TextStyle(
+            fontSize: 16,
+            color: BranaColor.BookTitleColor
+          ),
+          overflow: TextOverflow.ellipsis,
+          maxLines: 2,
+        ),
+           Text(
+          "phone No. : +251986780165",
+          style:TextStyle(
+            fontSize: 15,
+            color: BranaColor.BookTitleColor
+          ),
+        ),
+           Text(
+          "Alternative phone No. : +251936187311",
+          style:TextStyle(
+            fontSize: 15,
+            color: BranaColor.BookTitleColor
+          ),
+        ),
+ 
         ],
       ),
     );
