@@ -3,6 +3,7 @@ import 'package:brana/components/details/bookImage.dart';
 import 'package:brana/components/details/description.dart';
 import 'package:brana/components/details/booksByAuthor.dart';
 import 'package:brana/components/details/testimonies.dart';
+import 'package:brana/components/profile/aboutYou.dart';
 import 'package:brana/components/profile/profileDetail.dart';
 import 'package:brana/components/profile/profileImage.dart';
 import 'package:brana/models/books.dart';
@@ -54,7 +55,7 @@ class Profile extends StatelessWidget {
             ),
           ),
           SizedBox(height: 10,),
-          Booksbyauthor(),
+          Aboutyou(),
           ]
         )
       ),
