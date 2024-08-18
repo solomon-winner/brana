@@ -83,9 +83,7 @@ class _AboutyouState extends State<Aboutyou> {
                       )),
                 ]),
           ),
-          Container(
-            child: getContent(),
-          ),
+         getContent(),
         ],
       ),
     );
@@ -96,12 +94,22 @@ class _AboutyouState extends State<Aboutyou> {
       case "Your Categories":
         return isContent
             ? Container(
+               height: MediaQuery.sizeOf(context).height * 0.3, 
+               decoration: BoxDecoration(
+                border: Border.all(
+                  color: BranaColor.dark_background,
+                  width: 1.0,
+                  style: BorderStyle.solid
+                )
+               ),            
                 child: ListView.builder(
                   itemCount: widget.categories.length,
                   itemBuilder: (context, index) {
                     String Category = widget.categories[index];
                     return Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 8
+                      ),
                       child:
                           GestureDetector(onTap: () {}, child: Text(Category)),
                     );

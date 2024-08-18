@@ -51,7 +51,7 @@ class Profile extends StatelessWidget {
           height: 10,
         ),
         Aboutyou(
-          categories: [],
+          categories: ["Fiction", "Psychology"],
           authors: [],
           saving: [],
         ),
