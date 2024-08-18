@@ -17,7 +17,13 @@ class _ProfileState extends State<Profile> {
         backgroundColor: BranaColor.AppBarTransparent,
         centerTitle: true,
         leading: Container(
-          
+          color: BranaColor.WhiteColor,
+          child: IconButton(
+            onPressed: () => Navigator.of(context).pop(),
+            icon: Icon(
+              Icons.arrow_back,
+              color: BranaColor.dark_background,
+            )),
         ),
       ),
     );
