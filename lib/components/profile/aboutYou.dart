@@ -9,7 +9,7 @@ class Aboutyou extends StatefulWidget {
 }
 
 class _AboutyouState extends State<Aboutyou> {
-  String selectedTab = "Favourite Categories";
+  String selectedTab = "Your Categories";
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -32,26 +32,26 @@ class _AboutyouState extends State<Aboutyou> {
             GestureDetector(
                 onTap: () {
                   setState(() {
-                    selectedTab = "Favourite Categories";
+                    selectedTab = "Your Categories";
                   });
                 },
                 child: Text(
-                  "Favourite Categories",
+                  "Your Categories",
                   style: TextStyle(
-                      fontWeight: selectedTab == "Favourite Categories"
+                      fontWeight: selectedTab == "Your Categories"
                           ? FontWeight.bold
                           : FontWeight.normal),
                 )),
             GestureDetector(
                 onTap: () {
                   setState(() {
-                    selectedTab = "Favourite Authors";
+                    selectedTab = "Your Authors";
                   });
                 },
                 child: Text(
-                  "Favourite Authors",
+                  "Your Authors",
                   style: TextStyle(
-                      fontWeight: selectedTab == "Favourite Authors"
+                      fontWeight: selectedTab == "Your Authors"
                           ? FontWeight.bold
                           : FontWeight.normal),
                 )),
