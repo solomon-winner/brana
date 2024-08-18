@@ -59,7 +59,12 @@ class ProfileDetail extends StatelessWidget {
               ),
               Container(
                 child: CircleAvatar(
-                  
+                  backgroundColor: BranaColor.WhiteColor,
+                  child: ClipOval(
+                    child: Icon(
+                      Icons.edit,
+                      
+                    ),),
                 ),
               )
             ],
