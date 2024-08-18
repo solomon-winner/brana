@@ -29,8 +29,19 @@ class _AboutyouState extends State<Aboutyou> {
     child: Column(
       children: [
         Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+
           children: [
-          Text("Favourite Categories"),
+
+          GestureDetector(
+            child: Text(
+              "Favourite Categories",
+              style: TextStyle(
+                fontWeight: selectedTab == "Favourite Categories"
+                ? FontWeight.bold
+                :FontWeight.normal
+              ),
+              )),
           Text("Favourite Authors"),
           Text("Saved Books")
           ]
