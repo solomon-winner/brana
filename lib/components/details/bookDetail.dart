@@ -109,6 +109,9 @@ class BookDetail extends StatelessWidget {
           ),
         ),
         Container(
+          margin: EdgeInsets.only(
+            top: 10
+          ),
           width: MediaQuery.sizeOf(context).width,
           child: Row(
             children: [

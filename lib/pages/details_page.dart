@@ -36,21 +36,20 @@ class Detail extends StatelessWidget {
         child: Column(
           children: [
             Container(
-            height: 520,
+            height: 530,
             child: Stack(
               children: [
                 Positioned(
             
                 child: BookImage(image: book.img),
                 ),
-                Expanded(
-                  child: Positioned(
+                 Positioned(
                   top: 230,
                   left: 0,
                   right: 0,
                   child: BookDetail(),
                   ),
-                ),
+                
               ],
             ),
           ),
