@@ -9,6 +9,7 @@ class Aboutyou extends StatefulWidget {
 }
 
 class _AboutyouState extends State<Aboutyou> {
+  String selectedTab = "Favourite Categories";
   @override
   Widget build(BuildContext context) {
     return Container(
