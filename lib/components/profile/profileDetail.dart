@@ -29,30 +29,39 @@ class ProfileDetail extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Column(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        crossAxisAlignment: CrossAxisAlignment.start,
+          Row(
             children: [
+              Column(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                  "Solomon Yalew",
+                  style:TextStyle(
+                    fontSize: 23,
+                    fontWeight: FontWeight.bold,
+                    color: BranaColor.BookTitleColor
+                  ),
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 3,
+                          ),
               Text(
-              "Solomon Yalew",
+              "@sol_african",
               style:TextStyle(
-                fontSize: 23,
-                fontWeight: FontWeight.bold,
+                fontSize: 20,
                 color: BranaColor.BookTitleColor
               ),
               overflow: TextOverflow.ellipsis,
               maxLines: 3,
-                      ),
-          Text(
-          "@sol_african",
-          style:TextStyle(
-            fontSize: 20,
-            color: BranaColor.BookTitleColor
-          ),
-          overflow: TextOverflow.ellipsis,
-          maxLines: 3,
-        ),              
+                      ),              
+                ],
+              ),
+              Container(
+                child: CircleAvatar(
+                  
+                ),
+              )
             ],
           ),
 
