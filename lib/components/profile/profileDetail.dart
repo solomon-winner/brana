@@ -24,58 +24,61 @@ class ProfileDetail extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Column(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Solomon Yalew",
-                    style: TextStyle(
-                        fontSize: 23,
-                        fontWeight: FontWeight.bold,
-                        color: BranaColor.BookTitleColor),
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 3,
-                  ),
-                  Text(
-                    "@sol_african",
-                    style: TextStyle(
-                        fontSize: 20, color: BranaColor.BookTitleColor),
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 3,
-                  ),
-                ],
-              ),
-              Spacer(),
-              Container(
-                width: 60,
-                height: 60,
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                        color: BranaColor.ShadowColor,
-                        spreadRadius: -5.0,
-                        blurRadius: 5.0,
-                        offset: Offset(0.0, 7.0)),
+          Container(
+            
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Solomon Yalew",
+                      style: TextStyle(
+                          fontSize: 23,
+                          fontWeight: FontWeight.bold,
+                          color: BranaColor.BookTitleColor),
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 3,
+                    ),
+                    Text(
+                      "@sol_african",
+                      style: TextStyle(
+                          fontSize: 20, color: BranaColor.BookTitleColor),
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 3,
+                    ),
                   ],
-                  borderRadius: BorderRadius.all(Radius.circular(50)),
                 ),
-                child: CircleAvatar(
-                  backgroundColor: BranaColor.WhiteColor,
-                  child: ClipOval(
-                    child: Icon(
-                      Icons.edit,
-                      color: BranaColor.BookTitleColor,
+                Spacer(),
+                Container(
+                  width: 60,
+                  height: 60,
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                          color: BranaColor.ShadowColor,
+                          spreadRadius: -5.0,
+                          blurRadius: 5.0,
+                          offset: Offset(0.0, 7.0)),
+                    ],
+                    borderRadius: BorderRadius.all(Radius.circular(50)),
+                  ),
+                  child: CircleAvatar(
+                    backgroundColor: BranaColor.WhiteColor,
+                    child: ClipOval(
+                      child: Icon(
+                        Icons.edit,
+                        color: BranaColor.BookTitleColor,
+                      ),
                     ),
                   ),
-                ),
-              )
-            ],
+                )
+              ],
+            ),
           ),
           SizedBox(
             height: 10,
