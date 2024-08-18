@@ -93,7 +93,9 @@ class _AboutyouState extends State<Aboutyou> {
           child: ListView.builder(
             itemCount: 7,
             itemBuilder: (context, index) {
-              
+              return Padding(
+                padding: const EdgeInsets.all(8.0),
+                );
             },
           ),
         )
