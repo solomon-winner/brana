@@ -14,7 +14,6 @@ class _AboutyouState extends State<Aboutyou> {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.sizeOf(context).width,
-      height: MediaQuery.sizeOf(context).height * 0.3,
       decoration: BoxDecoration(
           color: BranaColor.WhiteColor,
           boxShadow: [
@@ -77,10 +76,9 @@ class _AboutyouState extends State<Aboutyou> {
                       )),
                 ]),
           ),
-          Expanded(
-              child: Container(
+          Container(
             child: getContent(),
-          )),
+          ),
         ],
       ),
     );
@@ -89,16 +87,25 @@ class _AboutyouState extends State<Aboutyou> {
   Widget getContent() {
     switch (selectedTab) {
       case "Your Categories":
-        return Center(
-          child: Text("Content for Favourite Categories"),
+        return Container(
+          height: MediaQuery.sizeOf(context).height * 0.3,
+          child: Center(
+            child: Text("Content for Favourite Categories"),
+          ),
         );
       case "Your Authors":
-        return Center(
-          child: Text("Content for Favourite Categories"),
+        return Container(
+          height: MediaQuery.sizeOf(context).height * 0.3,
+          child: Center(
+            child: Text("Content for Favourite Authors"),
+          ),
         );
       case "Saved Books":
-        return Center(
-          child: Text("Content for Saved Books"),
+        return Container(
+          height: MediaQuery.sizeOf(context).height * 0.3,
+          child: Center(
+            child: Text("Content for Saved Books"),
+          ),
         );
       default:
         return Center(

@@ -34,6 +34,7 @@ class Detail extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Column(
+          
           children: [
             Container(
             height: 530,

@@ -37,7 +37,7 @@ class Profile extends StatelessWidget {
         child: Column(
           children: [
             Container(
-            height: 420,
+            height: 410,
             child: Stack(
               children: [
                 Positioned(
