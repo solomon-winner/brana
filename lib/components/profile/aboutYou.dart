@@ -10,6 +10,7 @@ class Aboutyou extends StatefulWidget {
 
 class _AboutyouState extends State<Aboutyou> {
   String selectedTab = "Your Categories";
+  bool isContent = true;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -90,21 +91,21 @@ class _AboutyouState extends State<Aboutyou> {
         return Container(
           height: MediaQuery.sizeOf(context).height * 0.3,
           child: Center(
-            child: Text("Content for Favourite Categories"),
+            child: Text("You've not chosen Favourite Categories"),
           ),
         );
       case "Your Authors":
         return Container(
           height: MediaQuery.sizeOf(context).height * 0.3,
           child: Center(
-            child: Text("Content for Favourite Authors"),
+            child: Text("You've not chosen Favourite Authors"),
           ),
         );
       case "Saved Books":
         return Container(
           height: MediaQuery.sizeOf(context).height * 0.3,
           child: Center(
-            child: Text("Content for Saved Books"),
+            child: Text("You've not Saved Books"),
           ),
         );
       default:
