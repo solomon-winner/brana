@@ -1,9 +1,18 @@
+import 'package:brana/models/books.dart';
 import 'package:brana/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class Aboutyou extends StatefulWidget {
+  
   List<String> categories = [];
-  Aboutyou({required this.categories});
+  List<String> authors = [];
+  List<Book> saving = [];
+
+  Aboutyou({
+    required this.categories, 
+    required this.authors,
+    required this.saving
+    });
 
   @override
   State<Aboutyou> createState() => _AboutyouState();
