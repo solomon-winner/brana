@@ -36,51 +36,24 @@ class Profile extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Stack(
+            Container(
+            height: 530,
+            child: Stack(
               children: [
-                Container(
-                height: 530,
-                child: Stack(
-                  children: [
-                    Positioned(
-                
-                     child: Profileimage(),
-                    ),
-                     Positioned(
-                      top: 230,
-                      left: 0,
-                      right: 0,
-                      child: ProfileDetail(),
-                      ),
-                    
-                  ],
+                Positioned(
+            
+                 child: Profileimage(),
                 ),
-               ),
-               Positioned(
-                      top: 200,
-                      left: 0,
-                      right: 0,
-                 child: Padding(
-                   padding: const EdgeInsets.all(8.0),
-                   child: Container(
-                    width: 70,
-                    height: 70,
-
-                    child: CircleAvatar(
-                      backgroundColor: BranaColor.WhiteColor,
-                      child: ClipOval(
-                        child: Text("S",
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold
-                        ),),
-                      ),
-                    ),
-                   ),
-                 ),
-               )
+                 Positioned(
+                  top: 230,
+                  left: 0,
+                  right: 0,
+                  child: ProfileDetail(),
+                  ),
+                
               ],
             ),
+          ),
           SizedBox(height: 10,),
           Aboutyou(),
           ]
