@@ -109,7 +109,7 @@ class _AboutyouState extends State<Aboutyou> {
       case "Saved Books":
                 return Center(
           child: Text(
-            "Content for Favourite Authors"
+            "Content for Saved Books"
           ),
         );
       default:
