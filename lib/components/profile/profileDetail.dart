@@ -25,8 +25,8 @@ class ProfileDetail extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
-         mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,           
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Column(
                 mainAxisSize: MainAxisSize.max,
@@ -53,8 +53,8 @@ class ProfileDetail extends StatelessWidget {
               ),
               Spacer(),
               Container(
-                width:60,
-                height:60,
+                width: 60,
+                height: 60,
                 decoration: BoxDecoration(
                   boxShadow: [
                     BoxShadow(
@@ -63,8 +63,7 @@ class ProfileDetail extends StatelessWidget {
                         blurRadius: 5.0,
                         offset: Offset(0.0, 7.0)),
                   ],
-                borderRadius: BorderRadius.all(Radius.circular(50)),
-
+                  borderRadius: BorderRadius.all(Radius.circular(50)),
                 ),
                 child: CircleAvatar(
                   backgroundColor: BranaColor.WhiteColor,
