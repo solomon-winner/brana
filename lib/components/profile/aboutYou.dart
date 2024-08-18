@@ -88,7 +88,16 @@ class _AboutyouState extends State<Aboutyou> {
   Widget getContent() {
     switch (selectedTab) {
       case "Your Categories":
-        return Container(
+        return isContent ? 
+        Container(
+          child: ListView.builder(
+            itemCount: 7,
+            itemBuilder: (context, index) {
+              
+            },
+          ),
+        )
+         : Container(
           height: MediaQuery.sizeOf(context).height * 0.3,
           child: Center(
             child: Text("You've not chosen Favourite Categories"),
