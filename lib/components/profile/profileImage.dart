@@ -5,6 +5,9 @@ class Profileimage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      height: MediaQuery.sizeOf(context).height * 0.40,
+      width: MediaQuery.sizeOf(context).width,
+    );
   }
 }
