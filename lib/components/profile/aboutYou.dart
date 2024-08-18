@@ -93,6 +93,31 @@ class _AboutyouState extends State<Aboutyou> {
   }
 
   Widget getContent() {
-    return Container();
+    switch (selectedTab) {
+      case "Your Categories":
+        return Center(
+          child: Text(
+            "Content for Favourite Categories"
+          ),
+        );
+      case "Your Authors":
+                return Center(
+          child: Text(
+            "Content for Favourite Categories"
+          ),
+        );
+      case "Saved Books":
+                return Center(
+          child: Text(
+            "Content for Favourite Authors"
+          ),
+        );
+      default:
+                return Center(
+          child: Text(
+            "Selected a tab"
+          ),
+        );
+    }
   }
 }
