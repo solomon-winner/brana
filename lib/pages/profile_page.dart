@@ -1,3 +1,13 @@
+import 'package:flutter/material.dart';
+
+class Profile extends StatelessWidget {
+  const Profile({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold();
+  }
+}
 // import 'package:brana/components/details/bookDetail.dart';
 // import 'package:brana/components/details/bookImage.dart';
 // import 'package:brana/components/details/description.dart';
