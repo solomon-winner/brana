@@ -34,6 +34,11 @@ class _AboutyouState extends State<Aboutyou> {
           children: [
 
           GestureDetector(
+            onTap: ()  {
+              setState(() {
+              selectedTab = "Favourite Categories";
+            });
+            },
             child: Text(
               "Favourite Categories",
               style: TextStyle(
