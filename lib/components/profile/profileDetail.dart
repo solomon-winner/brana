@@ -21,7 +21,16 @@ class ProfileDetail extends StatelessWidget {
             blurRadius: 5.0,
             offset: Offset(0.0, 7.0)
           )
-        ]
+        ],
+        borderRadius: BorderRadius.circular(20.0)
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          
+        ],
       ),
     );
   }
