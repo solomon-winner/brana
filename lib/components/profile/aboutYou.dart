@@ -3,16 +3,12 @@ import 'package:brana/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class Aboutyou extends StatefulWidget {
-  
   List<String> categories = [];
   List<String> authors = [];
   List<Book> saving = [];
 
-  Aboutyou({
-    required this.categories, 
-    required this.authors,
-    required this.saving
-    });
+  Aboutyou(
+      {required this.categories, required this.authors, required this.saving});
 
   @override
   State<Aboutyou> createState() => _AboutyouState();
@@ -98,27 +94,26 @@ class _AboutyouState extends State<Aboutyou> {
   Widget getContent() {
     switch (selectedTab) {
       case "Your Categories":
-        return isContent ? 
-        Container(
-          child: ListView.builder(
-            itemCount: 7,
-            itemBuilder: (context, index) {
-              return Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: GestureDetector(
-                  onTap: () {},
-                  child: Text("Fiction")
+        return isContent
+            ? Container(
+                child: ListView.builder(
+                  itemCount: widget.categories.length,
+                  itemBuilder: (context, index) {
+                    String Category = widget.categories[index];
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child:
+                          GestureDetector(onTap: () {}, child: Text(Category)),
+                    );
+                  },
                 ),
-                );
-            },
-          ),
-        )
-         : Container(
-          height: MediaQuery.sizeOf(context).height * 0.3,
-          child: Center(
-            child: Text("You've not chosen Favourite Categories"),
-          ),
-        );
+              )
+            : Container(
+                height: MediaQuery.sizeOf(context).height * 0.3,
+                child: Center(
+                  child: Text("You've not chosen Favourite Categories"),
+                ),
+              );
       case "Your Authors":
         return Container(
           height: MediaQuery.sizeOf(context).height * 0.3,
