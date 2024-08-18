@@ -26,36 +26,52 @@ class _AboutyouState extends State<Aboutyou> {
           ],
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(20), topRight: Radius.circular(20))),
-    child: Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-
-          children: [
-
-          GestureDetector(
-            onTap: ()  {
-              setState(() {
-              selectedTab = "Favourite Categories";
-            });
-            },
-            child: Text(
-              "Favourite Categories",
-              style: TextStyle(
-                fontWeight: selectedTab == "Favourite Categories"
-                ? FontWeight.bold
-                :FontWeight.normal
-              ),
-              )),
-          Text("Favourite Authors"),
-          Text("Saved Books")
-          ]
-        ),
-    Container(),
-
-      ],
-    ),
+      child: Column(
+        children: [
+          Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+            GestureDetector(
+                onTap: () {
+                  setState(() {
+                    selectedTab = "Favourite Categories";
+                  });
+                },
+                child: Text(
+                  "Favourite Categories",
+                  style: TextStyle(
+                      fontWeight: selectedTab == "Favourite Categories"
+                          ? FontWeight.bold
+                          : FontWeight.normal),
+                )),
+            GestureDetector(
+                onTap: () {
+                  setState(() {
+                    selectedTab = "Favourite Authors";
+                  });
+                },
+                child: Text(
+                  "Favourite Authors",
+                  style: TextStyle(
+                      fontWeight: selectedTab == "Favourite Authors"
+                          ? FontWeight.bold
+                          : FontWeight.normal),
+                )),
+            GestureDetector(
+                onTap: () {
+                  setState(() {
+                    selectedTab = "Saved Books";
+                  });
+                },
+                child: Text(
+                  "Saved Books",
+                  style: TextStyle(
+                      fontWeight: selectedTab == "Saved Books"
+                          ? FontWeight.bold
+                          : FontWeight.normal),
+                )),
+          ]),
+          Container(),
+        ],
+      ),
     );
-    
   }
 }
