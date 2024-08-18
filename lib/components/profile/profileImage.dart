@@ -8,6 +8,13 @@ class Profileimage extends StatelessWidget {
     return Container(
       height: MediaQuery.sizeOf(context).height * 0.40,
       width: MediaQuery.sizeOf(context).width,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+        fit: BoxFit.cover,
+        image: AssetImage("assets/Library.jpg"),          
+        )
+
+      ),
     );
   }
 }
