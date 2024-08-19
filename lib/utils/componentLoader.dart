@@ -8,6 +8,18 @@ class Componentloader extends StatefulWidget {
 }
 
 class _ComponentloaderState extends State<Componentloader> {
+    int _displayCount = 2;
+
+  void _loadMore() {
+    setState(() {
+      _displayCount += 2;
+    });
+  }
+  void _Unload() {
+    setState(() {
+      _displayCount = 2;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Container();
