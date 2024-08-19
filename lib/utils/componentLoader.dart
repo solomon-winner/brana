@@ -28,32 +28,16 @@ class _ComponentloaderState extends State<Componentloader> {
     final displayedComponent = widget.list.take(_displayCount).toList();
     final hasMore =  _displayCount < widget.list.length;
     return Container(
-      width: MediaQuery.sizeOf(context).width,
-      padding: const EdgeInsets.symmetric(
-        vertical: 7.0,
-        horizontal: 15.0,
-      ),
-      decoration: BoxDecoration(
-        color: BranaColor.WhiteColor,
-        boxShadow: [
-                BoxShadow(
-                color: BranaColor.ShadowColor,
-                spreadRadius: -5.0,
-                blurRadius: 5.0,
-                offset: Offset(0.0, 7.0),
-                ),
-                ],
-        borderRadius: BorderRadius.circular(10.0),
-      ),
+
       child: Column(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
 
-          ...displayedComponent.map((testimony) => Column(
+          ...displayedComponent.map((component) => Column(
             children: [
-              SeeMore(text: testimony,
+              SeeMore(text: component,
               testimonier: 'Solomon Yalew: ',),
           Divider(
             color: BranaColor.DividerColor,
