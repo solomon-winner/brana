@@ -14,7 +14,7 @@ class Aboutyou extends StatefulWidget {
 
 class _AboutyouState extends State<Aboutyou> {
   String selectedTab = "Your recommended Books";
-  bool isContent = false;
+  bool isContent = true;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,7 +29,8 @@ class _AboutyouState extends State<Aboutyou> {
                 offset: Offset(0.0, 7.0))
           ],
           borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(20), topRight: Radius.circular(20))),
+              topLeft: Radius.circular(20), 
+              topRight: Radius.circular(20))),
       child: Column(
         children: [
           Padding(
@@ -46,10 +47,19 @@ class _AboutyouState extends State<Aboutyou> {
                       child: Text(
                         "Your recommended Books ",
                         style: TextStyle(
-                            textBaseline:
+                            decoration:
                                 selectedTab == "Your recommended Books"
-                                    ? TextBaseline.alphabetic
-                                    : TextBaseline.ideographic,
+                                    ? TextDecoration.underline
+                                    : TextDecoration.none,
+    
+                            decorationColor:
+                                selectedTab == "Your recommended Books"
+                                    ? Colors.green
+                                    : Colors.transparent,
+
+                                fontWeight: selectedTab == "Your recommended Books"
+                                ? FontWeight.bold
+                                : FontWeight.normal,
                             fontSize: 15),
                       )),
                   GestureDetector(
@@ -61,7 +71,17 @@ class _AboutyouState extends State<Aboutyou> {
                       child: Text(
                         "Saved Books",
                         style: TextStyle(
-                            fontWeight: selectedTab == "Saved Books"
+                            decoration:
+                                selectedTab == "Saved Books"
+                                    ? TextDecoration.underline
+                                    : TextDecoration.none,
+    
+                            decorationColor:
+                                selectedTab == "Saved Books"
+                                    ? Colors.green
+                                    : Colors.transparent,
+                                    
+                                fontWeight: selectedTab == "Saved Books"
                                 ? FontWeight.bold
                                 : FontWeight.normal,
                             fontSize: 15),
@@ -79,6 +99,8 @@ class _AboutyouState extends State<Aboutyou> {
       case "Your recommended Books":
         return isContent
             ? Container(
+                height: MediaQuery.of(context).size.height * 0.3,
+
                 child: ListView.builder(
                   itemCount: widget.recommended.length,
                   itemBuilder: (context, index) {
