@@ -74,12 +74,48 @@ class Profile extends StatelessWidget {
         children: [
           Text(
             "Your Favourite Categories: ",
-            style: TextStyle(fontSize: 17, color: BranaColor.BookTitleColor),
+            style: TextStyle(fontSize: 19, color: BranaColor.BookTitleColor),
           ),
           SizedBox(
             height: 10,
           ),
           Componentloader(list: ["Fiction", "Psycology", "Politics"],), 
+
+        ],
+      ),
+    ),
+            SizedBox(
+          height: 20,
+        ),
+              Container(
+      width: MediaQuery.sizeOf(context).width,
+      padding: const EdgeInsets.symmetric(
+        vertical: 7.0,
+        horizontal: 15.0,
+      ),
+      decoration: BoxDecoration(
+          color: BranaColor.WhiteColor,
+          boxShadow: [
+            BoxShadow(
+                color: BranaColor.ShadowColor,
+                spreadRadius: -5.0,
+                blurRadius: 5.0,
+                offset: Offset(0.0, 7.0))
+          ],
+          borderRadius: BorderRadius.circular(10.0)),
+      child: Column(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "Your Favourite Authors: ",
+            style: TextStyle(fontSize: 19, color: BranaColor.BookTitleColor),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Componentloader(list: ["Sidini Sheldon", "Agatha Cristie", "Trevor Noah", "Pableo Cohileo"],), 
 
         ],
       ),

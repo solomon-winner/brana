@@ -57,12 +57,9 @@ class _ComponentloaderState extends State<Componentloader> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  FilledButton(
+                  TextButton(
                     onPressed: _loadMore,
-                    style: FilledButton.styleFrom(
-                      backgroundColor: BranaColor.BookTitleColor,
-                      foregroundColor: BranaColor.WhiteColor,
-                    ),
+
                     child: Container(
                       width: 105,
                       child: Row(
@@ -70,13 +67,13 @@ class _ComponentloaderState extends State<Componentloader> {
                           Text(
                             "Show More",
                             style: TextStyle(
-                              color: BranaColor.WhiteColor,
+                              color: BranaColor.BookTitleColor,
                               fontSize: 15,
                             ),
                           ),
                           Icon(
                             Icons.arrow_drop_down,
-                            color: BranaColor.WhiteColor,
+                            color: BranaColor.BookTitleColor,
                           ),
                         ],
                       ),
@@ -92,12 +89,8 @@ class _ComponentloaderState extends State<Componentloader> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  FilledButton(
+                  TextButton(
                     onPressed: _Unload,
-                    style: FilledButton.styleFrom(
-                      backgroundColor: BranaColor.BookTitleColor,
-                      foregroundColor: BranaColor.WhiteColor,
-                    ),
                     child: Container(
                       width: 105,
                       child: Row(
@@ -105,13 +98,13 @@ class _ComponentloaderState extends State<Componentloader> {
                           Text(
                             "Show Less",
                             style: TextStyle(
-                              color: BranaColor.WhiteColor,
+                              color: BranaColor.BookTitleColor,
                               fontSize: 15,
                             ),
                           ),
                           Icon(
                             Icons.arrow_drop_up,
-                            color: BranaColor.WhiteColor,
+                            color: BranaColor.BookTitleColor,
                           ),
                         ],
                       ),
