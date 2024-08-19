@@ -23,6 +23,9 @@ class _ComponentloaderState extends State<Componentloader> {
   }
   @override
   Widget build(BuildContext context) {
-    return Container();
+    final displayedComponent = widget.list.take(_displayCount).toList();
+    return Container(
+
+    );
   }
 }
