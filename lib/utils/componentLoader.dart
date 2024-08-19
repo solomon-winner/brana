@@ -34,6 +34,15 @@ class _ComponentloaderState extends State<Componentloader> {
       ),
       decoration: BoxDecoration(
         color: BranaColor.WhiteColor,
+        boxShadow: [
+                BoxShadow(
+                color: BranaColor.ShadowColor,
+                spreadRadius: -5.0,
+                blurRadius: 5.0,
+                offset: Offset(0.0, 7.0),
+                ),
+                ],
+        borderRadius: BorderRadius.circular(10.0),
       ),
     );
   }
