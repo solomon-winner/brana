@@ -93,18 +93,9 @@ class _AboutyouState extends State<Aboutyou> {
         return isContent
             ? Container(
                 height: MediaQuery.of(context).size.height * 0.3,
-                child: ListView.builder(
-                  itemCount: widget.recommended.length,
-                  itemBuilder: (context, index) {
-                    String recomendation = widget.recommended[index];
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8),
-                      child: GestureDetector(
-                          onTap: () {}, child: Text(recomendation)),
-                    );
-                  },
-                ),
-              )
+                child: Text("recommendation")
+                )
+              
             : Container(
                 height: MediaQuery.of(context).size.height * 0.3,
                 child: Center(
@@ -115,9 +106,8 @@ class _AboutyouState extends State<Aboutyou> {
       case "Saved Books":
         return Container(
           height: MediaQuery.of(context).size.height * 0.3,
-          child: Center(
-            child: Text("You've not Saved Books"),
-          ),
+          child: Text("You've not Saved Books"),
+
         );
       default:
         return Center(
