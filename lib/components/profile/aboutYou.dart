@@ -3,11 +3,10 @@ import 'package:brana/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class Aboutyou extends StatefulWidget {
-  List<String> recommended= [];
+  List<String> recommended = [];
   List<Book> saving = [];
 
-  Aboutyou(
-      {required this.recommended, required this.saving});
+  Aboutyou({required this.recommended, required this.saving});
 
   @override
   State<Aboutyou> createState() => _AboutyouState();
@@ -15,11 +14,11 @@ class Aboutyou extends StatefulWidget {
 
 class _AboutyouState extends State<Aboutyou> {
   String selectedTab = "Your recommended Books";
-  bool isContent = true;
+  bool isContent = false;
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.sizeOf(context).width,
+      width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
           color: BranaColor.WhiteColor,
           boxShadow: [
@@ -45,14 +44,14 @@ class _AboutyouState extends State<Aboutyou> {
                         });
                       },
                       child: Text(
-                        "Your recommended Books: ",
+                        "Your recommended Books ",
                         style: TextStyle(
-                            fontWeight: selectedTab == "Your recommended Books"
-                                ? FontWeight.bold
-                                : FontWeight.normal,
+                            textBaseline:
+                                selectedTab == "Your recommended Books"
+                                    ? TextBaseline.alphabetic
+                                    : TextBaseline.ideographic,
                             fontSize: 15),
                       )),
-
                   GestureDetector(
                       onTap: () {
                         setState(() {
@@ -69,7 +68,7 @@ class _AboutyouState extends State<Aboutyou> {
                       )),
                 ]),
           ),
-         getContent(),
+          getContent(),
         ],
       ),
     );
@@ -80,37 +79,28 @@ class _AboutyouState extends State<Aboutyou> {
       case "Your recommended Books":
         return isContent
             ? Container(
-               height: MediaQuery.sizeOf(context).height * 0.3, 
-               decoration: BoxDecoration(
-                border: Border.all(
-                  color: BranaColor.dark_background,
-                  width: 1.0,
-                  style: BorderStyle.solid
-                )
-               ),            
                 child: ListView.builder(
                   itemCount: widget.recommended.length,
                   itemBuilder: (context, index) {
-                    String Category = widget.recommended[index];
+                    String recomendation = widget.recommended[index];
                     return Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 8
-                      ),
-                      child:
-                          GestureDetector(onTap: () {}, child: Text(Category)),
+                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                      child: GestureDetector(
+                          onTap: () {}, child: Text(recomendation)),
                     );
                   },
                 ),
               )
             : Container(
-                height: MediaQuery.sizeOf(context).height * 0.3,
+                height: MediaQuery.of(context).size.height * 0.3,
                 child: Center(
-                  child: Text("You've not chosen your most recommended Books list"),
+                  child: Text(
+                      "You've not chosen your most recommended Books list"),
                 ),
               );
       case "Saved Books":
         return Container(
-          height: MediaQuery.sizeOf(context).height * 0.3,
+          height: MediaQuery.of(context).size.height * 0.3,
           child: Center(
             child: Text("You've not Saved Books"),
           ),
