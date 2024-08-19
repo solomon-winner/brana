@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Componentloader extends StatefulWidget {
-  const Componentloader({super.key});
+  final List<String> list;
+   Componentloader({required this.list});
 
   @override
   State<Componentloader> createState() => _ComponentloaderState();
