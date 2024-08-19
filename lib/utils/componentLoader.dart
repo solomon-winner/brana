@@ -1,4 +1,5 @@
 import 'package:brana/utils/colors.dart';
+import 'package:brana/utils/seeMore.dart';
 import 'package:flutter/material.dart';
 
 class Componentloader extends StatefulWidget {
@@ -43,6 +44,95 @@ class _ComponentloaderState extends State<Componentloader> {
                 ),
                 ],
         borderRadius: BorderRadius.circular(10.0),
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+
+          ...displayedComponent.map((testimony) => Column(
+            children: [
+              SeeMore(text: testimony,
+              testimonier: 'Solomon Yalew: ',),
+          Divider(
+            color: BranaColor.DividerColor,
+            thickness: 1,
+          ),
+            ],
+          )),
+          hasMore ?
+            Container(
+              width: MediaQuery.sizeOf(context).width,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  FilledButton(
+                    onPressed: _loadMore,
+                    style: FilledButton.styleFrom(
+                      backgroundColor: BranaColor.BookTitleColor,
+                      foregroundColor: BranaColor.WhiteColor,
+                    ),
+                    child: Container(
+                      width: 105,
+                      child: Row(
+                        children: [
+                          Text(
+                            "Show More",
+                            style: TextStyle(
+                              color: BranaColor.WhiteColor,
+                              fontSize: 15,
+                            ),
+                          ),
+                          Icon(
+                            Icons.arrow_drop_down,
+                            color: BranaColor.WhiteColor,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ) :
+
+                     Container(
+              width: MediaQuery.sizeOf(context).width,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  FilledButton(
+                    onPressed: _Unload,
+                    style: FilledButton.styleFrom(
+                      backgroundColor: BranaColor.BookTitleColor,
+                      foregroundColor: BranaColor.WhiteColor,
+                    ),
+                    child: Container(
+                      width: 105,
+                      child: Row(
+                        children: [
+                          Text(
+                            "Show Less",
+                            style: TextStyle(
+                              color: BranaColor.WhiteColor,
+                              fontSize: 15,
+                            ),
+                          ),
+                          Icon(
+                            Icons.arrow_drop_up,
+                            color: BranaColor.WhiteColor,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            )  
+
+        ],
       ),
     );
   }
