@@ -124,7 +124,7 @@ class Profile extends StatelessWidget {
           height: 20,
         ),
         Aboutyou(
-          recommended: [], 
+          recommended: [" Born A crime"], 
           saving: [])
     
       ])),
