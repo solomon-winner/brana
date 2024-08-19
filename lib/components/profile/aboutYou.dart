@@ -3,19 +3,18 @@ import 'package:brana/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class Aboutyou extends StatefulWidget {
-  List<String> categories = [];
-  List<String> authors = [];
+  List<String> recommended= [];
   List<Book> saving = [];
 
   Aboutyou(
-      {required this.categories, required this.authors, required this.saving});
+      {required this.recommended, required this.saving});
 
   @override
   State<Aboutyou> createState() => _AboutyouState();
 }
 
 class _AboutyouState extends State<Aboutyou> {
-  String selectedTab = "Your Categories";
+  String selectedTab = "Your recommended Books";
   bool isContent = true;
   @override
   Widget build(BuildContext context) {
@@ -42,31 +41,18 @@ class _AboutyouState extends State<Aboutyou> {
                   GestureDetector(
                       onTap: () {
                         setState(() {
-                          selectedTab = "Your Categories";
+                          selectedTab = "Your recommended Books";
                         });
                       },
                       child: Text(
-                        "Your Categories",
+                        "Your recommended Books: ",
                         style: TextStyle(
-                            fontWeight: selectedTab == "Your Categories"
+                            fontWeight: selectedTab == "Your recommended Books"
                                 ? FontWeight.bold
                                 : FontWeight.normal,
                             fontSize: 15),
                       )),
-                  GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          selectedTab = "Your Authors";
-                        });
-                      },
-                      child: Text(
-                        "Your Authors",
-                        style: TextStyle(
-                            fontWeight: selectedTab == "Your Authors"
-                                ? FontWeight.bold
-                                : FontWeight.normal,
-                            fontSize: 15),
-                      )),
+
                   GestureDetector(
                       onTap: () {
                         setState(() {
@@ -91,7 +77,7 @@ class _AboutyouState extends State<Aboutyou> {
 
   Widget getContent() {
     switch (selectedTab) {
-      case "Your Categories":
+      case "Your recommended Books":
         return isContent
             ? Container(
                height: MediaQuery.sizeOf(context).height * 0.3, 
@@ -103,9 +89,9 @@ class _AboutyouState extends State<Aboutyou> {
                 )
                ),            
                 child: ListView.builder(
-                  itemCount: widget.categories.length,
+                  itemCount: widget.recommended.length,
                   itemBuilder: (context, index) {
-                    String Category = widget.categories[index];
+                    String Category = widget.recommended[index];
                     return Padding(
                       padding: const EdgeInsets.symmetric(
                         horizontal: 8
@@ -119,16 +105,9 @@ class _AboutyouState extends State<Aboutyou> {
             : Container(
                 height: MediaQuery.sizeOf(context).height * 0.3,
                 child: Center(
-                  child: Text("You've not chosen Favourite Categories"),
+                  child: Text("You've not chosen your most recommended Books list"),
                 ),
               );
-      case "Your Authors":
-        return Container(
-          height: MediaQuery.sizeOf(context).height * 0.3,
-          child: Center(
-            child: Text("You've not chosen Favourite Authors"),
-          ),
-        );
       case "Saved Books":
         return Container(
           height: MediaQuery.sizeOf(context).height * 0.3,

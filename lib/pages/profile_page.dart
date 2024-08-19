@@ -120,6 +120,13 @@ class Profile extends StatelessWidget {
         ],
       ),
     ),
+            SizedBox(
+          height: 20,
+        ),
+        Aboutyou(
+          recommended: [], 
+          saving: [])
+    
       ])),
     );
   }
