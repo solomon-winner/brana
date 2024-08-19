@@ -3,10 +3,11 @@ import 'package:brana/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class Aboutyou extends StatefulWidget {
-  List<String> recommended = [];
-  List<Book> saving = [];
 
-  Aboutyou({required this.recommended, required this.saving});
+ final List<String> recommended ;
+ final  List<Book> saving ;
+
+  Aboutyou({required this.recommended , required this.saving});
 
   @override
   State<Aboutyou> createState() => _AboutyouState();
@@ -29,8 +30,7 @@ class _AboutyouState extends State<Aboutyou> {
                 offset: Offset(0.0, 7.0))
           ],
           borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(20), 
-              topRight: Radius.circular(20))),
+              topLeft: Radius.circular(20), topRight: Radius.circular(20))),
       child: Column(
         children: [
           Padding(
@@ -47,17 +47,14 @@ class _AboutyouState extends State<Aboutyou> {
                       child: Text(
                         "Your recommended Books ",
                         style: TextStyle(
-                            decoration:
-                                selectedTab == "Your recommended Books"
-                                    ? TextDecoration.underline
-                                    : TextDecoration.none,
-    
+                            decoration: selectedTab == "Your recommended Books"
+                                ? TextDecoration.underline
+                                : TextDecoration.none,
                             decorationColor:
                                 selectedTab == "Your recommended Books"
                                     ? Colors.green
                                     : Colors.transparent,
-
-                                fontWeight: selectedTab == "Your recommended Books"
+                            fontWeight: selectedTab == "Your recommended Books"
                                 ? FontWeight.bold
                                 : FontWeight.normal,
                             fontSize: 15),
@@ -71,17 +68,13 @@ class _AboutyouState extends State<Aboutyou> {
                       child: Text(
                         "Saved Books",
                         style: TextStyle(
-                            decoration:
-                                selectedTab == "Saved Books"
-                                    ? TextDecoration.underline
-                                    : TextDecoration.none,
-    
-                            decorationColor:
-                                selectedTab == "Saved Books"
-                                    ? Colors.green
-                                    : Colors.transparent,
-                                    
-                                fontWeight: selectedTab == "Saved Books"
+                            decoration: selectedTab == "Saved Books"
+                                ? TextDecoration.underline
+                                : TextDecoration.none,
+                            decorationColor: selectedTab == "Saved Books"
+                                ? Colors.green
+                                : Colors.transparent,
+                            fontWeight: selectedTab == "Saved Books"
                                 ? FontWeight.bold
                                 : FontWeight.normal,
                             fontSize: 15),
@@ -100,7 +93,6 @@ class _AboutyouState extends State<Aboutyou> {
         return isContent
             ? Container(
                 height: MediaQuery.of(context).size.height * 0.3,
-
                 child: ListView.builder(
                   itemCount: widget.recommended.length,
                   itemBuilder: (context, index) {
