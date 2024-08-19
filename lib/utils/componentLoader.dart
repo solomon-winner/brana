@@ -1,3 +1,4 @@
+import 'package:brana/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class Componentloader extends StatefulWidget {
@@ -24,8 +25,16 @@ class _ComponentloaderState extends State<Componentloader> {
   @override
   Widget build(BuildContext context) {
     final displayedComponent = widget.list.take(_displayCount).toList();
+    final hasMore =  _displayCount < widget.list.length;
     return Container(
-
+      width: MediaQuery.sizeOf(context).width,
+      padding: const EdgeInsets.symmetric(
+        vertical: 7.0,
+        horizontal: 15.0,
+      ),
+      decoration: BoxDecoration(
+        color: BranaColor.WhiteColor,
+      ),
     );
   }
 }
