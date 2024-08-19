@@ -8,6 +8,7 @@ import 'package:brana/components/profile/profileDetail.dart';
 import 'package:brana/components/profile/profileImage.dart';
 import 'package:brana/models/books.dart';
 import 'package:brana/utils/colors.dart';
+import 'package:brana/utils/componentLoader.dart';
 import 'package:flutter/material.dart';
 
 class Profile extends StatelessWidget {
@@ -50,11 +51,39 @@ class Profile extends StatelessWidget {
         SizedBox(
           height: 10,
         ),
-        Aboutyou(
-          categories: ["Fiction", "Psychology"],
-          authors: [],
-          saving: [],
-        ),
+          Container(
+      width: MediaQuery.sizeOf(context).width,
+      padding: const EdgeInsets.symmetric(
+        vertical: 7.0,
+        horizontal: 15.0,
+      ),
+      decoration: BoxDecoration(
+          color: BranaColor.WhiteColor,
+          boxShadow: [
+            BoxShadow(
+                color: BranaColor.ShadowColor,
+                spreadRadius: -5.0,
+                blurRadius: 5.0,
+                offset: Offset(0.0, 7.0))
+          ],
+          borderRadius: BorderRadius.circular(10.0)),
+      child: Column(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "Your Favourite Categories: ",
+            style: TextStyle(fontSize: 17, color: BranaColor.BookTitleColor),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Componentloader(list: ["Fiction", "Psycology", "Politics"],), 
+
+        ],
+      ),
+    ),
       ])),
     );
   }

@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 
 class Componentloader extends StatefulWidget {
   final List<String> list;
-   Componentloader({required this.list});
+    final String testimonier;
+
+   Componentloader({required this.list, this.testimonier = ''});
 
   @override
   State<Componentloader> createState() => _ComponentloaderState();
@@ -36,9 +38,12 @@ class _ComponentloaderState extends State<Componentloader> {
         children: [
 
           ...displayedComponent.map((component) => Column(
+         mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,           
             children: [
               SeeMore(text: component,
-              testimonier: 'Solomon Yalew: ',),
+              testimonier: widget.testimonier == '' ?'':'Solomon Yalew: ',),
           Divider(
             color: BranaColor.DividerColor,
             thickness: 1,
