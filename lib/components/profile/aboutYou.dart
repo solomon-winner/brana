@@ -15,7 +15,7 @@ class Aboutyou extends StatefulWidget {
 
 class _AboutyouState extends State<Aboutyou> {
   String selectedTab = "Your recommended Books";
-  bool isContent = true;
+  bool isContent = false;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -32,6 +32,9 @@ class _AboutyouState extends State<Aboutyou> {
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(20), topRight: Radius.circular(20))),
       child: Column(
+                mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,  
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 10),
@@ -106,7 +109,7 @@ class _AboutyouState extends State<Aboutyou> {
       case "Saved Books":
         return Container(
           height: MediaQuery.of(context).size.height * 0.3,
-          child: Text("You've not Saved Books"),
+          child: Center(child: Text("You've not Saved Books")),
 
         );
       default:
