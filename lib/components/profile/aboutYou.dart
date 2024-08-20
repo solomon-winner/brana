@@ -122,8 +122,11 @@ class _AboutyouState extends State<Aboutyou> {
                           style: BorderStyle.solid,
                         )),
                     child: Wrap(
+                      spacing: 8.0,
+                      runSpacing: 8.0,
                       children: [
                         Container(
+                          width: 100,
                           child: Column(
                             children: [
                             Container(
