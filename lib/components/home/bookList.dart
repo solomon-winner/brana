@@ -102,6 +102,9 @@ class _BooklistState extends State<Booklist> {
                               ),
                               SizedBox(height: 10,),
                                 Text("Author: ${book.author}",
+                              style: TextStyle(
+                                color: BranaColor.BookTitleColor
+                              ),
                                   overflow: TextOverflow.ellipsis,
                                   maxLines: 1,
                                   ),
