@@ -114,18 +114,12 @@ class _AboutyouState extends State<Aboutyou> {
         return isContent
             ? Container(
                   padding: const EdgeInsets.all(8.0),
-                    decoration: BoxDecoration(
-                        color: BranaColor.WhiteColor,
-                        border: Border.all(
-                          color: BranaColor.BorderColor,
-                          width: 1.0,
-                          style: BorderStyle.solid,
-                        )),
+
                     child: Wrap(
                       spacing: 8.0,
-                      runSpacing: 8.0,
-                      children: [
-                        Container(
+                      runSpacing: 10.0,
+                      children: widget.recommended.map((recomendation) {
+                        return Container(
                           width: 100,
                           child: Column(
                             children: [
@@ -163,8 +157,9 @@ class _AboutyouState extends State<Aboutyou> {
                               ],
                             ),
                           ]),
-                        ),
-                      ],
+                        );
+                      }).toList(),
+
                     ),
                 )
               

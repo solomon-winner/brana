@@ -124,7 +124,7 @@ class Profile extends StatelessWidget {
           height: 20,
         ),
         Aboutyou(
-          recommended: [" Born A crime"], 
+          recommended: [" Born A crime"," Born A crime"," Born A crime"," Born A crime"," Born A crime"," Born A crime"" Born A crime"," Born A crime"," Born A crime"], 
           saving: [])
     
       ])),
