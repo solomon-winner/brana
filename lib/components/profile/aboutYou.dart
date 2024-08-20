@@ -114,7 +114,6 @@ class _AboutyouState extends State<Aboutyou> {
         return isContent
             ? Container(
                   padding: const EdgeInsets.all(8.0),
-                  child: Container(
                     decoration: BoxDecoration(
                         color: BranaColor.WhiteColor,
                         border: Border.all(
@@ -122,42 +121,48 @@ class _AboutyouState extends State<Aboutyou> {
                           width: 1.0,
                           style: BorderStyle.solid,
                         )),
-                    child: Column(children: [
-                      Container(
-                        width: 100,
-                        height: 120,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          image: const DecorationImage(
-                            image: AssetImage('assets/Born_a_crime.PNG'),
-                            fit: BoxFit.contain,
-                          ),
+                    child: Wrap(
+                      children: [
+                        Container(
+                          child: Column(
+                            children: [
+                            Container(
+                              width: 100,
+                              height: 120,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                image: const DecorationImage(
+                                  image: AssetImage('assets/Born_a_crime.PNG'),
+                                  fit: BoxFit.contain,
+                                ),
+                              ),
+                            ),
+                            SizedBox(height: 5),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Book Title',
+                                  style: TextStyle(
+                                    fontSize: 17,
+                                    color: Colors.black,
+                                  ),
+                                  overflow: TextOverflow.ellipsis,
+                                  maxLines: 1,
+                                ),
+                                Text(
+                                  'Trevor Noah',
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    color: Colors.grey,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ]),
                         ),
-                      ),
-                      SizedBox(height: 5),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Book Title',
-                            style: TextStyle(
-                              fontSize: 17,
-                              color: Colors.black,
-                            ),
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 1,
-                          ),
-                          Text(
-                            'Trevor Noah',
-                            style: TextStyle(
-                              fontSize: 15,
-                              color: Colors.grey,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ]),
-                  ),
+                      ],
+                    ),
                 )
               
             : Container(
