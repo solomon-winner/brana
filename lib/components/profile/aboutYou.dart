@@ -47,20 +47,29 @@ class _AboutyouState extends State<Aboutyou> {
                           selectedTab = "Your recommended Books";
                         });
                       },
-                      child: Text(
-                        "Your recommended Books ",
-                        style: TextStyle(
-                            decoration: selectedTab == "Your recommended Books"
-                                ? TextDecoration.underline
-                                : TextDecoration.none,
-                            decorationColor:
-                                selectedTab == "Your recommended Books"
-                                    ? Colors.green
-                                    : Colors.transparent,
-                            fontWeight: selectedTab == "Your recommended Books"
-                                ? FontWeight.bold
-                                : FontWeight.normal,
-                            fontSize: 15),
+                      child: Container(
+                        decoration: BoxDecoration(
+                            border: Border(
+                                bottom: BorderSide(
+                                    color: selectedTab == "Your recommended Books"
+                                        ? BranaColor.BookTitleColor
+                                        : Colors.transparent,
+                                    width: 2))),
+                        child: Text(
+                          "Your recommended Books ",
+                          style: TextStyle(
+                              decoration: selectedTab == "Your recommended Books"
+                                  ? TextDecoration.underline
+                                  : TextDecoration.none,
+                              decorationColor:
+                                  selectedTab == "Your recommended Books"
+                                      ? Colors.green
+                                      : Colors.transparent,
+                              fontWeight: selectedTab == "Your recommended Books"
+                                  ? FontWeight.bold
+                                  : FontWeight.normal,
+                              fontSize: 15),
+                        ),
                       )),
                   GestureDetector(
                       onTap: () {
@@ -68,19 +77,28 @@ class _AboutyouState extends State<Aboutyou> {
                           selectedTab = "Saved Books";
                         });
                       },
-                      child: Text(
-                        "Saved Books",
-                        style: TextStyle(
-                            decoration: selectedTab == "Saved Books"
-                                ? TextDecoration.underline
-                                : TextDecoration.none,
-                            decorationColor: selectedTab == "Saved Books"
-                                ? Colors.green
-                                : Colors.transparent,
-                            fontWeight: selectedTab == "Saved Books"
-                                ? FontWeight.bold
-                                : FontWeight.normal,
-                            fontSize: 15),
+                      child: Container(
+                        decoration: BoxDecoration(
+                            border: Border(
+                                bottom: BorderSide(
+                                    color: selectedTab == "Saved Books"
+                                        ? BranaColor.BookTitleColor
+                                        : Colors.transparent,
+                                    width: 2))),
+                        child: Text(
+                          "Saved Books",
+                          style: TextStyle(
+                              decoration: selectedTab == "Saved Books"
+                                  ? TextDecoration.underline
+                                  : TextDecoration.none,
+                              decorationColor: selectedTab == "Saved Books"
+                                  ? Colors.green
+                                  : Colors.transparent,
+                              fontWeight: selectedTab == "Saved Books"
+                                  ? FontWeight.bold
+                                  : FontWeight.normal,
+                              fontSize: 15),
+                        ),
                       )),
                 ]),
           ),
