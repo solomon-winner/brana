@@ -114,7 +114,53 @@ class _AboutyouState extends State<Aboutyou> {
         return isContent
             ? Container(
                 height: MediaQuery.of(context).size.height * 0.3,
-                child: Text("recommendation")
+                child:                 Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: BranaColor.WhiteColor,
+                        border: Border.all(
+                          color: BranaColor.BorderColor,
+                          width: 1.0,
+                          style: BorderStyle.solid,
+                        )),
+                    child: Column(children: [
+                      Container(
+                        width: 100,
+                        height: 120,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          image: const DecorationImage(
+                            image: AssetImage('assets/Born_a_crime.PNG'),
+                            fit: BoxFit.contain,
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 5),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Book Title',
+                            style: TextStyle(
+                              fontSize: 17,
+                              color: Colors.black,
+                            ),
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 1,
+                          ),
+                          Text(
+                            '300 ETB',
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: Colors.grey,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ]),
+                  ),
+                ),
                 )
               
             : Container(
