@@ -15,7 +15,7 @@ class Aboutyou extends StatefulWidget {
 
 class _AboutyouState extends State<Aboutyou> {
   String selectedTab = "Your recommended Books";
-  bool isContent = false;
+  bool isContent = true;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -113,8 +113,6 @@ class _AboutyouState extends State<Aboutyou> {
       case "Your recommended Books":
         return isContent
             ? Container(
-                height: MediaQuery.of(context).size.height * 0.3,
-                child:                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
                     decoration: BoxDecoration(
@@ -150,7 +148,7 @@ class _AboutyouState extends State<Aboutyou> {
                             maxLines: 1,
                           ),
                           Text(
-                            '300 ETB',
+                            'Trevor Noah',
                             style: TextStyle(
                               fontSize: 15,
                               color: Colors.grey,
@@ -160,7 +158,6 @@ class _AboutyouState extends State<Aboutyou> {
                       ),
                     ]),
                   ),
-                ),
                 )
               
             : Container(
