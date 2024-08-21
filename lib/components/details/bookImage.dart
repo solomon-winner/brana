@@ -19,12 +19,23 @@ class BookImage extends StatelessWidget {
                   width: MediaQuery.sizeOf(context).width * 0.9,
                   height: MediaQuery.sizeOf(context).height * 0.8,
                   decoration: BoxDecoration(
+                    color: BranaColor.light_background,
                     image: DecorationImage(
                       fit: BoxFit.contain,
                       image: AssetImage(image)
                     )
                   ),
                 ),
+                Positioned(
+                  top: 10,
+                  right: 10,
+                  child: IconButton(
+                    icon: Icon(Icons.close),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                  )
               ],
             ),
           );
