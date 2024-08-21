@@ -27,8 +27,8 @@ class BookImage extends StatelessWidget {
                   ),
                 ),
                 Positioned(
-                  top: 10,
-                  right: 10,
+                  top: 0,
+                  right: 0,
                   child: IconButton(
                     icon: Icon(Icons.close),
                     onPressed: () {
