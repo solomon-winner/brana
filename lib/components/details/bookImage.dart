@@ -12,9 +12,13 @@ class BookImage extends StatelessWidget {
         showDialog (
         context: context, 
         builder: (BuildContext context) {
-          return Dialog();
+          return Dialog(
+            child: Container(
+              width: MediaQuery.sizeOf(context).width * 0.8,
+            ),
+          );
         }
-        )
+        );
       },
       child: Container(
         height: MediaQuery.sizeOf(context).height * 0.40,
