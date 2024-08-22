@@ -1,5 +1,4 @@
 import 'dart:ffi';
-
 import 'package:brana/utils/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -47,7 +46,8 @@ class ProfileDetail extends StatelessWidget {
                   Text(
                     "@sol_african",
                     style: TextStyle(
-                        fontSize: 20, color: BranaColor.BookTitleColor),
+                        fontSize: 20, 
+                        color: BranaColor.BookTitleColor),
                     overflow: TextOverflow.ellipsis,
                     maxLines: 3,
                   ),
