@@ -7,7 +7,7 @@ import 'package:brana/utils/colors.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:brana/components/home/search_bar.dart';
- import 'package:brana/components/sideBar.dart';
+import 'package:brana/components/sideBar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
