@@ -1,4 +1,4 @@
-import 'package:brana/Providers/book_provider.dart';
+import 'package:brana/Blocs/book_provider.dart';
 import 'package:brana/components/home/bodyContainer.dart';
 import 'package:brana/pages/details_page.dart';
 import 'package:brana/pages/favourite.dart';
