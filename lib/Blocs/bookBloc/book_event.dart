@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-
-part 'bookEvent.freezed.dart';
+part 'book_event.freezed.dart';
 
 @freezed
 class BookEvent with _$BookEvent {
