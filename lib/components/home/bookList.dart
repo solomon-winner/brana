@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:brana/Blocs/book_provider.dart';
 import 'package:brana/models/books.dart';
 import 'package:brana/pages/details_page.dart';
 import 'package:brana/utils/colors.dart';

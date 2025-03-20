@@ -40,7 +40,7 @@ class _TrendingPageState extends State<TrendingPage> {
               ],
             ),
             SizedBox(height: 20,),
-            Booklist()
+            // Booklist()
           ],
         ),
       );
