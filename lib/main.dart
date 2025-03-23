@@ -20,6 +20,10 @@ class MyApp extends StatelessWidget {
       create: (context) => getIt<BookBloc>()..add(const FetchBooks()),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        darkTheme: ThemeData.dark(),
         home: HomePage(),
       ),
     );
