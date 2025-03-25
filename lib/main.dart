@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:brana/Blocs/bookBloc/book_bloc.dart';
-import 'package:brana/Blocs/bookBloc/book_event.dart'; 
+// import 'package:flutter_bloc/flutter_bloc.dart';
+// import 'package:brana/Blocs/bookBloc/book_bloc.dart';
+// import 'package:brana/Blocs/bookBloc/book_event.dart'; 
 import 'package:brana/pages/home_page.dart';
-import 'injection_controller.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+// import 'injection_controller.dart';
 
 void main() {
-  WidgetsFlutterBinding.ensureInitialized();
-  init();
-  runApp(MyApp());
+  // WidgetsFlutterBinding.ensureInitialized();
+  // init();
+  runApp(ProviderScope(child: MyApp()) );
 }
 
 class MyApp extends StatelessWidget {
@@ -16,16 +18,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => getIt<BookBloc>()..add(const FetchBooks()),
-      child: MaterialApp(
+    return  MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
         darkTheme: ThemeData.dark(),
         home: HomePage(),
-      ),
     );
   }
 }

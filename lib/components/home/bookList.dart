@@ -3,7 +3,6 @@ import 'package:brana/models/books.dart';
 import 'package:brana/pages/details_page.dart';
 import 'package:brana/utils/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class Booklist extends StatefulWidget {
   const Booklist({super.key});
