@@ -6,7 +6,7 @@ class Componentloader extends StatefulWidget {
   final List<String> list;
   final String testimonier;
 
-  Componentloader({required this.list, this.testimonier = ''});
+  const Componentloader({super.key, required this.list, this.testimonier = ''});
 
   @override
   State<Componentloader> createState() => _ComponentloaderState();
@@ -54,7 +54,7 @@ class _ComponentloaderState extends State<Componentloader> {
                 ],
               )),
           hasMore
-              ? Container(
+              ? SizedBox(
                   width: MediaQuery.sizeOf(context).width,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -62,7 +62,7 @@ class _ComponentloaderState extends State<Componentloader> {
                     children: [
                       TextButton(
                         onPressed: _loadMore,
-                        child: Container(
+                        child: SizedBox(
                           width: 105,
                           child: Row(
                             children: [
@@ -84,7 +84,7 @@ class _ComponentloaderState extends State<Componentloader> {
                     ],
                   ),
                 )
-              : Container(
+              : SizedBox(
                   width: MediaQuery.sizeOf(context).width,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -92,7 +92,7 @@ class _ComponentloaderState extends State<Componentloader> {
                     children: [
                       TextButton(
                         onPressed: _Unload,
-                        child: Container(
+                        child: SizedBox(
                           width: 105,
                           child: Row(
                             children: [

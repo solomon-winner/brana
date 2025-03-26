@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class BookImage extends StatelessWidget {
   final String image;
 
-  BookImage({required this.image});
+  const BookImage({super.key, required this.image});
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

@@ -17,7 +17,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  bool _isSideBarExpanded = false;
+  final bool _isSideBarExpanded = false;
 
   var _page = 0;
   final pages = [bodyContainer(),Shelves(),Favourite(),TrendingPage()];
@@ -149,6 +149,40 @@ class _HomePageState extends State<HomePage> {
 //           context.read<BookBloc>().add(const FetchBooks());
 //         },
 //         child: const Icon(Icons.refresh),
+//       ),
+//     );
+//   }
+// }
+
+// import 'package:flutter/material.dart';
+// import 'package:flutter_riverpod/flutter_riverpod.dart';
+// import '../providers/book_provider.dart';
+// import '../models/books.dart';
+
+// class HomePage extends ConsumerWidget {
+//   @override
+//   Widget build(BuildContext context, WidgetRef ref) {
+//     final bookList = ref.watch(bookListProvider);
+
+//     return Scaffold(
+//       appBar: AppBar(title: Text("Book List")),
+//       body: RefreshIndicator(
+//         onRefresh:  () async => ref.refresh(bookListProvider),
+//         child: bookList.when(
+//           data: (books) => ListView.builder(
+//             itemCount: books.length,
+//             itemBuilder: (context, index) {
+//               final book = books[index];
+//               return ListTile(
+//                 leading: Image.network(book.img, width: 50, height: 50, fit: BoxFit.cover),
+//                 title: Text(book.title),
+//                 subtitle: Text("By ${book.author}"),
+//               );
+//             },
+//           ),
+//           loading: () => Center(child: CircularProgressIndicator()),
+//           error: (err, stack) => Center(child: Text("Error: ${err.toString()}")),
+//         ),
 //       ),
 //     );
 //   }

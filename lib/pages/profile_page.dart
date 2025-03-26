@@ -12,6 +12,8 @@ import 'package:brana/utils/componentLoader.dart';
 import 'package:flutter/material.dart';
 
 class Profile extends StatelessWidget {
+  const Profile({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +34,7 @@ class Profile extends StatelessWidget {
       ),
       body: SingleChildScrollView(
           child: Column(children: [
-        Container(
+        SizedBox(
           height: 410,
           child: Stack(
             children: [

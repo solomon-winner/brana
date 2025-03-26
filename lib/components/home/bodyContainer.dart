@@ -40,7 +40,10 @@ class _bodyContainerState extends State<bodyContainer> {
               ],
             ),
             SizedBox(height: 20,),
-            Booklist()
+            Expanded(
+              child: Booklist()
+            )
+
           ],
         ),
       );

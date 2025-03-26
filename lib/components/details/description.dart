@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class Description extends StatefulWidget {
   final String description;
-  const Description({required this.description});
+  const Description({super.key, required this.description});
 
   @override
   _DescriptionState createState() => _DescriptionState();

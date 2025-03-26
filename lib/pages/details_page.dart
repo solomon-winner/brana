@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 class Detail extends StatelessWidget {
   final Book book;
 
-  Detail({required this.book});
+  const Detail({super.key, required this.book});
   
   @override
   Widget build(BuildContext context) {
@@ -37,7 +37,7 @@ class Detail extends StatelessWidget {
         child: Column(
           
           children: [
-            Container(
+            SizedBox(
             height: 530,
             child: Stack(
               children: [

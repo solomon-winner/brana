@@ -7,7 +7,7 @@ class Aboutyou extends StatefulWidget {
  final List<String> recommended ;
  final  List<Book> saving ;
 
-  Aboutyou({required this.recommended , required this.saving});
+  const Aboutyou({super.key, required this.recommended , required this.saving});
 
   @override
   State<Aboutyou> createState() => _AboutyouState();
@@ -119,7 +119,7 @@ class _AboutyouState extends State<Aboutyou> {
                       spacing: 8.0,
                       runSpacing: 10.0,
                       children: widget.recommended.map((recomendation) {
-                        return Container(
+                        return SizedBox(
                           width: 100,
                           child: Column(
                             children: [
@@ -163,7 +163,7 @@ class _AboutyouState extends State<Aboutyou> {
                     ),
                 )
               
-            : Container(
+            : SizedBox(
                 height: MediaQuery.of(context).size.height * 0.3,
                 child: Center(
                   child: Text(
@@ -171,7 +171,7 @@ class _AboutyouState extends State<Aboutyou> {
                 ),
               );
       case "Saved Books":
-        return Container(
+        return SizedBox(
           height: MediaQuery.of(context).size.height * 0.3,
           child: Center(child: Text("You've not Saved Books")),
 

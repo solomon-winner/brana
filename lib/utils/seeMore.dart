@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class SeeMore extends StatefulWidget {
   final String text;
   final String testimonier;
-  const SeeMore({required this.text, this.testimonier = ''});
+  const SeeMore({super.key, required this.text, this.testimonier = ''});
 
   @override
   State<SeeMore> createState() => _SeeMoreState();
@@ -49,7 +49,7 @@ class _SeeMoreState extends State<SeeMore> {
           ),
         ),
         if (words.length > 20)
-          Container(
+          SizedBox(
             width: MediaQuery.sizeOf(context).width,
             child: Row(children: [
               Spacer(),

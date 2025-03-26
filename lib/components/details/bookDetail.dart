@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class BookDetail extends StatelessWidget {
+  const BookDetail({super.key});
+
   // final String Detail;
   // const BookDetail({required this.Detail});
 
