@@ -3,7 +3,7 @@ import 'package:brana/components/details/bookImage.dart';
 import 'package:brana/components/details/description.dart';
 import 'package:brana/components/details/booksByAuthor.dart';
 import 'package:brana/components/details/testimonies.dart';
-import 'package:brana/models/books.dart';
+import 'package:brana/models/book_model/books.dart';
 import 'package:brana/utils/colors.dart';
 import 'package:brana/utils/componentLoader.dart';
 import 'package:flutter/material.dart';

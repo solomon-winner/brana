@@ -1,6 +1,15 @@
-import 'package:brana/models/books.dart'; 
+ import 'package:brana/models/book_model/books.dart';
 
+// abstract class BookRepository {
+//   Future<List<Book>> fetchBooks();
+//   Future<void> toggleLike(String bookId);
+// }
+
+// Abstract interface
 abstract class BookRepository {
   Future<List<Book>> fetchBooks();
-  Future<void> toggleLike(String bookId);
+  Future<void> toggleFavorite(int bookId);
+  Future<Set<int>> getFavorites();
 }
+
+// Implementation (book_repository_impl.dart)

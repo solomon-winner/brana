@@ -6,7 +6,7 @@ import 'package:brana/components/details/testimonies.dart';
 import 'package:brana/components/profile/aboutYou.dart';
 import 'package:brana/components/profile/profileDetail.dart';
 import 'package:brana/components/profile/profileImage.dart';
-import 'package:brana/models/books.dart';
+import 'package:brana/models/book_model/books.dart';
 import 'package:brana/utils/colors.dart';
 import 'package:brana/utils/componentLoader.dart';
 import 'package:flutter/material.dart';

@@ -193,7 +193,7 @@
 //   }
 // }
 
-import 'package:brana/models/books.dart';
+import 'package:brana/models/book_model/books.dart';
 import 'package:brana/pages/details_page.dart';
 import 'package:brana/utils/colors.dart';
 import 'package:flutter/material.dart';
@@ -347,8 +347,8 @@ class _BooklistState extends ConsumerState<Booklist> {
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             GestureDetector(
-                              onTap: () => setState(
-                                  () => book.isFavourite = !book.isFavourite),
+                              // onTap: () => setState(
+                              //     () => book.isFavourite = !book.isFavourite),
                               child: isClicked
                                   ? Icon(
                                       Icons.favorite,

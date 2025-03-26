@@ -1,5 +1,4 @@
-import 'package:brana/models/books.dart';
-import 'package:flutter/material.dart';
+import 'package:brana/models/book_model/books.dart';
 import 'dart:convert';
 
 import 'package:flutter/services.dart';

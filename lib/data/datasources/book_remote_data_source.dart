@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:brana/models/books.dart';
+import 'package:brana/models/book_model/books.dart';
 
 abstract class BookRemoteDataSource {
   Future<List<Book>> getBooks();

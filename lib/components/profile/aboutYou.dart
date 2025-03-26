@@ -1,4 +1,4 @@
-import 'package:brana/models/books.dart';
+import 'package:brana/models/book_model/books.dart';
 import 'package:brana/utils/colors.dart';
 import 'package:flutter/material.dart';
 
