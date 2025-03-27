@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../services/book_service.dart';
+import '../../services/book_service.dart';
 import 'package:brana/models/book_model/books.dart';
 
 final bookServiceProvider = Provider((ref) => BookService());
