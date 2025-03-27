@@ -193,41 +193,64 @@
 //   }
 // }
 
+import 'package:brana/Providers/books/book_state.dart';
 import 'package:brana/models/book_model/books.dart';
 import 'package:brana/pages/details_page.dart';
 import 'package:brana/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../providers/book_provider.dart';
+import '../../providers/books/book_provider.dart';
 
-class Booklist extends ConsumerStatefulWidget {
-  const Booklist({super.key});
+// class Booklist extends ConsumerStatefulWidget {
+//   const Booklist({super.key});
 
+//   // @override
+//   // ConsumerState<Booklist> createState() => _BooklistState();
+// }
+
+class BookList extends ConsumerWidget {
+
+  const BookList({super.key});
   @override
-  ConsumerState<Booklist> createState() => _BooklistState();
-}
-
-class _BooklistState extends ConsumerState<Booklist> {
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     // Watch the provider
-    final bookList = ref.watch(bookListProvider);
+    final asyncState = ref.watch(bookNotifierProvider);
 
     return RefreshIndicator(
-      onRefresh: () async => ref.refresh(bookListProvider),
-      child: ListView.builder(
-        physics: const AlwaysScrollableScrollPhysics(),
-          itemCount: bookList.when(
-            data: (books) => books.length,
-            error: (error, stackTrace) => 0, 
-            loading: () => 0),
-          scrollDirection: Axis.vertical,
-          itemBuilder: (context, index) {
-            final books = bookList.asData?.value ?? [];
-            Book book = books[index];
-            bool isClicked = book.isFavourite;
-            print(book);
-            return Padding(
+      onRefresh: () async => ref.read(bookNotifierProvider.notifier).loadInitialData(),
+      child: asyncState.when(
+        loading: () => const Center(child: CircularProgressIndicator()),
+        error: (error, stack) => Center(child: Text('Error: $error')),
+        data: (state) => _BookListView(state: state)
+      ),
+    );
+  }
+}
+
+class _BookListView extends StatelessWidget {
+   final BookState state;
+   const _BookListView({required this.state});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      physics: const AlwaysScrollableScrollPhysics(),
+      itemCount: state.books.length,
+      scrollDirection: Axis.vertical,
+      itemBuilder: (context, index) {
+      final book = state.books[index];
+      return BookListItem(book: book);
+    });
+  }
+}
+
+class BookListItem extends ConsumerWidget {
+  final Book book;
+  const BookListItem({super.key, required this.book});
+
+   @override
+   Widget build(BuildContext context, WidgetRef ref) {
+                return Padding(
               padding: const EdgeInsets.all(8.0),
               child: GestureDetector(
                 onTap: () => {
@@ -346,20 +369,20 @@ class _BooklistState extends ConsumerState<Booklist> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
-                            GestureDetector(
+                            IconButton(
+                              onPressed: () => ref.read(bookNotifierProvider.notifier),  
                               // onTap: () => setState(
                               //     () => book.isFavourite = !book.isFavourite),
-                              child: isClicked
-                                  ? Icon(
-                                      Icons.favorite,
-                                      color: BranaColor.BadgeBackground,
-                                      size: 25,
-                                    )
-                                  : Icon(
+                              icon: Icon(
+                                book.isFavourite ?
+                                      Icons.favorite :
                                       Icons.favorite_border,
+                                color: book.isFavourite ?
+                                      BranaColor.BadgeBackground :
+                                      BranaColor.AddLibrary,
                                       size: 25,
-                                      color: BranaColor.AddLibrary,
                                     ),
+                          
                             ),
                             SizedBox(
                               height: 10,
@@ -377,8 +400,5 @@ class _BooklistState extends ConsumerState<Booklist> {
                 ),
               ),
             );
-          },
-      ),
-    );
-  }
+}
 }

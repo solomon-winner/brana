@@ -1,20 +1,28 @@
+import 'package:brana/Providers/books/book_provider.dart';
+
 import 'book_state.dart';
 import 'package:brana/data/repositories/book_repository.dart';
 import 'package:brana/models/book_model/books.dart';
-import 'package:state_notifier/state_notifier.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class BookNotifier extends StateNotifier<BookState> {
-  final BookRepository _repository;
+class BookNotifier extends Notifier<AsyncValue<BookState>> {
 
-  BookNotifier(this._repository) : super(const BookState(
-    books: [],
-    favorites: {},
-    isLoading: true,
-  )) {
-    _loadInitialData();
+  @override
+  AsyncValue<BookState> build() {
+
+   loadInitialData(); 
+    return const AsyncValue.loading();
+    // return const BookState(
+    //   books: [],
+    //   favorites: {},
+    //   isLoading: true,
+    //   error: null,
+    // );
   }
+    BookRepository get _repository => ref.read(bookRepositoryProvider);
 
-  Future<void> _loadInitialData() async {
+  Future<void> loadInitialData() async {
+    state = const AsyncValue.loading();
     try {
       final results = await Future.wait([
         _repository.fetchBooks(),
@@ -23,17 +31,15 @@ class BookNotifier extends StateNotifier<BookState> {
 
       final books = results[0] as List<Book>;
       final favorites = results[1] as Set<int>;
-      
-      state = state.copyWith(
-        books: _mergeFavorites(books, favorites),
-        favorites: favorites,
-        isLoading: false,
+
+      state = AsyncValue.data(
+        BookState(
+          books: _mergeFavorites(books, favorites),
+          favorites: favorites,
+        ),
       );
-    } catch (e) {
-      state = state.copyWith(
-        error: e.toString(),
-        isLoading: false,
-      );
+    } catch (e, stack) {
+      state = AsyncValue.error(e, stack);
     }
   }
 
@@ -45,15 +51,28 @@ class BookNotifier extends StateNotifier<BookState> {
 
   Future<void> toggleFavorite(int bookId) async {
     try {
+      final previousState = state;
+      state = const AsyncValue.loading();
+      
       await _repository.toggleFavorite(bookId);
       final favorites = await _repository.getFavorites();
-      
-      state = state.copyWith(
-        books: _mergeFavorites(state.books, favorites),
-        favorites: favorites,
+
+      state = previousState.when(
+        data: (oldState) => AsyncValue.data(
+          BookState(
+            books: _mergeFavorites(
+              oldState.books,
+              favorites
+            ),
+            favorites: favorites,
+          )
+        ),
+        loading: () => const AsyncValue.loading(),
+        error: (_,__) => previousState,
       );
-    } catch (e) {
-      state = state.copyWith(error: 'Failed to update favorite');
+    } catch (e, stack) {
+      state = AsyncValue.error(e, stack);
     }
   }
 }
+
