@@ -201,13 +201,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../providers/books/book_provider.dart';
 
-// class Booklist extends ConsumerStatefulWidget {
-//   const Booklist({super.key});
-
-//   // @override
-//   // ConsumerState<Booklist> createState() => _BooklistState();
-// }
-
 class BookList extends ConsumerWidget {
 
   const BookList({super.key});

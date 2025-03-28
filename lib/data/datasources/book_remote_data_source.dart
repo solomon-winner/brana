@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:dio/dio.dart';
 import 'package:http/http.dart' as http;
 import 'package:brana/models/book_model/books.dart';
 
@@ -8,16 +9,18 @@ abstract class BookRemoteDataSource {
 }
 
 class BookRemoteDataSourceImpl implements BookRemoteDataSource {
+  final Dio dio;
+
+  BookRemoteDataSourceImpl(this.dio);
   final String baseUrl = "https://api.example.com/books"; // Replace with actual API
 
   @override
   Future<List<Book>> getBooks() async {
     try {
-      final response = await http.get(Uri.parse(baseUrl));
+      final response = await dio.get('/books');
 
       if (response.statusCode == 200) {
-        List<dynamic> data = json.decode(response.body);
-        return data.map((json) => Book.fromJson(json)).toList();
+        return (response.data as List).map((json) => Book.fromJson(json)).toList();
       } else {
         throw Exception("Failed to load books");
       }

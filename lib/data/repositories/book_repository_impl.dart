@@ -17,23 +17,26 @@
 //     await remoteDataSource.toggleBookLike(bookId);
 //   }
 // }
+import 'package:brana/data/datasources/book_remote_data_source.dart';
 import 'package:dio/dio.dart'; 
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:brana/data/repositories/book_repository.dart';
 import 'package:brana/models/book_model/books.dart';
 
 class BookRepositoryImpl implements BookRepository {
+  final BookRemoteDataSource remoteDataSource;
   final SharedPreferences _prefs;
-  final Dio _dio;
 
-  BookRepositoryImpl(this._prefs, this._dio);
+  BookRepositoryImpl(this.remoteDataSource, this._prefs);
 
   @override
   Future<List<Book>> fetchBooks() async {
-    final response = await _dio.get('/books');
-    return (response.data as List)
-      .map((json) => Book.fromJson(json))
-      .toList();
+    try {
+    return await remoteDataSource.getBooks();
+      
+    } on DioException catch (e) {
+      throw Exception("Error fetching books: ${e.message}");
+    }
   }
 
   @override
@@ -43,8 +46,13 @@ class BookRepositoryImpl implements BookRepository {
       ? favorites.remove(bookId)
       : favorites.add(bookId);
     
-    await _prefs.setStringList('favorites', 
-      favorites.map((id) => id.toString()).toList());
+    await Future.wait([
+_prefs.setStringList('favorites', 
+      favorites.map((id) => id.toString()).toList()),
+      remoteDataSource.toggleBookLike(bookId.toString()),
+    ]);
+
+    
   }
 
   @override
