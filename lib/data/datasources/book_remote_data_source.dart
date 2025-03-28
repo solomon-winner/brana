@@ -32,10 +32,7 @@ class BookRemoteDataSourceImpl implements BookRemoteDataSource {
   @override
   Future<void> toggleBookLike(String bookId) async {
     try {
-      final response = await http.post(
-        Uri.parse("$baseUrl/$bookId/toggle-like"),
-        headers: {"Content-Type": "application/json"},
-      );
+      final response = await dio.post("books/favourites/$bookId/");
 
       if (response.statusCode != 200) {
         throw Exception("Failed to toggle like");
