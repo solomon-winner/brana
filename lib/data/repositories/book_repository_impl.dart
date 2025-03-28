@@ -32,6 +32,7 @@ class BookRepositoryImpl implements BookRepository {
   @override
   Future<List<Book>> fetchBooks() async {
     try {
+      print("book repository impl");
     return await remoteDataSource.getBooks();
       
     } on DioException catch (e) {

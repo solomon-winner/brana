@@ -9,7 +9,6 @@ class BookNotifier extends Notifier<AsyncValue<BookState>> {
 
   @override
   AsyncValue<BookState> build() {
-
    loadInitialData(); 
     return const AsyncValue.loading();
     // return const BookState(
@@ -22,7 +21,9 @@ class BookNotifier extends Notifier<AsyncValue<BookState>> {
     BookRepository get _repository => ref.read(bookRepositoryProvider);
 
   Future<void> loadInitialData() async {
+    print('Loading initial data...');
     state = const AsyncValue.loading();
+    
     try {
       final results = await Future.wait([
         _repository.fetchBooks(),
@@ -32,6 +33,8 @@ class BookNotifier extends Notifier<AsyncValue<BookState>> {
       final books = results[0] as List<Book>;
       final favorites = results[1] as Set<int>;
 
+      print('Data fetched: ${books} books');
+      print('Favorites: ${results[1]}');
       state = AsyncValue.data(
         BookState(
           books: _mergeFavorites(books, favorites),

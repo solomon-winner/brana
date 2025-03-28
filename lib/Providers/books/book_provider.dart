@@ -47,8 +47,12 @@ final dioProvider = Provider<Dio>((ref) {
     },
   ))
     ..interceptors.add(LogInterceptor(
+      request: true,
       requestBody: true,
       responseBody: true,
+      error: true,
+      responseHeader: true,
+      
     ));
 });
 // State Notifier Provider

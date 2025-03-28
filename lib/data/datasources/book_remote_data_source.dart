@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:dio/dio.dart';
-import 'package:http/http.dart' as http;
+import 'package:flutter/services.dart';
 import 'package:brana/models/book_model/books.dart';
 
 abstract class BookRemoteDataSource {
@@ -10,20 +10,21 @@ abstract class BookRemoteDataSource {
 
 class BookRemoteDataSourceImpl implements BookRemoteDataSource {
   final Dio dio;
-
   BookRemoteDataSourceImpl(this.dio);
-  final String baseUrl = "https://api.example.com/books"; // Replace with actual API
 
   @override
   Future<List<Book>> getBooks() async {
     try {
-      final response = await dio.get('/books');
 
-      if (response.statusCode == 200) {
-        return (response.data as List).map((json) => Book.fromJson(json)).toList();
-      } else {
-        throw Exception("Failed to load books");
-      }
+      // final response = await dio.get('/books');
+       String data = await rootBundle.loadString("assets/info.json");
+       List<dynamic> jsonResult = json.decode(data);
+       return jsonResult.map((book) => Book.fromJson(book)).toList();
+      // if (response.statusCode == 200) {
+      //   return (response.data as List).map((json) => Book.fromJson(json)).toList();
+      // } else {
+      //   throw Exception("Failed to load books");
+      // }
     } catch (e) {
       throw Exception("Error fetching books: $e");
     }
