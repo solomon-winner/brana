@@ -27,14 +27,15 @@ class BookNotifier extends Notifier<AsyncValue<BookState>> {
     try {
       final results = await Future.wait([
         _repository.fetchBooks(),
-        _repository.getFavorites(),
+        // _repository.getFavorites(),
       ]);
 
-      final books = results[0] as List<Book>;
-      final favorites = results[1] as Set<int>;
+      final books = results[0];
+final favorites = results.length > 1 
+    ? results.elementAt(1) as Set<int> 
+    : <int>{}; 
 
-      print('Data fetched: ${books} books');
-      print('Favorites: ${results[1]}');
+      // print('Favorites: ${results[1]}');
       state = AsyncValue.data(
         BookState(
           books: _mergeFavorites(books, favorites),

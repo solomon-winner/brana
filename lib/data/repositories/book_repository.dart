@@ -8,8 +8,7 @@
 // Abstract interface
 abstract class BookRepository {
   Future<List<Book>> fetchBooks();
-  Future<void> toggleFavorite(int bookId);
-  Future<Set<int>> getFavorites();
+   Future<void> toggleFavorite(int bookId);
+   Future<Set<int>> getFavorites();
 }
 
-// Implementation (book_repository_impl.dart)

@@ -25,14 +25,14 @@ import 'package:brana/models/book_model/books.dart';
 
 class BookRepositoryImpl implements BookRepository {
   final BookRemoteDataSource remoteDataSource;
-  final SharedPreferences _prefs;
+   final SharedPreferences _prefs;
 
-  BookRepositoryImpl(this.remoteDataSource, this._prefs);
-
+  BookRepositoryImpl(this.remoteDataSource ,this._prefs);
+ 
   @override
   Future<List<Book>> fetchBooks() async {
     try {
-      print("book repository impl");
+      print("book repository impl$_prefs");
     return await remoteDataSource.getBooks();
       
     } on DioException catch (e) {
@@ -40,8 +40,8 @@ class BookRepositoryImpl implements BookRepository {
     }
   }
 
-  @override
-  Future<void> toggleFavorite(int bookId) async {
+ @override
+ Future<void> toggleFavorite(int bookId) async {
     final favorites = await getFavorites();
     favorites.contains(bookId) 
       ? favorites.remove(bookId)
@@ -58,6 +58,6 @@ _prefs.setStringList('favorites',
 
   @override
   Future<Set<int>> getFavorites() async {
-    return _prefs.getStringList('favorites')?.map(int.parse).toSet() ?? {};
+     return _prefs.getStringList('favorites')?.map(int.parse).toSet() ?? {};
   }
 }
