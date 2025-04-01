@@ -173,7 +173,7 @@ class BookListItem extends ConsumerWidget {
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             IconButton(
-                              onPressed: () => ref.read(bookNotifierProvider.notifier),  
+                              onPressed: () => ref.read(bookNotifierProvider.notifier).toggleFavorite(book.id),
                               // onTap: () => setState(
                               //     () => book.isFavourite = !book.isFavourite),
                               icon: Icon(
