@@ -50,7 +50,7 @@ class BookRepositoryImpl implements BookRepository {
     await Future.wait([
 _prefs.setStringList('favorites', 
       favorites.map((id) => id.toString()).toList()),
-      remoteDataSource.toggleBookLike(bookId.toString()),
+      // remoteDataSource.toggleBookLike(bookId.toString()),
     ]);
 
     

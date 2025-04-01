@@ -192,10 +192,14 @@ class BookListItem extends ConsumerWidget {
                             SizedBox(
                               height: 10,
                             ),
-                            Icon(
-                              Icons.my_library_add_outlined,
-                              size: 25,
-                              color: BranaColor.AddLibrary,
+                            IconButton(
+                              onPressed: () => print("Add to Library"),
+                              icon: Icon(
+                                Icons.my_library_add_outlined,
+                                color: BranaColor.AddLibrary,
+                                size: 25,
+                                ),
+
                             ),
                           ],
                         ),
