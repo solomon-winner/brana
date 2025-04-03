@@ -1,7 +1,7 @@
 import 'package:brana/Providers/books/book_provider.dart';
 
 import 'book_state.dart';
-import 'package:brana/data/repositories/book_repository.dart';
+import 'package:brana/data/repositories/book_repository/book_repository.dart';
 import 'package:brana/models/book_model/books.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
