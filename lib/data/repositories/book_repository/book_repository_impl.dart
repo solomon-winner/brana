@@ -1,7 +1,7 @@
 import 'package:brana/data/datasources/book_remote_data_source.dart';
 import 'package:dio/dio.dart'; 
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:brana/data/repositories/book_repository.dart';
+import 'package:brana/data/repositories/book_repository/book_repository.dart';
 import 'package:brana/models/book_model/books.dart';
 
 class BookRepositoryImpl implements BookRepository {
