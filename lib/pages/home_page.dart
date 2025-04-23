@@ -1,12 +1,10 @@
 import 'package:brana/components/home/bodyContainer.dart';
 import 'package:brana/pages/favourite.dart';
 import 'package:brana/pages/trending_page.dart';
-import 'package:brana/pages/setting_page.dart';
 import 'package:brana/pages/shelves.dart';
 import 'package:brana/utils/colors.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:brana/components/home/search_bar.dart';
 import 'package:brana/components/sideBar.dart';
 
 class HomePage extends StatefulWidget {
@@ -17,8 +15,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final bool _isSideBarExpanded = false;
-
   var _page = 0;
   final pages = [bodyContainer(),Shelves(),Favourite(),TrendingPage()];
   

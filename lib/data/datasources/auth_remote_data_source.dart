@@ -1,68 +1,75 @@
+// auth_remote_data_source.dart
 import 'package:dio/dio.dart';
-
+import 'package:brana/models/user_model/user_login/user_login.dart';
+import 'package:brana/models/user_model/user_profile/user_profile.dart';
+import 'package:brana/utils/app_exception.dart';
 
 abstract class AuthRemoteDataSource {
-  Future<void> login(String username, String password);
-  Future<void> register(String username, String password);
-  Future<void> logout(String token);
+  Future<UserLogin> login(String email, String password);
+  Future<UserProfile> register(String name, String email, String password);
+  Future<void> logout();
   Future<void> resetPassword(String email);
 }
+
 class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   final Dio dio;
+
   AuthRemoteDataSourceImpl(this.dio);
 
   @override
-  Future<void> login(String username, String password) async {
+  Future<UserLogin> login(String email, String password) async {
     try {
-      final response = await dio.post('/login', data: {
-        'username': username,
+      final response = await dio.post('/auth/login', data: {
+        'email': email,
         'password': password,
       });
-      if (response.statusCode != 200) {
-        throw Exception("Failed to login");
-      }
-    } catch (e) {
-      throw Exception("Error logging in: $e");
+      return UserLogin.fromJson(response.data);
+    } on DioException catch (e) {
+      throw AppException(
+        e.response?.data['message'] ?? 'Login failed',
+        e.response?.statusCode,
+      );
     }
   }
-@override
-  Future<void> register(String username, String password) async {
+
+  @override
+  Future<UserProfile> register(String name, String email, String password) async {
     try {
-      final response = await dio.post('/register', data: {
-        'username': username,
+      final response = await dio.post('/auth/register', data: {
+        'name': name,
+        'email': email,
         'password': password,
       });
-      if (response.statusCode != 201) {
-        throw Exception("Failed to register");
-      }
-    } catch (e) {
-      throw Exception("Error registering: $e");
+      return UserProfile.fromJson(response.data);
+    } on DioException catch (e) {
+      throw AppException(
+        e.response?.data['message'] ?? 'Registration failed',
+        e.response?.statusCode,
+      );
     }
   }
-@override
-  Future<void> logout(String token) async {
+
+  @override
+  Future<void> logout() async {
     try {
-      final response = await dio.post('/logout', data: {
-        'token': token,
-      });
-      if (response.statusCode != 200) {
-        throw Exception("Failed to logout");
-      }
-    } catch (e) {
-      throw Exception("Error logging out: $e");
+      await dio.post('/auth/logout');
+    } on DioException catch (e) {
+      throw AppException(
+        e.response?.data['message'] ?? 'Logout failed',
+        e.response?.statusCode,
+      );
     }
   }
-@override
+
+  @override
   Future<void> resetPassword(String email) async {
     try {
-      final response = await dio.post('/reset-password', data: {
-        'email': email,
-      });
-      if (response.statusCode != 200) {
-        throw Exception("Failed to reset password");
-      }
-    } catch (e) {
-      throw Exception("Error resetting password: $e");
+      await dio.post('/auth/reset-password', data: {'email': email});
+    } on DioException catch (e) {
+      throw AppException(
+        e.response?.data['message'] ?? 'Password reset failed',
+        e.response?.statusCode,
+      );
     }
   }
 }
