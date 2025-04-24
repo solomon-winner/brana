@@ -9,7 +9,7 @@ import 'package:brana/models/user_model/user_profile/user_profile.dart';
 // }
 
 abstract class AuthRepository {
-  Future<UserProfile> login(String email, String password);
+  Future<UserLogin> login(String email, String password);
   Future<void> logout();
   Future<UserProfile> register({
     required String firstName,

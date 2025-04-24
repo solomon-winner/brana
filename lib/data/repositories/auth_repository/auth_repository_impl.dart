@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:brana/models/user_model/user_profile/user_profile.dart';
+import 'package:brana/models/user_model/user_login/user_login.dart';
 import 'package:cookie_jar/cookie_jar.dart';
 import 'package:brana/data/repositories/auth_repository/auth_repository.dart';
 import 'dart:convert';
@@ -18,7 +19,7 @@ class AuthRepositoryImpl implements AuthRepository{
         _storage = storage,
         _cookieJar = cookieJar;
 
-  Future<UserProfile> login(String email, String password) async {
+  Future<UserLogin> login(String email, String password) async {
     try {
       final response = await _dio.post('/auth/login', data: {
         'email': email,
@@ -26,8 +27,9 @@ class AuthRepositoryImpl implements AuthRepository{
       });
 
       // Save user session
-      final user = UserProfile.fromJson(response.data['data']);
-      await _storage.write(key: 'current_user', value: jsonEncode(user.toJson()));
+      final user = UserLogin.fromJson(response.data['data']);
+    await _storage.write(key: 'auth_token', value: user.token);
+    await _storage.write(key: 'current_user', value: jsonEncode(user.user.toJson()));
       
       return user;
     } on DioException catch (e) {
