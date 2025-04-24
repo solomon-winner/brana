@@ -15,10 +15,8 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$UserLogin {
-  int get id;
-  String get email;
-  String get name;
-  String get profilePicture;
+  String get token;
+  UserProfile get user;
 
   /// Create a copy of UserLogin
   /// with the given fields replaced by the non-null parameter values.
@@ -35,20 +33,17 @@ mixin _$UserLogin {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is UserLogin &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.email, email) || other.email == email) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.profilePicture, profilePicture) ||
-                other.profilePicture == profilePicture));
+            (identical(other.token, token) || other.token == token) &&
+            (identical(other.user, user) || other.user == user));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, email, name, profilePicture);
+  int get hashCode => Object.hash(runtimeType, token, user);
 
   @override
   String toString() {
-    return 'UserLogin(id: $id, email: $email, name: $name, profilePicture: $profilePicture)';
+    return 'UserLogin(token: $token, user: $user)';
   }
 }
 
@@ -57,7 +52,9 @@ abstract mixin class $UserLoginCopyWith<$Res> {
   factory $UserLoginCopyWith(UserLogin value, $Res Function(UserLogin) _then) =
       _$UserLoginCopyWithImpl;
   @useResult
-  $Res call({int id, String email, String name, String profilePicture});
+  $Res call({String token, UserProfile user});
+
+  $UserProfileCopyWith<$Res> get user;
 }
 
 /// @nodoc
@@ -72,51 +69,43 @@ class _$UserLoginCopyWithImpl<$Res> implements $UserLoginCopyWith<$Res> {
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? email = null,
-    Object? name = null,
-    Object? profilePicture = null,
+    Object? token = null,
+    Object? user = null,
   }) {
     return _then(_self.copyWith(
-      id: null == id
-          ? _self.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      email: null == email
-          ? _self.email
-          : email // ignore: cast_nullable_to_non_nullable
+      token: null == token
+          ? _self.token
+          : token // ignore: cast_nullable_to_non_nullable
               as String,
-      name: null == name
-          ? _self.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      profilePicture: null == profilePicture
-          ? _self.profilePicture
-          : profilePicture // ignore: cast_nullable_to_non_nullable
-              as String,
+      user: null == user
+          ? _self.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as UserProfile,
     ));
+  }
+
+  /// Create a copy of UserLogin
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $UserProfileCopyWith<$Res> get user {
+    return $UserProfileCopyWith<$Res>(_self.user, (value) {
+      return _then(_self.copyWith(user: value));
+    });
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _UserLogin implements UserLogin {
-  const _UserLogin(
-      {required this.id,
-      required this.email,
-      required this.name,
-      required this.profilePicture});
+  const _UserLogin({required this.token, required this.user});
   factory _UserLogin.fromJson(Map<String, dynamic> json) =>
       _$UserLoginFromJson(json);
 
   @override
-  final int id;
+  final String token;
   @override
-  final String email;
-  @override
-  final String name;
-  @override
-  final String profilePicture;
+  final UserProfile user;
 
   /// Create a copy of UserLogin
   /// with the given fields replaced by the non-null parameter values.
@@ -138,20 +127,17 @@ class _UserLogin implements UserLogin {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _UserLogin &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.email, email) || other.email == email) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.profilePicture, profilePicture) ||
-                other.profilePicture == profilePicture));
+            (identical(other.token, token) || other.token == token) &&
+            (identical(other.user, user) || other.user == user));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, email, name, profilePicture);
+  int get hashCode => Object.hash(runtimeType, token, user);
 
   @override
   String toString() {
-    return 'UserLogin(id: $id, email: $email, name: $name, profilePicture: $profilePicture)';
+    return 'UserLogin(token: $token, user: $user)';
   }
 }
 
@@ -163,7 +149,10 @@ abstract mixin class _$UserLoginCopyWith<$Res>
       __$UserLoginCopyWithImpl;
   @override
   @useResult
-  $Res call({int id, String email, String name, String profilePicture});
+  $Res call({String token, UserProfile user});
+
+  @override
+  $UserProfileCopyWith<$Res> get user;
 }
 
 /// @nodoc
@@ -178,29 +167,29 @@ class __$UserLoginCopyWithImpl<$Res> implements _$UserLoginCopyWith<$Res> {
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? id = null,
-    Object? email = null,
-    Object? name = null,
-    Object? profilePicture = null,
+    Object? token = null,
+    Object? user = null,
   }) {
     return _then(_UserLogin(
-      id: null == id
-          ? _self.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      email: null == email
-          ? _self.email
-          : email // ignore: cast_nullable_to_non_nullable
+      token: null == token
+          ? _self.token
+          : token // ignore: cast_nullable_to_non_nullable
               as String,
-      name: null == name
-          ? _self.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      profilePicture: null == profilePicture
-          ? _self.profilePicture
-          : profilePicture // ignore: cast_nullable_to_non_nullable
-              as String,
+      user: null == user
+          ? _self.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as UserProfile,
     ));
+  }
+
+  /// Create a copy of UserLogin
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $UserProfileCopyWith<$Res> get user {
+    return $UserProfileCopyWith<$Res>(_self.user, (value) {
+      return _then(_self.copyWith(user: value));
+    });
   }
 }
 

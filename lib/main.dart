@@ -7,6 +7,7 @@ import 'package:brana/Providers/shared_preference.dart';
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   final SharedPreferences prefs = await SharedPreferences.getInstance();
+
   runApp(ProviderScope(
     overrides: [sharedPreferencesProvider.overrideWithValue(prefs),],
     child: MyApp()) );

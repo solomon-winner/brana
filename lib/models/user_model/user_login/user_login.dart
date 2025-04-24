@@ -1,3 +1,4 @@
+import 'package:brana/models/user_model/user_profile/user_profile.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'user_login.freezed.dart';
@@ -6,10 +7,8 @@ part 'user_login.g.dart';
 @freezed
 abstract class UserLogin with _$UserLogin {
   const factory UserLogin ({
-    required int id,
-    required String email,
-    required String name,
-    required String profilePicture,
+    required String token,
+    required UserProfile user,
    
   }) = _UserLogin;
 

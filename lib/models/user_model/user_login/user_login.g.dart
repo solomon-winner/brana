@@ -7,16 +7,12 @@ part of 'user_login.dart';
 // **************************************************************************
 
 _UserLogin _$UserLoginFromJson(Map<String, dynamic> json) => _UserLogin(
-      id: (json['id'] as num).toInt(),
-      email: json['email'] as String,
-      name: json['name'] as String,
-      profilePicture: json['profilePicture'] as String,
+      token: json['token'] as String,
+      user: UserProfile.fromJson(json['user'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$UserLoginToJson(_UserLogin instance) =>
     <String, dynamic>{
-      'id': instance.id,
-      'email': instance.email,
-      'name': instance.name,
-      'profilePicture': instance.profilePicture,
+      'token': instance.token,
+      'user': instance.user,
     };

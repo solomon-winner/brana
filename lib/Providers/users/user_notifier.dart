@@ -12,10 +12,18 @@ class UserNotifier extends Notifier<AsyncValue<UserState>> {
     return AsyncValue.data(UserState());
   }
 
+Future<void> checkToken() async {
+    final storage = ref.read(secureStorageProvider);
+    final token = await storage.read(key: 'token');
+
+    // state = token != null;
+  }
+
   Future<void> login(String email, String password) async {
     state = const AsyncValue.loading();
     try {
       final user = await _authRepository.login(email, password);
+      // await ref.read(secureStorageProvider).write(key: 'token', value: user.token);
       state = AsyncValue.data(UserState(user: user));
     } catch (e) {
       state = AsyncValue.error(e, StackTrace.current);
