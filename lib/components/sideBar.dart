@@ -1,15 +1,17 @@
 import 'package:brana/pages/profile_page.dart';
 import 'package:brana/utils/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:brana/Providers/users/user_provider.dart';
 
-class SideBar extends StatefulWidget {
+class SideBar extends ConsumerStatefulWidget {
   const SideBar({super.key});
 
   @override
-  State<SideBar> createState() => _SideBarState();
+  ConsumerState<SideBar> createState() => _SideBarState();
 }
 
-class _SideBarState extends State<SideBar> {
+class _SideBarState extends ConsumerState<SideBar> {
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
@@ -127,7 +129,36 @@ class _SideBarState extends State<SideBar> {
                   Icons.logout,
                 ),
                 title: Text("Signout"),
-                onTap: () => print(this),
+                onTap: () async{
+                  final shouldLogout = await showDialog<bool>(
+                    context: context,
+                    builder: (context) => AlertDialog(
+                      title: const Text("Confirm Logout"),
+                      content: const Text("Are you sure you want to logout?"),
+                      actions: [
+                        TextButton(
+                          onPressed: () => Navigator.of(context).pop(false),
+                          child: const Text("Cancel"),
+                          ),
+                          TextButton(
+                            onPressed: () => Navigator.of(context).pop(true),
+                            child: const Text("Sign Out"),
+                          ),
+                      ]
+                    )
+                    );
+
+                if (shouldLogout ?? false) {
+                  try {
+                    await ref.read(userNotifierProvider.notifier).logout();
+                  } catch (e) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text("Error logging out: ${e.toString()}"),
+                      ));
+                  }
+                }
+                },
               )
             ],
           )),

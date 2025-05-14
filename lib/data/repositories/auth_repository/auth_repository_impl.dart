@@ -43,13 +43,9 @@ class AuthRepositoryImpl implements AuthRepository{
 
   Future<void> logout() async {
     try {
-      await _dio.post('/auth/logout');
       await _clearSession();
-    } on DioException catch (e) {
-      throw AuthException(
-        message: e.response?.data['message'] ?? 'Logout failed',
-        statusCode: e.response?.statusCode,
-      );
+    } catch (e) {
+      throw AuthException(message: 'Logout failed');
     }
   }
 
@@ -62,7 +58,7 @@ class AuthRepositoryImpl implements AuthRepository{
     String? altPhoneNo,
   }) async {
     try {
-      final response = await _dio.post('/auth/register', data: {
+      final response = await _dio.post('/authentication/register', data: {
         'firstName': firstName,
         'lastName': lastName,
         'email': email,
@@ -90,9 +86,25 @@ class AuthRepositoryImpl implements AuthRepository{
   }
 
   Future<void> _clearSession() async {
-    await _storage.delete(key: 'current_user');
-    await _cookieJar.deleteAll();
-    await _storage.delete(key: 'csrf_token');
+  await Future.wait([
+    _storage.delete(key: 'auth_token'),
+    _storage.delete(key: 'refresh_token'),
+    _storage.delete(key: 'current_user'),
+    _storage.delete(key: 'csrf_token'),
+    _cookieJar.deleteAll(),
+  ]);
+}
+
+  Future<UserProfile> getUserProfile() async {
+    try {
+      final response = await _dio.get('/user/profile');
+      return UserProfile.fromJson(response.data['data']);
+    } on DioException catch (e) {
+      throw AuthException(
+        message: e.response?.data['message'] ?? 'Failed to fetch user profile',
+        statusCode: e.response?.statusCode,
+      );
+    }
   }
 }
 
