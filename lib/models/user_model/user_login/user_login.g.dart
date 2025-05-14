@@ -8,11 +8,13 @@ part of 'user_login.dart';
 
 _UserLogin _$UserLoginFromJson(Map<String, dynamic> json) => _UserLogin(
       token: json['token'] as String,
+      refreshToken: json['refreshToken'] as String,
       user: UserProfile.fromJson(json['user'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$UserLoginToJson(_UserLogin instance) =>
     <String, dynamic>{
       'token': instance.token,
+      'refreshToken': instance.refreshToken,
       'user': instance.user,
     };

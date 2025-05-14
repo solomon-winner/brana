@@ -11,7 +11,7 @@ import 'package:dio_cookie_manager/dio_cookie_manager.dart';
 final dioProvider = Provider<Dio>((ref) {
   final dio = Dio(
     BaseOptions(
-      baseUrl: 'https://api.example.com',
+      baseUrl: 'http://10.0.2.2:5000/api',
       connectTimeout: const Duration(seconds: 10),
       receiveTimeout: const Duration(seconds: 10),
       headers: {

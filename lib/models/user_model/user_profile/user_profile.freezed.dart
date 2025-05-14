@@ -15,15 +15,13 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$UserProfile {
-  int get id;
+  String get id;
   String get email;
-  String get name;
-  String get profilePicture;
-  String get phoneNo;
-  String get altPhoneNo;
-  List<Map<String, String>> get address;
-  List<String> get Categories;
-  List<String> get authors;
+  String get firstName;
+  String get lastName;
+  String get status;
+  DateTime get createdAt;
+  DateTime get updatedAt;
 
   /// Create a copy of UserProfile
   /// with the given fields replaced by the non-null parameter values.
@@ -42,35 +40,25 @@ mixin _$UserProfile {
             other is UserProfile &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.email, email) || other.email == email) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.profilePicture, profilePicture) ||
-                other.profilePicture == profilePicture) &&
-            (identical(other.phoneNo, phoneNo) || other.phoneNo == phoneNo) &&
-            (identical(other.altPhoneNo, altPhoneNo) ||
-                other.altPhoneNo == altPhoneNo) &&
-            const DeepCollectionEquality().equals(other.address, address) &&
-            const DeepCollectionEquality()
-                .equals(other.Categories, Categories) &&
-            const DeepCollectionEquality().equals(other.authors, authors));
+            (identical(other.firstName, firstName) ||
+                other.firstName == firstName) &&
+            (identical(other.lastName, lastName) ||
+                other.lastName == lastName) &&
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            (identical(other.updatedAt, updatedAt) ||
+                other.updatedAt == updatedAt));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      id,
-      email,
-      name,
-      profilePicture,
-      phoneNo,
-      altPhoneNo,
-      const DeepCollectionEquality().hash(address),
-      const DeepCollectionEquality().hash(Categories),
-      const DeepCollectionEquality().hash(authors));
+  int get hashCode => Object.hash(runtimeType, id, email, firstName, lastName,
+      status, createdAt, updatedAt);
 
   @override
   String toString() {
-    return 'UserProfile(id: $id, email: $email, name: $name, profilePicture: $profilePicture, phoneNo: $phoneNo, altPhoneNo: $altPhoneNo, address: $address, Categories: $Categories, authors: $authors)';
+    return 'UserProfile(id: $id, email: $email, firstName: $firstName, lastName: $lastName, status: $status, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 }
 
@@ -81,15 +69,13 @@ abstract mixin class $UserProfileCopyWith<$Res> {
       _$UserProfileCopyWithImpl;
   @useResult
   $Res call(
-      {int id,
+      {String id,
       String email,
-      String name,
-      String profilePicture,
-      String phoneNo,
-      String altPhoneNo,
-      List<Map<String, String>> address,
-      List<String> Categories,
-      List<String> authors});
+      String firstName,
+      String lastName,
+      String status,
+      DateTime createdAt,
+      DateTime updatedAt});
 }
 
 /// @nodoc
@@ -106,51 +92,41 @@ class _$UserProfileCopyWithImpl<$Res> implements $UserProfileCopyWith<$Res> {
   $Res call({
     Object? id = null,
     Object? email = null,
-    Object? name = null,
-    Object? profilePicture = null,
-    Object? phoneNo = null,
-    Object? altPhoneNo = null,
-    Object? address = null,
-    Object? Categories = null,
-    Object? authors = null,
+    Object? firstName = null,
+    Object? lastName = null,
+    Object? status = null,
+    Object? createdAt = null,
+    Object? updatedAt = null,
   }) {
     return _then(_self.copyWith(
       id: null == id
           ? _self.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       email: null == email
           ? _self.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      name: null == name
-          ? _self.name
-          : name // ignore: cast_nullable_to_non_nullable
+      firstName: null == firstName
+          ? _self.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
               as String,
-      profilePicture: null == profilePicture
-          ? _self.profilePicture
-          : profilePicture // ignore: cast_nullable_to_non_nullable
+      lastName: null == lastName
+          ? _self.lastName
+          : lastName // ignore: cast_nullable_to_non_nullable
               as String,
-      phoneNo: null == phoneNo
-          ? _self.phoneNo
-          : phoneNo // ignore: cast_nullable_to_non_nullable
+      status: null == status
+          ? _self.status
+          : status // ignore: cast_nullable_to_non_nullable
               as String,
-      altPhoneNo: null == altPhoneNo
-          ? _self.altPhoneNo
-          : altPhoneNo // ignore: cast_nullable_to_non_nullable
-              as String,
-      address: null == address
-          ? _self.address
-          : address // ignore: cast_nullable_to_non_nullable
-              as List<Map<String, String>>,
-      Categories: null == Categories
-          ? _self.Categories
-          : Categories // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      authors: null == authors
-          ? _self.authors
-          : authors // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+      createdAt: null == createdAt
+          ? _self.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      updatedAt: null == updatedAt
+          ? _self.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
     ));
   }
 }
@@ -161,54 +137,28 @@ class _UserProfile implements UserProfile {
   const _UserProfile(
       {required this.id,
       required this.email,
-      required this.name,
-      required this.profilePicture,
-      required this.phoneNo,
-      required this.altPhoneNo,
-      required final List<Map<String, String>> address,
-      required final List<String> Categories,
-      required final List<String> authors})
-      : _address = address,
-        _Categories = Categories,
-        _authors = authors;
+      required this.firstName,
+      required this.lastName,
+      required this.status,
+      required this.createdAt,
+      required this.updatedAt});
   factory _UserProfile.fromJson(Map<String, dynamic> json) =>
       _$UserProfileFromJson(json);
 
   @override
-  final int id;
+  final String id;
   @override
   final String email;
   @override
-  final String name;
+  final String firstName;
   @override
-  final String profilePicture;
+  final String lastName;
   @override
-  final String phoneNo;
+  final String status;
   @override
-  final String altPhoneNo;
-  final List<Map<String, String>> _address;
+  final DateTime createdAt;
   @override
-  List<Map<String, String>> get address {
-    if (_address is EqualUnmodifiableListView) return _address;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_address);
-  }
-
-  final List<String> _Categories;
-  @override
-  List<String> get Categories {
-    if (_Categories is EqualUnmodifiableListView) return _Categories;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_Categories);
-  }
-
-  final List<String> _authors;
-  @override
-  List<String> get authors {
-    if (_authors is EqualUnmodifiableListView) return _authors;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_authors);
-  }
+  final DateTime updatedAt;
 
   /// Create a copy of UserProfile
   /// with the given fields replaced by the non-null parameter values.
@@ -232,35 +182,25 @@ class _UserProfile implements UserProfile {
             other is _UserProfile &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.email, email) || other.email == email) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.profilePicture, profilePicture) ||
-                other.profilePicture == profilePicture) &&
-            (identical(other.phoneNo, phoneNo) || other.phoneNo == phoneNo) &&
-            (identical(other.altPhoneNo, altPhoneNo) ||
-                other.altPhoneNo == altPhoneNo) &&
-            const DeepCollectionEquality().equals(other._address, _address) &&
-            const DeepCollectionEquality()
-                .equals(other._Categories, _Categories) &&
-            const DeepCollectionEquality().equals(other._authors, _authors));
+            (identical(other.firstName, firstName) ||
+                other.firstName == firstName) &&
+            (identical(other.lastName, lastName) ||
+                other.lastName == lastName) &&
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            (identical(other.updatedAt, updatedAt) ||
+                other.updatedAt == updatedAt));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      id,
-      email,
-      name,
-      profilePicture,
-      phoneNo,
-      altPhoneNo,
-      const DeepCollectionEquality().hash(_address),
-      const DeepCollectionEquality().hash(_Categories),
-      const DeepCollectionEquality().hash(_authors));
+  int get hashCode => Object.hash(runtimeType, id, email, firstName, lastName,
+      status, createdAt, updatedAt);
 
   @override
   String toString() {
-    return 'UserProfile(id: $id, email: $email, name: $name, profilePicture: $profilePicture, phoneNo: $phoneNo, altPhoneNo: $altPhoneNo, address: $address, Categories: $Categories, authors: $authors)';
+    return 'UserProfile(id: $id, email: $email, firstName: $firstName, lastName: $lastName, status: $status, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 }
 
@@ -273,15 +213,13 @@ abstract mixin class _$UserProfileCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int id,
+      {String id,
       String email,
-      String name,
-      String profilePicture,
-      String phoneNo,
-      String altPhoneNo,
-      List<Map<String, String>> address,
-      List<String> Categories,
-      List<String> authors});
+      String firstName,
+      String lastName,
+      String status,
+      DateTime createdAt,
+      DateTime updatedAt});
 }
 
 /// @nodoc
@@ -298,51 +236,41 @@ class __$UserProfileCopyWithImpl<$Res> implements _$UserProfileCopyWith<$Res> {
   $Res call({
     Object? id = null,
     Object? email = null,
-    Object? name = null,
-    Object? profilePicture = null,
-    Object? phoneNo = null,
-    Object? altPhoneNo = null,
-    Object? address = null,
-    Object? Categories = null,
-    Object? authors = null,
+    Object? firstName = null,
+    Object? lastName = null,
+    Object? status = null,
+    Object? createdAt = null,
+    Object? updatedAt = null,
   }) {
     return _then(_UserProfile(
       id: null == id
           ? _self.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       email: null == email
           ? _self.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      name: null == name
-          ? _self.name
-          : name // ignore: cast_nullable_to_non_nullable
+      firstName: null == firstName
+          ? _self.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
               as String,
-      profilePicture: null == profilePicture
-          ? _self.profilePicture
-          : profilePicture // ignore: cast_nullable_to_non_nullable
+      lastName: null == lastName
+          ? _self.lastName
+          : lastName // ignore: cast_nullable_to_non_nullable
               as String,
-      phoneNo: null == phoneNo
-          ? _self.phoneNo
-          : phoneNo // ignore: cast_nullable_to_non_nullable
+      status: null == status
+          ? _self.status
+          : status // ignore: cast_nullable_to_non_nullable
               as String,
-      altPhoneNo: null == altPhoneNo
-          ? _self.altPhoneNo
-          : altPhoneNo // ignore: cast_nullable_to_non_nullable
-              as String,
-      address: null == address
-          ? _self._address
-          : address // ignore: cast_nullable_to_non_nullable
-              as List<Map<String, String>>,
-      Categories: null == Categories
-          ? _self._Categories
-          : Categories // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      authors: null == authors
-          ? _self._authors
-          : authors // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+      createdAt: null == createdAt
+          ? _self.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      updatedAt: null == updatedAt
+          ? _self.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
     ));
   }
 }

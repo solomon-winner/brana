@@ -7,31 +7,22 @@ part of 'user_profile.dart';
 // **************************************************************************
 
 _UserProfile _$UserProfileFromJson(Map<String, dynamic> json) => _UserProfile(
-      id: (json['id'] as num).toInt(),
+      id: json['id'] as String,
       email: json['email'] as String,
-      name: json['name'] as String,
-      profilePicture: json['profilePicture'] as String,
-      phoneNo: json['phoneNo'] as String,
-      altPhoneNo: json['altPhoneNo'] as String,
-      address: (json['address'] as List<dynamic>)
-          .map((e) => Map<String, String>.from(e as Map))
-          .toList(),
-      Categories: (json['Categories'] as List<dynamic>)
-          .map((e) => e as String)
-          .toList(),
-      authors:
-          (json['authors'] as List<dynamic>).map((e) => e as String).toList(),
+      firstName: json['firstName'] as String,
+      lastName: json['lastName'] as String,
+      status: json['status'] as String,
+      createdAt: DateTime.parse(json['createdAt'] as String),
+      updatedAt: DateTime.parse(json['updatedAt'] as String),
     );
 
 Map<String, dynamic> _$UserProfileToJson(_UserProfile instance) =>
     <String, dynamic>{
       'id': instance.id,
       'email': instance.email,
-      'name': instance.name,
-      'profilePicture': instance.profilePicture,
-      'phoneNo': instance.phoneNo,
-      'altPhoneNo': instance.altPhoneNo,
-      'address': instance.address,
-      'Categories': instance.Categories,
-      'authors': instance.authors,
+      'firstName': instance.firstName,
+      'lastName': instance.lastName,
+      'status': instance.status,
+      'createdAt': instance.createdAt.toIso8601String(),
+      'updatedAt': instance.updatedAt.toIso8601String(),
     };

@@ -8,6 +8,7 @@ part 'user_login.g.dart';
 abstract class UserLogin with _$UserLogin {
   const factory UserLogin ({
     required String token,
+    required String refreshToken,
     required UserProfile user,
    
   }) = _UserLogin;
