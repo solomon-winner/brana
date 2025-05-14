@@ -1,3 +1,5 @@
+import 'package:brana/main.dart';
+import 'package:brana/pages/login_page.dart';
 import 'package:brana/pages/profile_page.dart';
 import 'package:brana/utils/colors.dart';
 import 'package:flutter/material.dart';
@@ -151,6 +153,11 @@ class _SideBarState extends ConsumerState<SideBar> {
                 if (shouldLogout ?? false) {
                   try {
                     await ref.read(userNotifierProvider.notifier).logout();
+                    Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute(builder: (context) => LoginScreen()),
+                      (route) => false,
+                    );
+
                   } catch (e) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
