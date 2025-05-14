@@ -28,7 +28,8 @@ class AuthRepositoryImpl implements AuthRepository{
 
       // Save user session
       final user = UserLogin.fromJson(response.data['data']);
-    await _storage.write(key: 'auth_token', value: user.token);
+    await _storage.write(key: 'auth_token', value: user.accessToken);
+    await _storage.write(key: 'refresh_token', value: user.refreshToken);
     await _storage.write(key: 'current_user', value: jsonEncode(user.user.toJson()));
       
       return user;

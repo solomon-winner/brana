@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$UserLogin {
-  String get token;
+  String get accessToken;
   String get refreshToken;
   UserProfile get user;
 
@@ -34,7 +34,8 @@ mixin _$UserLogin {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is UserLogin &&
-            (identical(other.token, token) || other.token == token) &&
+            (identical(other.accessToken, accessToken) ||
+                other.accessToken == accessToken) &&
             (identical(other.refreshToken, refreshToken) ||
                 other.refreshToken == refreshToken) &&
             (identical(other.user, user) || other.user == user));
@@ -42,11 +43,11 @@ mixin _$UserLogin {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, token, refreshToken, user);
+  int get hashCode => Object.hash(runtimeType, accessToken, refreshToken, user);
 
   @override
   String toString() {
-    return 'UserLogin(token: $token, refreshToken: $refreshToken, user: $user)';
+    return 'UserLogin(accessToken: $accessToken, refreshToken: $refreshToken, user: $user)';
   }
 }
 
@@ -55,7 +56,7 @@ abstract mixin class $UserLoginCopyWith<$Res> {
   factory $UserLoginCopyWith(UserLogin value, $Res Function(UserLogin) _then) =
       _$UserLoginCopyWithImpl;
   @useResult
-  $Res call({String token, String refreshToken, UserProfile user});
+  $Res call({String accessToken, String refreshToken, UserProfile user});
 
   $UserProfileCopyWith<$Res> get user;
 }
@@ -72,14 +73,14 @@ class _$UserLoginCopyWithImpl<$Res> implements $UserLoginCopyWith<$Res> {
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? token = null,
+    Object? accessToken = null,
     Object? refreshToken = null,
     Object? user = null,
   }) {
     return _then(_self.copyWith(
-      token: null == token
-          ? _self.token
-          : token // ignore: cast_nullable_to_non_nullable
+      accessToken: null == accessToken
+          ? _self.accessToken
+          : accessToken // ignore: cast_nullable_to_non_nullable
               as String,
       refreshToken: null == refreshToken
           ? _self.refreshToken
@@ -107,12 +108,14 @@ class _$UserLoginCopyWithImpl<$Res> implements $UserLoginCopyWith<$Res> {
 @JsonSerializable()
 class _UserLogin implements UserLogin {
   const _UserLogin(
-      {required this.token, required this.refreshToken, required this.user});
+      {required this.accessToken,
+      required this.refreshToken,
+      required this.user});
   factory _UserLogin.fromJson(Map<String, dynamic> json) =>
       _$UserLoginFromJson(json);
 
   @override
-  final String token;
+  final String accessToken;
   @override
   final String refreshToken;
   @override
@@ -138,7 +141,8 @@ class _UserLogin implements UserLogin {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _UserLogin &&
-            (identical(other.token, token) || other.token == token) &&
+            (identical(other.accessToken, accessToken) ||
+                other.accessToken == accessToken) &&
             (identical(other.refreshToken, refreshToken) ||
                 other.refreshToken == refreshToken) &&
             (identical(other.user, user) || other.user == user));
@@ -146,11 +150,11 @@ class _UserLogin implements UserLogin {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, token, refreshToken, user);
+  int get hashCode => Object.hash(runtimeType, accessToken, refreshToken, user);
 
   @override
   String toString() {
-    return 'UserLogin(token: $token, refreshToken: $refreshToken, user: $user)';
+    return 'UserLogin(accessToken: $accessToken, refreshToken: $refreshToken, user: $user)';
   }
 }
 
@@ -162,7 +166,7 @@ abstract mixin class _$UserLoginCopyWith<$Res>
       __$UserLoginCopyWithImpl;
   @override
   @useResult
-  $Res call({String token, String refreshToken, UserProfile user});
+  $Res call({String accessToken, String refreshToken, UserProfile user});
 
   @override
   $UserProfileCopyWith<$Res> get user;
@@ -180,14 +184,14 @@ class __$UserLoginCopyWithImpl<$Res> implements _$UserLoginCopyWith<$Res> {
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? token = null,
+    Object? accessToken = null,
     Object? refreshToken = null,
     Object? user = null,
   }) {
     return _then(_UserLogin(
-      token: null == token
-          ? _self.token
-          : token // ignore: cast_nullable_to_non_nullable
+      accessToken: null == accessToken
+          ? _self.accessToken
+          : accessToken // ignore: cast_nullable_to_non_nullable
               as String,
       refreshToken: null == refreshToken
           ? _self.refreshToken

@@ -7,7 +7,7 @@ part 'user_login.g.dart';
 @freezed
 abstract class UserLogin with _$UserLogin {
   const factory UserLogin ({
-    required String token,
+    required String accessToken,
     required String refreshToken,
     required UserProfile user,
    
