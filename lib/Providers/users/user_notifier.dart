@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:brana/Providers/users/user_provider.dart';
 import 'package:brana/models/user_model/user_profile/user_profile.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
