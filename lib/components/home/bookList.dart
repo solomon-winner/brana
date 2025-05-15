@@ -5,7 +5,7 @@ import 'package:brana/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../providers/books/book_provider.dart';
- import "./bookList_item.dart";
+import "./bookList_item.dart";
 
 class BookList extends ConsumerWidget {
 

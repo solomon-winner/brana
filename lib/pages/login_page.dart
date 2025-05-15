@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:brana/Providers/users/user_provider.dart';
 import 'package:brana/utils/colors.dart';
-
-// import 'package:brana/pages/home_page.dart';
+import 'package:brana/pages/home_page.dart';
 
 class LoginScreen extends ConsumerStatefulWidget {
   const LoginScreen({super.key});
@@ -29,22 +28,22 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
     final userState = ref.watch(userNotifierProvider);
     final theme = Theme.of(context);
 
-    // ref.listen(userNotifierProvider, (previous, next) {
-    //   if (next is AsyncData && next.value?.user != null) {
-    //     Navigator.pushReplacement(
-    //       context,
-    //       MaterialPageRoute(builder: (_) => const HomePage()),
-    //     );
-    //   } else if (next is AsyncError) {
-    //     final error = next.error.toString();
-    //     ScaffoldMessenger.of(context).showSnackBar(
-    //       SnackBar(
-    //         content: Text(error),
-    //         backgroundColor: theme.colorScheme.error,
-    //       ),
-    //     );
-    //   }
-    // });
+    ref.listen(userNotifierProvider, (previous, next) {
+      if (next is AsyncData && next.value?.user != null) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (_) => const HomePage()),
+        );
+      } else if (next is AsyncError) {
+        final error = next.error.toString();
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(error),
+            backgroundColor: theme.colorScheme.error,
+          ),
+        );
+      }
+    });
 
     return Scaffold(
       body: Container(

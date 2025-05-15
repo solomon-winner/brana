@@ -11,6 +11,7 @@ class BookListItem extends ConsumerWidget {
 
    @override
    Widget build(BuildContext context, WidgetRef ref) {
+
                 return Padding(
               padding: const EdgeInsets.all(8.0),
               child: GestureDetector(
@@ -143,6 +144,10 @@ class BookListItem extends ConsumerWidget {
                                       BranaColor.AddLibrary,
                                       size: 25,
                                     ),
+                                splashColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                enableFeedback: false,
                                 tooltip: book.isFavourite ?
                                       "Remove from Favourites" :
                                       "Add to Favourites",

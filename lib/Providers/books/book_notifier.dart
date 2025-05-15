@@ -51,30 +51,45 @@ final favorites = results.length > 1
     )).toList();
   }
 
-  Future<void> toggleFavorite(int bookId) async {
-    try {
-      final previousState = state;
-      state = const AsyncValue.loading();
-      
-      await _repository.toggleFavorite(bookId);
-      final favorites = await _repository.getFavorites();
+Future<void> toggleFavorite(int bookId) async {
+  final current = state;
+  if (current is! AsyncData) return;
 
-      state = previousState.when(
-        data: (oldState) => AsyncValue.data(
-          BookState(
-            books: _mergeFavorites(
-              oldState.books,
-              favorites
-            ),
-            favorites: favorites,
-          )
-        ),
-        loading: () => const AsyncValue.loading(),
-        error: (_,__) => previousState,
-      );
-    } catch (e, stack) {
-      state = AsyncValue.error(e, stack);
+  // Optimistically update the favorite state
+  final oldState = current.value!;
+  final updatedBooks = oldState.books.map((book) {
+    if (book.id == bookId) {
+      return book.copyWith(isFavourite: !book.isFavourite);
     }
+    return book;
+  }).toList();
+
+  final updatedFavorites = Set<int>.from(oldState.favorites);
+  if (updatedFavorites.contains(bookId)) {
+    updatedFavorites.remove(bookId);
+  } else {
+    updatedFavorites.add(bookId);
   }
+
+  // Emit updated state immediately for smooth UX
+  state = AsyncValue.data(BookState(
+    books: updatedBooks,
+    favorites: updatedFavorites,
+  ));
+
+  try {
+    await _repository.toggleFavorite(bookId);
+    final realFavorites = await _repository.getFavorites();
+
+    // Correct any discrepancy with backend
+    state = AsyncValue.data(BookState(
+      books: _mergeFavorites(updatedBooks, realFavorites),
+      favorites: realFavorites,
+    ));
+  } catch (e, stack) {
+    state = AsyncValue.error(e, stack);
+  }
+}
+
 }
 
