@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:brana/Providers/users/user_provider.dart';
+import 'package:brana/utils/colors.dart';
+
 // import 'package:brana/pages/home_page.dart';
 
 class LoginScreen extends ConsumerStatefulWidget {
@@ -50,9 +52,13 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
+            // colors: [
+            //   theme.colorScheme.primaryContainer,
+            //   theme.colorScheme.background,
+            // ],
             colors: [
-              theme.colorScheme.primaryContainer,
-              theme.colorScheme.background,
+              BranaColor.light_background,
+              BranaColor.WhiteColor,
             ],
           ),
         ),
@@ -62,8 +68,8 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Icon(Icons.library_music, size: 120, color: theme.colorScheme.primary),
-                const SizedBox(height: 40),
+                // Icon(Icons.library_music, size: 120,color: BranaColor.BookTitleColor),
+                // const SizedBox(height: 40),
                 Text(
                   'Welcome Back',
                   style: theme.textTheme.headlineMedium?.copyWith(
@@ -85,13 +91,17 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   controller: _emailController,
                   decoration: InputDecoration(
                     labelText: 'Email',
-                    prefixIcon: Icon(Icons.email, color: theme.colorScheme.primary),
+                    prefixIcon: Icon(
+                      Icons.email, 
+                    //color: BranaColor.BookTitleColor
+                      color: BranaColor.BookTitleColor,
+                    ),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
-                      borderSide: BorderSide(color: theme.colorScheme.primary),
+                      borderSide: BorderSide(color: BranaColor.BookTitleColor),
                     ),
                   ),
                   keyboardType: TextInputType.emailAddress,
@@ -102,11 +112,11 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   obscureText: _obscurePassword,
                   decoration: InputDecoration(
                     labelText: 'Password',
-                    prefixIcon: Icon(Icons.lock, color: theme.colorScheme.primary),
+                    prefixIcon: Icon(Icons.lock,color: BranaColor.BookTitleColor),
                     suffixIcon: IconButton(
                       icon: Icon(
                         _obscurePassword ? Icons.visibility : Icons.visibility_off,
-                        color: theme.colorScheme.primary.withOpacity(0.5),
+                       color: BranaColor.BookTitleColor.withOpacity(0.5),
                       ),
                       onPressed: () => setState(() => _obscurePassword = !_obscurePassword),
                     ),
@@ -127,14 +137,17 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
-                    backgroundColor: theme.colorScheme.primary,
-                    foregroundColor: theme.colorScheme.onPrimary,
+                    // backgroundColor: theme.colorScheme.primary,
+                    // foregroundColor: theme.colorScheme.onPrimary,
+                    backgroundColor: BranaColor.dark_background,
+                    // foregroundColor: BranaColor.dark_background,
                     elevation: 4,
                   ),
                   child: Text(
                     'Sign In',
                     style: theme.textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.bold,
+                      color: BranaColor.WhiteColor,
                     ),
                   ),
                 ),
@@ -144,7 +157,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   child: Text(
                     'Forgot Password?',
                     style: TextStyle(
-                      color: theme.colorScheme.primary,
+                     color: BranaColor.BookTitleColor,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -199,7 +212,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       child: Text(
                         'Sign Up',
                         style: TextStyle(
-                          color: theme.colorScheme.primary,
+                         color: BranaColor.BookTitleColor,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
