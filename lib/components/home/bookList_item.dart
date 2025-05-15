@@ -66,6 +66,7 @@ class BookListItem extends ConsumerWidget {
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 1,
                               ),
+                             
                               SizedBox(
                                 height: 10,
                               ),
