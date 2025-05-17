@@ -24,68 +24,52 @@ class BookNotifier extends Notifier<AsyncValue<BookState>> {
     state = const AsyncValue.loading();
     
     try {
-      final results = await Future.wait([
-        _repository.fetchBooks(),
-         _repository.getFavorites(),
-      ]);
-      final books = results[0] as List<Book>;
-final favorites = results.length > 1 
-    ? results.elementAt(1) as Set<int> 
-    : <int>{}; 
-
-       print('Favorites: ${results[1]}');
-      state = AsyncValue.data(
-        BookState(
-          books: _mergeFavorites(books, favorites),
-          favorites: favorites,
-        ),
-      );
+      final books = await _repository.fetchBooks();
+      state = AsyncValue.data(BookState(books: books));
     } catch (e, stack) {
       state = AsyncValue.error(e, stack);
     }
   }
 
-  List<Book> _mergeFavorites(List<Book> books, Set<int> favorites) {
-    return books.map((book) => book.copyWith(
-      isFavourite: favorites.contains(book.id),
-    )).toList();
-  }
+  // List<Book> _mergeFavorites(List<Book> books, Set<int> favorites) {
+  //   return books.map((book) => book.copyWith(
+  //     isFavourite: favorites.contains(book.id),
+  //   )).toList();
+  // }
 
-Future<void> toggleFavorite(int bookId) async {
+Future<void> toggleFavorite(String bookId) async {
   final current = state;
   if (current is! AsyncData) return;
 
   // Optimistically update the favorite state
-  final oldState = current.value!;
-  final updatedBooks = oldState.books.map((book) {
+  final oldState = current.value!.books;
+  final updatedBooks = oldState.map((book) {
     if (book.id == bookId) {
       return book.copyWith(isFavourite: !book.isFavourite);
     }
     return book;
   }).toList();
 
-  final updatedFavorites = Set<int>.from(oldState.favorites);
-  if (updatedFavorites.contains(bookId)) {
-    updatedFavorites.remove(bookId);
-  } else {
-    updatedFavorites.add(bookId);
-  }
+  // final updatedFavorites = Set<int>.from(oldState.favorites);
+  // if (updatedFavorites.contains(bookId)) {
+  //   updatedFavorites.remove(bookId);
+  // } else {
+  //   updatedFavorites.add(bookId);
+  // }
+
 
   // Emit updated state immediately for smooth UX
-  state = AsyncValue.data(BookState(
-    books: updatedBooks,
-    favorites: updatedFavorites,
-  ));
+  state = AsyncValue.data(BookState(books: updatedBooks));
 
   try {
     await _repository.toggleFavorite(bookId);
-    final realFavorites = await _repository.getFavorites();
+   // final realFavorites = await _repository.getFavorites();
 
     // Correct any discrepancy with backend
-    state = AsyncValue.data(BookState(
-      books: _mergeFavorites(updatedBooks, realFavorites),
-      favorites: realFavorites,
-    ));
+    // state = AsyncValue.data(BookState(
+    //   books: _mergeFavorites(updatedBooks, realFavorites),
+    //   favorites: realFavorites,
+   // ));
   } catch (e, stack) {
     state = AsyncValue.error(e, stack);
   }

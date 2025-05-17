@@ -6,7 +6,7 @@ part 'books.g.dart';
 @freezed
 abstract class Book with _$Book {
   const factory Book({
-    required int id,
+    required String id,
     required String title,
     required String author,
     required String img,
@@ -23,6 +23,8 @@ abstract class Book with _$Book {
     required bool isFavourite,
     required bool isPopular,
     required bool isRecommended,
+    required bool isWishlist,
+    required bool isSaved,
     required bool isBestSeller,
     required bool isTrending,
     required bool isOnSale,

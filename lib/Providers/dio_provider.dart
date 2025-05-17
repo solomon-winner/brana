@@ -32,7 +32,8 @@ final dioProvider = Provider<Dio>((ref) {
     
     // 2. CSRF Protection
     _CsrfInterceptor(secureStorage),
-    
+     _AuthInterceptor(secureStorage),
+   //  TokenRefreshInterceptor(secureStorage, dio),
     // 3. Logging (keep your existing configuration)
     LogInterceptor(
       request: true,
@@ -46,6 +47,26 @@ final dioProvider = Provider<Dio>((ref) {
 
   return dio;
 });
+
+class _AuthInterceptor extends Interceptor {
+  final FlutterSecureStorage _storage;
+
+  _AuthInterceptor(this._storage);
+
+  @override
+  Future<void> onRequest(
+    RequestOptions options,
+    RequestInterceptorHandler handler,
+  ) async {
+    final token = await _storage.read(key: 'auth_token');
+
+    if (token != null && token.isNotEmpty) {
+      options.headers['Authorization'] = ' $token';
+    }
+
+    handler.next(options);
+  }
+}
 
 // Supporting providers
 final cookieJarProvider = Provider<CookieJar>((ref) => CookieJar());
@@ -88,5 +109,56 @@ class _CsrfInterceptor extends Interceptor {
       }
     }
     handler.next(response);
+  }
+}
+
+class TokenRefreshInterceptor extends Interceptor {
+  final FlutterSecureStorage storage;
+  final Dio dio;
+
+  TokenRefreshInterceptor(this.storage, this.dio);
+
+  @override
+  Future<void> onError(
+    DioException err,
+    ErrorInterceptorHandler handler,
+  ) async {
+    // Only attempt refresh if unauthorized
+    if (err.response?.statusCode == 401 &&
+        !err.requestOptions.path.contains('/auth/refresh')) {
+      try {
+        final refreshToken = await storage.read(key: 'refreshToken');
+
+        if (refreshToken == null) {
+          return handler.next(err); // No refresh token, abort
+        }
+
+        final refreshResponse = await dio.post(
+          '/authentication/refresh',
+          options: Options(headers: {
+            'Authorization': 'Bearer $refreshToken',
+          }),
+        );
+
+        final newAccessToken = refreshResponse.data['data']['accessToken'];
+
+        if (newAccessToken != null) {
+          // Save new access token
+          await storage.write(key: 'accessToken', value: newAccessToken);
+
+          // Clone original request
+          final retryRequest = err.requestOptions;
+          retryRequest.headers['Authorization'] = 'Bearer $newAccessToken';
+
+          final response = await dio.fetch(retryRequest);
+          return handler.resolve(response); // ✅ Retry success
+        }
+      } catch (e) {
+        print('Token refresh failed: $e');
+        // clear storage or force logout here
+      }
+    }
+
+    handler.next(err); // Continue with original error if failed
   }
 }

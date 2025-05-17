@@ -22,23 +22,22 @@ class BookRepositoryImpl implements BookRepository {
   }
 
  @override
- Future<void> toggleFavorite(int bookId) async {
+ Future<void> toggleFavorite(String bookId) async {
     final favorites = await getFavorites();
-    favorites.contains(bookId) 
-      ? favorites.remove(bookId)
-      : favorites.add(bookId);
-    
-    await Future.wait([
-_prefs.setStringList('favorites', 
-      favorites.map((id) => id.toString()).toList()),
-      // remoteDataSource.toggleBookLike(bookId.toString()),
-    ]);
+  
+   if (favorites.contains(bookId)) {
+    favorites.remove(bookId);
+  } else {
+    favorites.add(bookId);
+  }
+      await remoteDataSource.toggleBookLike(bookId);
 
-    
   }
 
+
   @override
-  Future<Set<int>> getFavorites() async {
-     return _prefs.getStringList('favorites')?.map(int.parse).toSet() ?? {};
+  Future<Set<String>> getFavorites() async {
+    final favorites = _prefs.getStringList('favorites') ?? [];
+    return favorites.toSet();
   }
 }

@@ -7,7 +7,7 @@ part of 'books.dart';
 // **************************************************************************
 
 _Book _$BookFromJson(Map<String, dynamic> json) => _Book(
-      id: (json['id'] as num).toInt(),
+      id: json['id'] as String,
       title: json['title'] as String,
       author: json['author'] as String,
       img: json['img'] as String,
@@ -24,6 +24,8 @@ _Book _$BookFromJson(Map<String, dynamic> json) => _Book(
       isFavourite: json['isFavourite'] as bool,
       isPopular: json['isPopular'] as bool,
       isRecommended: json['isRecommended'] as bool,
+      isWishlist: json['isWishlist'] as bool,
+      isSaved: json['isSaved'] as bool,
       isBestSeller: json['isBestSeller'] as bool,
       isTrending: json['isTrending'] as bool,
       isOnSale: json['isOnSale'] as bool,
@@ -58,6 +60,8 @@ Map<String, dynamic> _$BookToJson(_Book instance) => <String, dynamic>{
       'isFavourite': instance.isFavourite,
       'isPopular': instance.isPopular,
       'isRecommended': instance.isRecommended,
+      'isWishlist': instance.isWishlist,
+      'isSaved': instance.isSaved,
       'isBestSeller': instance.isBestSeller,
       'isTrending': instance.isTrending,
       'isOnSale': instance.isOnSale,

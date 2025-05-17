@@ -9,8 +9,8 @@ abstract class BookRemoteDataSource {
 }
 
 class BookRemoteDataSourceImpl implements BookRemoteDataSource {
-  // final Dio dio;
-  // BookRemoteDataSourceImpl(this.dio);
+   final Dio dio;
+   BookRemoteDataSourceImpl(this.dio);
 
   @override
   Future<List<Book>> getBooks() async {
@@ -32,15 +32,15 @@ class BookRemoteDataSourceImpl implements BookRemoteDataSource {
 
   @override
   Future<void> toggleBookLike(String bookId) async {
-    // try {
-    //   // final response = await dio.post("books/favourites/$bookId/");
-        final response = await rootBundle.loadString("assets/info.json");
+    try {
+       final response = await dio.post("books/favourites/$bookId/");
+        // final response = await rootBundle.loadString("assets/info.json");
 
-    //   if (response.statusCode != 200) {
-    //     throw Exception("Failed to toggle like");
-    //   }
-    // } catch (e) {
-    //   throw Exception("Error toggling like: $e");
-    // }
+      if (response.statusCode != 200) { //?
+        throw Exception("Failed to toggle like");
+      }
+    } catch (e) {
+      throw Exception("Error toggling like: $e");
+    }
   }
 }

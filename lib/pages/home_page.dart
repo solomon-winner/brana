@@ -16,7 +16,11 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   var _page = 0;
-  final pages = [bodyContainer(),Shelves(),Favourite(),TrendingPage()];
+  final pages = [
+    bodyContainer(),
+    Shelves(),
+    // Favourite(),
+    TrendingPage()];
   
   @override
   Widget build(BuildContext context) {
