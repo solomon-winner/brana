@@ -8,7 +8,7 @@ import 'package:brana/Providers/shared_preference.dart';
 import 'package:brana/Providers/dio_provider.dart';
 
 final bookRemoteDataSourceProvider = Provider<BookRemoteDataSource>((ref){
-  return BookRemoteDataSourceImpl();//ref.watch(dioProvider)
+  return BookRemoteDataSourceImpl(ref.watch(dioProvider));//
 });
 
 
