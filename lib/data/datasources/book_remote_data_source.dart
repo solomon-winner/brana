@@ -21,8 +21,12 @@ class BookRemoteDataSourceImpl implements BookRemoteDataSource {
       //  String data = await rootBundle.loadString("assets/info.json");
 
       if (isSuccessStatus(response.statusCode)) {
-        return (response.data as List).map((json) => Book.fromJson(json)).toList();
-      } else {
+    final data = response.data;
+
+    final List<dynamic> booksJson = data["data"]["books"];
+    print("booksJson: $booksJson");
+    return booksJson.map((json) => Book.fromJson(json)).toList();
+          } else {
         throw Exception("Failed to load books");
       }
     } catch (e) {

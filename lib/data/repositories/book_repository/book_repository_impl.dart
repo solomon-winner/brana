@@ -13,11 +13,12 @@ class BookRepositoryImpl implements BookRepository {
   @override
   Future<List<Book>> fetchBooks() async {
     try {
-      print("book repository impl$_prefs");
-    return await remoteDataSource.getBooks();
+      final response = await remoteDataSource.getBooks();
+      print("Response from API: $response");
+    return response;
       
     } on DioException catch (e) {
-      throw Exception("Error fetching books: ${e.message}");
+      throw Exception("Error fetching books: $e");
     }
   }
 

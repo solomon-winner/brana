@@ -17,11 +17,9 @@ abstract class Book with _$Book {
     required int availableBooks,
     required String language,
     required int pages,
-    required String year,
-    required String publisher,
-    required String isbn,
+    required int year,
+    @Default('') String publisher,
     required bool isFavourite,
-    required bool isPopular,
     required bool isRecommended,
     required bool isWishlist,
     required bool isSaved,
@@ -36,9 +34,7 @@ abstract class Book with _$Book {
     required bool isSoldOut,
     required bool isApproaved,
     required bool isBanned,
-    required bool isBlocked,
-    required bool isReported,
-    required bool isDeactivated,
+    @Default(false) bool isReported,
   }) = _Book;
 
   factory Book.fromJson(Map<String, dynamic> json) => _$BookFromJson(json);

@@ -26,11 +26,9 @@ mixin _$Book {
   int get availableBooks;
   String get language;
   int get pages;
-  String get year;
+  int get year;
   String get publisher;
-  String get isbn;
   bool get isFavourite;
-  bool get isPopular;
   bool get isRecommended;
   bool get isWishlist;
   bool get isSaved;
@@ -45,9 +43,7 @@ mixin _$Book {
   bool get isSoldOut;
   bool get isApproaved;
   bool get isBanned;
-  bool get isBlocked;
   bool get isReported;
-  bool get isDeactivated;
 
   /// Create a copy of Book
   /// with the given fields replaced by the non-null parameter values.
@@ -82,11 +78,8 @@ mixin _$Book {
             (identical(other.year, year) || other.year == year) &&
             (identical(other.publisher, publisher) ||
                 other.publisher == publisher) &&
-            (identical(other.isbn, isbn) || other.isbn == isbn) &&
             (identical(other.isFavourite, isFavourite) ||
                 other.isFavourite == isFavourite) &&
-            (identical(other.isPopular, isPopular) ||
-                other.isPopular == isPopular) &&
             (identical(other.isRecommended, isRecommended) ||
                 other.isRecommended == isRecommended) &&
             (identical(other.isWishlist, isWishlist) ||
@@ -114,12 +107,8 @@ mixin _$Book {
                 other.isApproaved == isApproaved) &&
             (identical(other.isBanned, isBanned) ||
                 other.isBanned == isBanned) &&
-            (identical(other.isBlocked, isBlocked) ||
-                other.isBlocked == isBlocked) &&
             (identical(other.isReported, isReported) ||
-                other.isReported == isReported) &&
-            (identical(other.isDeactivated, isDeactivated) ||
-                other.isDeactivated == isDeactivated));
+                other.isReported == isReported));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -139,9 +128,7 @@ mixin _$Book {
         pages,
         year,
         publisher,
-        isbn,
         isFavourite,
-        isPopular,
         isRecommended,
         isWishlist,
         isSaved,
@@ -156,14 +143,12 @@ mixin _$Book {
         isSoldOut,
         isApproaved,
         isBanned,
-        isBlocked,
-        isReported,
-        isDeactivated
+        isReported
       ]);
 
   @override
   String toString() {
-    return 'Book(id: $id, title: $title, author: $author, img: $img, rating: $rating, category: $category, price: $price, description: $description, availableBooks: $availableBooks, language: $language, pages: $pages, year: $year, publisher: $publisher, isbn: $isbn, isFavourite: $isFavourite, isPopular: $isPopular, isRecommended: $isRecommended, isWishlist: $isWishlist, isSaved: $isSaved, isBestSeller: $isBestSeller, isTrending: $isTrending, isOnSale: $isOnSale, isDiscounted: $isDiscounted, discount: $discount, discountedPrice: $discountedPrice, isComingSoon: $isComingSoon, isPreOrder: $isPreOrder, isSoldOut: $isSoldOut, isApproaved: $isApproaved, isBanned: $isBanned, isBlocked: $isBlocked, isReported: $isReported, isDeactivated: $isDeactivated)';
+    return 'Book(id: $id, title: $title, author: $author, img: $img, rating: $rating, category: $category, price: $price, description: $description, availableBooks: $availableBooks, language: $language, pages: $pages, year: $year, publisher: $publisher, isFavourite: $isFavourite, isRecommended: $isRecommended, isWishlist: $isWishlist, isSaved: $isSaved, isBestSeller: $isBestSeller, isTrending: $isTrending, isOnSale: $isOnSale, isDiscounted: $isDiscounted, discount: $discount, discountedPrice: $discountedPrice, isComingSoon: $isComingSoon, isPreOrder: $isPreOrder, isSoldOut: $isSoldOut, isApproaved: $isApproaved, isBanned: $isBanned, isReported: $isReported)';
   }
 }
 
@@ -184,11 +169,9 @@ abstract mixin class $BookCopyWith<$Res> {
       int availableBooks,
       String language,
       int pages,
-      String year,
+      int year,
       String publisher,
-      String isbn,
       bool isFavourite,
-      bool isPopular,
       bool isRecommended,
       bool isWishlist,
       bool isSaved,
@@ -203,9 +186,7 @@ abstract mixin class $BookCopyWith<$Res> {
       bool isSoldOut,
       bool isApproaved,
       bool isBanned,
-      bool isBlocked,
-      bool isReported,
-      bool isDeactivated});
+      bool isReported});
 }
 
 /// @nodoc
@@ -233,9 +214,7 @@ class _$BookCopyWithImpl<$Res> implements $BookCopyWith<$Res> {
     Object? pages = null,
     Object? year = null,
     Object? publisher = null,
-    Object? isbn = null,
     Object? isFavourite = null,
-    Object? isPopular = null,
     Object? isRecommended = null,
     Object? isWishlist = null,
     Object? isSaved = null,
@@ -250,9 +229,7 @@ class _$BookCopyWithImpl<$Res> implements $BookCopyWith<$Res> {
     Object? isSoldOut = null,
     Object? isApproaved = null,
     Object? isBanned = null,
-    Object? isBlocked = null,
     Object? isReported = null,
-    Object? isDeactivated = null,
   }) {
     return _then(_self.copyWith(
       id: null == id
@@ -302,22 +279,14 @@ class _$BookCopyWithImpl<$Res> implements $BookCopyWith<$Res> {
       year: null == year
           ? _self.year
           : year // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       publisher: null == publisher
           ? _self.publisher
           : publisher // ignore: cast_nullable_to_non_nullable
               as String,
-      isbn: null == isbn
-          ? _self.isbn
-          : isbn // ignore: cast_nullable_to_non_nullable
-              as String,
       isFavourite: null == isFavourite
           ? _self.isFavourite
           : isFavourite // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isPopular: null == isPopular
-          ? _self.isPopular
-          : isPopular // ignore: cast_nullable_to_non_nullable
               as bool,
       isRecommended: null == isRecommended
           ? _self.isRecommended
@@ -375,17 +344,9 @@ class _$BookCopyWithImpl<$Res> implements $BookCopyWith<$Res> {
           ? _self.isBanned
           : isBanned // ignore: cast_nullable_to_non_nullable
               as bool,
-      isBlocked: null == isBlocked
-          ? _self.isBlocked
-          : isBlocked // ignore: cast_nullable_to_non_nullable
-              as bool,
       isReported: null == isReported
           ? _self.isReported
           : isReported // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isDeactivated: null == isDeactivated
-          ? _self.isDeactivated
-          : isDeactivated // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -407,10 +368,8 @@ class _Book implements Book {
       required this.language,
       required this.pages,
       required this.year,
-      required this.publisher,
-      required this.isbn,
+      this.publisher = '',
       required this.isFavourite,
-      required this.isPopular,
       required this.isRecommended,
       required this.isWishlist,
       required this.isSaved,
@@ -425,9 +384,7 @@ class _Book implements Book {
       required this.isSoldOut,
       required this.isApproaved,
       required this.isBanned,
-      required this.isBlocked,
-      required this.isReported,
-      required this.isDeactivated});
+      this.isReported = false});
   factory _Book.fromJson(Map<String, dynamic> json) => _$BookFromJson(json);
 
   @override
@@ -453,15 +410,12 @@ class _Book implements Book {
   @override
   final int pages;
   @override
-  final String year;
+  final int year;
   @override
+  @JsonKey()
   final String publisher;
   @override
-  final String isbn;
-  @override
   final bool isFavourite;
-  @override
-  final bool isPopular;
   @override
   final bool isRecommended;
   @override
@@ -491,11 +445,8 @@ class _Book implements Book {
   @override
   final bool isBanned;
   @override
-  final bool isBlocked;
-  @override
+  @JsonKey()
   final bool isReported;
-  @override
-  final bool isDeactivated;
 
   /// Create a copy of Book
   /// with the given fields replaced by the non-null parameter values.
@@ -535,11 +486,8 @@ class _Book implements Book {
             (identical(other.year, year) || other.year == year) &&
             (identical(other.publisher, publisher) ||
                 other.publisher == publisher) &&
-            (identical(other.isbn, isbn) || other.isbn == isbn) &&
             (identical(other.isFavourite, isFavourite) ||
                 other.isFavourite == isFavourite) &&
-            (identical(other.isPopular, isPopular) ||
-                other.isPopular == isPopular) &&
             (identical(other.isRecommended, isRecommended) ||
                 other.isRecommended == isRecommended) &&
             (identical(other.isWishlist, isWishlist) ||
@@ -567,12 +515,8 @@ class _Book implements Book {
                 other.isApproaved == isApproaved) &&
             (identical(other.isBanned, isBanned) ||
                 other.isBanned == isBanned) &&
-            (identical(other.isBlocked, isBlocked) ||
-                other.isBlocked == isBlocked) &&
             (identical(other.isReported, isReported) ||
-                other.isReported == isReported) &&
-            (identical(other.isDeactivated, isDeactivated) ||
-                other.isDeactivated == isDeactivated));
+                other.isReported == isReported));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -592,9 +536,7 @@ class _Book implements Book {
         pages,
         year,
         publisher,
-        isbn,
         isFavourite,
-        isPopular,
         isRecommended,
         isWishlist,
         isSaved,
@@ -609,14 +551,12 @@ class _Book implements Book {
         isSoldOut,
         isApproaved,
         isBanned,
-        isBlocked,
-        isReported,
-        isDeactivated
+        isReported
       ]);
 
   @override
   String toString() {
-    return 'Book(id: $id, title: $title, author: $author, img: $img, rating: $rating, category: $category, price: $price, description: $description, availableBooks: $availableBooks, language: $language, pages: $pages, year: $year, publisher: $publisher, isbn: $isbn, isFavourite: $isFavourite, isPopular: $isPopular, isRecommended: $isRecommended, isWishlist: $isWishlist, isSaved: $isSaved, isBestSeller: $isBestSeller, isTrending: $isTrending, isOnSale: $isOnSale, isDiscounted: $isDiscounted, discount: $discount, discountedPrice: $discountedPrice, isComingSoon: $isComingSoon, isPreOrder: $isPreOrder, isSoldOut: $isSoldOut, isApproaved: $isApproaved, isBanned: $isBanned, isBlocked: $isBlocked, isReported: $isReported, isDeactivated: $isDeactivated)';
+    return 'Book(id: $id, title: $title, author: $author, img: $img, rating: $rating, category: $category, price: $price, description: $description, availableBooks: $availableBooks, language: $language, pages: $pages, year: $year, publisher: $publisher, isFavourite: $isFavourite, isRecommended: $isRecommended, isWishlist: $isWishlist, isSaved: $isSaved, isBestSeller: $isBestSeller, isTrending: $isTrending, isOnSale: $isOnSale, isDiscounted: $isDiscounted, discount: $discount, discountedPrice: $discountedPrice, isComingSoon: $isComingSoon, isPreOrder: $isPreOrder, isSoldOut: $isSoldOut, isApproaved: $isApproaved, isBanned: $isBanned, isReported: $isReported)';
   }
 }
 
@@ -638,11 +578,9 @@ abstract mixin class _$BookCopyWith<$Res> implements $BookCopyWith<$Res> {
       int availableBooks,
       String language,
       int pages,
-      String year,
+      int year,
       String publisher,
-      String isbn,
       bool isFavourite,
-      bool isPopular,
       bool isRecommended,
       bool isWishlist,
       bool isSaved,
@@ -657,9 +595,7 @@ abstract mixin class _$BookCopyWith<$Res> implements $BookCopyWith<$Res> {
       bool isSoldOut,
       bool isApproaved,
       bool isBanned,
-      bool isBlocked,
-      bool isReported,
-      bool isDeactivated});
+      bool isReported});
 }
 
 /// @nodoc
@@ -687,9 +623,7 @@ class __$BookCopyWithImpl<$Res> implements _$BookCopyWith<$Res> {
     Object? pages = null,
     Object? year = null,
     Object? publisher = null,
-    Object? isbn = null,
     Object? isFavourite = null,
-    Object? isPopular = null,
     Object? isRecommended = null,
     Object? isWishlist = null,
     Object? isSaved = null,
@@ -704,9 +638,7 @@ class __$BookCopyWithImpl<$Res> implements _$BookCopyWith<$Res> {
     Object? isSoldOut = null,
     Object? isApproaved = null,
     Object? isBanned = null,
-    Object? isBlocked = null,
     Object? isReported = null,
-    Object? isDeactivated = null,
   }) {
     return _then(_Book(
       id: null == id
@@ -756,22 +688,14 @@ class __$BookCopyWithImpl<$Res> implements _$BookCopyWith<$Res> {
       year: null == year
           ? _self.year
           : year // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       publisher: null == publisher
           ? _self.publisher
           : publisher // ignore: cast_nullable_to_non_nullable
               as String,
-      isbn: null == isbn
-          ? _self.isbn
-          : isbn // ignore: cast_nullable_to_non_nullable
-              as String,
       isFavourite: null == isFavourite
           ? _self.isFavourite
           : isFavourite // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isPopular: null == isPopular
-          ? _self.isPopular
-          : isPopular // ignore: cast_nullable_to_non_nullable
               as bool,
       isRecommended: null == isRecommended
           ? _self.isRecommended
@@ -829,17 +753,9 @@ class __$BookCopyWithImpl<$Res> implements _$BookCopyWith<$Res> {
           ? _self.isBanned
           : isBanned // ignore: cast_nullable_to_non_nullable
               as bool,
-      isBlocked: null == isBlocked
-          ? _self.isBlocked
-          : isBlocked // ignore: cast_nullable_to_non_nullable
-              as bool,
       isReported: null == isReported
           ? _self.isReported
           : isReported // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isDeactivated: null == isDeactivated
-          ? _self.isDeactivated
-          : isDeactivated // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }

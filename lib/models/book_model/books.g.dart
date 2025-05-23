@@ -18,11 +18,9 @@ _Book _$BookFromJson(Map<String, dynamic> json) => _Book(
       availableBooks: (json['availableBooks'] as num).toInt(),
       language: json['language'] as String,
       pages: (json['pages'] as num).toInt(),
-      year: json['year'] as String,
-      publisher: json['publisher'] as String,
-      isbn: json['isbn'] as String,
+      year: (json['year'] as num).toInt(),
+      publisher: json['publisher'] as String? ?? '',
       isFavourite: json['isFavourite'] as bool,
-      isPopular: json['isPopular'] as bool,
       isRecommended: json['isRecommended'] as bool,
       isWishlist: json['isWishlist'] as bool,
       isSaved: json['isSaved'] as bool,
@@ -37,9 +35,7 @@ _Book _$BookFromJson(Map<String, dynamic> json) => _Book(
       isSoldOut: json['isSoldOut'] as bool,
       isApproaved: json['isApproaved'] as bool,
       isBanned: json['isBanned'] as bool,
-      isBlocked: json['isBlocked'] as bool,
-      isReported: json['isReported'] as bool,
-      isDeactivated: json['isDeactivated'] as bool,
+      isReported: json['isReported'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$BookToJson(_Book instance) => <String, dynamic>{
@@ -56,9 +52,7 @@ Map<String, dynamic> _$BookToJson(_Book instance) => <String, dynamic>{
       'pages': instance.pages,
       'year': instance.year,
       'publisher': instance.publisher,
-      'isbn': instance.isbn,
       'isFavourite': instance.isFavourite,
-      'isPopular': instance.isPopular,
       'isRecommended': instance.isRecommended,
       'isWishlist': instance.isWishlist,
       'isSaved': instance.isSaved,
@@ -73,7 +67,5 @@ Map<String, dynamic> _$BookToJson(_Book instance) => <String, dynamic>{
       'isSoldOut': instance.isSoldOut,
       'isApproaved': instance.isApproaved,
       'isBanned': instance.isBanned,
-      'isBlocked': instance.isBlocked,
       'isReported': instance.isReported,
-      'isDeactivated': instance.isDeactivated,
     };
