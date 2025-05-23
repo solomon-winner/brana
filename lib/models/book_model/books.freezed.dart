@@ -41,8 +41,6 @@ mixin _$Book {
   bool get isComingSoon;
   bool get isPreOrder;
   bool get isSoldOut;
-  bool get isApproaved;
-  bool get isBanned;
   bool get isReported;
 
   /// Create a copy of Book
@@ -103,10 +101,6 @@ mixin _$Book {
                 other.isPreOrder == isPreOrder) &&
             (identical(other.isSoldOut, isSoldOut) ||
                 other.isSoldOut == isSoldOut) &&
-            (identical(other.isApproaved, isApproaved) ||
-                other.isApproaved == isApproaved) &&
-            (identical(other.isBanned, isBanned) ||
-                other.isBanned == isBanned) &&
             (identical(other.isReported, isReported) ||
                 other.isReported == isReported));
   }
@@ -141,14 +135,12 @@ mixin _$Book {
         isComingSoon,
         isPreOrder,
         isSoldOut,
-        isApproaved,
-        isBanned,
         isReported
       ]);
 
   @override
   String toString() {
-    return 'Book(id: $id, title: $title, author: $author, img: $img, rating: $rating, category: $category, price: $price, description: $description, availableBooks: $availableBooks, language: $language, pages: $pages, year: $year, publisher: $publisher, isFavourite: $isFavourite, isRecommended: $isRecommended, isWishlist: $isWishlist, isSaved: $isSaved, isBestSeller: $isBestSeller, isTrending: $isTrending, isOnSale: $isOnSale, isDiscounted: $isDiscounted, discount: $discount, discountedPrice: $discountedPrice, isComingSoon: $isComingSoon, isPreOrder: $isPreOrder, isSoldOut: $isSoldOut, isApproaved: $isApproaved, isBanned: $isBanned, isReported: $isReported)';
+    return 'Book(id: $id, title: $title, author: $author, img: $img, rating: $rating, category: $category, price: $price, description: $description, availableBooks: $availableBooks, language: $language, pages: $pages, year: $year, publisher: $publisher, isFavourite: $isFavourite, isRecommended: $isRecommended, isWishlist: $isWishlist, isSaved: $isSaved, isBestSeller: $isBestSeller, isTrending: $isTrending, isOnSale: $isOnSale, isDiscounted: $isDiscounted, discount: $discount, discountedPrice: $discountedPrice, isComingSoon: $isComingSoon, isPreOrder: $isPreOrder, isSoldOut: $isSoldOut, isReported: $isReported)';
   }
 }
 
@@ -184,8 +176,6 @@ abstract mixin class $BookCopyWith<$Res> {
       bool isComingSoon,
       bool isPreOrder,
       bool isSoldOut,
-      bool isApproaved,
-      bool isBanned,
       bool isReported});
 }
 
@@ -227,8 +217,6 @@ class _$BookCopyWithImpl<$Res> implements $BookCopyWith<$Res> {
     Object? isComingSoon = null,
     Object? isPreOrder = null,
     Object? isSoldOut = null,
-    Object? isApproaved = null,
-    Object? isBanned = null,
     Object? isReported = null,
   }) {
     return _then(_self.copyWith(
@@ -336,14 +324,6 @@ class _$BookCopyWithImpl<$Res> implements $BookCopyWith<$Res> {
           ? _self.isSoldOut
           : isSoldOut // ignore: cast_nullable_to_non_nullable
               as bool,
-      isApproaved: null == isApproaved
-          ? _self.isApproaved
-          : isApproaved // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isBanned: null == isBanned
-          ? _self.isBanned
-          : isBanned // ignore: cast_nullable_to_non_nullable
-              as bool,
       isReported: null == isReported
           ? _self.isReported
           : isReported // ignore: cast_nullable_to_non_nullable
@@ -382,8 +362,6 @@ class _Book implements Book {
       required this.isComingSoon,
       required this.isPreOrder,
       required this.isSoldOut,
-      required this.isApproaved,
-      required this.isBanned,
       this.isReported = false});
   factory _Book.fromJson(Map<String, dynamic> json) => _$BookFromJson(json);
 
@@ -440,10 +418,6 @@ class _Book implements Book {
   final bool isPreOrder;
   @override
   final bool isSoldOut;
-  @override
-  final bool isApproaved;
-  @override
-  final bool isBanned;
   @override
   @JsonKey()
   final bool isReported;
@@ -511,10 +485,6 @@ class _Book implements Book {
                 other.isPreOrder == isPreOrder) &&
             (identical(other.isSoldOut, isSoldOut) ||
                 other.isSoldOut == isSoldOut) &&
-            (identical(other.isApproaved, isApproaved) ||
-                other.isApproaved == isApproaved) &&
-            (identical(other.isBanned, isBanned) ||
-                other.isBanned == isBanned) &&
             (identical(other.isReported, isReported) ||
                 other.isReported == isReported));
   }
@@ -549,14 +519,12 @@ class _Book implements Book {
         isComingSoon,
         isPreOrder,
         isSoldOut,
-        isApproaved,
-        isBanned,
         isReported
       ]);
 
   @override
   String toString() {
-    return 'Book(id: $id, title: $title, author: $author, img: $img, rating: $rating, category: $category, price: $price, description: $description, availableBooks: $availableBooks, language: $language, pages: $pages, year: $year, publisher: $publisher, isFavourite: $isFavourite, isRecommended: $isRecommended, isWishlist: $isWishlist, isSaved: $isSaved, isBestSeller: $isBestSeller, isTrending: $isTrending, isOnSale: $isOnSale, isDiscounted: $isDiscounted, discount: $discount, discountedPrice: $discountedPrice, isComingSoon: $isComingSoon, isPreOrder: $isPreOrder, isSoldOut: $isSoldOut, isApproaved: $isApproaved, isBanned: $isBanned, isReported: $isReported)';
+    return 'Book(id: $id, title: $title, author: $author, img: $img, rating: $rating, category: $category, price: $price, description: $description, availableBooks: $availableBooks, language: $language, pages: $pages, year: $year, publisher: $publisher, isFavourite: $isFavourite, isRecommended: $isRecommended, isWishlist: $isWishlist, isSaved: $isSaved, isBestSeller: $isBestSeller, isTrending: $isTrending, isOnSale: $isOnSale, isDiscounted: $isDiscounted, discount: $discount, discountedPrice: $discountedPrice, isComingSoon: $isComingSoon, isPreOrder: $isPreOrder, isSoldOut: $isSoldOut, isReported: $isReported)';
   }
 }
 
@@ -593,8 +561,6 @@ abstract mixin class _$BookCopyWith<$Res> implements $BookCopyWith<$Res> {
       bool isComingSoon,
       bool isPreOrder,
       bool isSoldOut,
-      bool isApproaved,
-      bool isBanned,
       bool isReported});
 }
 
@@ -636,8 +602,6 @@ class __$BookCopyWithImpl<$Res> implements _$BookCopyWith<$Res> {
     Object? isComingSoon = null,
     Object? isPreOrder = null,
     Object? isSoldOut = null,
-    Object? isApproaved = null,
-    Object? isBanned = null,
     Object? isReported = null,
   }) {
     return _then(_Book(
@@ -744,14 +708,6 @@ class __$BookCopyWithImpl<$Res> implements _$BookCopyWith<$Res> {
       isSoldOut: null == isSoldOut
           ? _self.isSoldOut
           : isSoldOut // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isApproaved: null == isApproaved
-          ? _self.isApproaved
-          : isApproaved // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isBanned: null == isBanned
-          ? _self.isBanned
-          : isBanned // ignore: cast_nullable_to_non_nullable
               as bool,
       isReported: null == isReported
           ? _self.isReported

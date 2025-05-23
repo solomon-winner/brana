@@ -33,8 +33,6 @@ _Book _$BookFromJson(Map<String, dynamic> json) => _Book(
       isComingSoon: json['isComingSoon'] as bool,
       isPreOrder: json['isPreOrder'] as bool,
       isSoldOut: json['isSoldOut'] as bool,
-      isApproaved: json['isApproaved'] as bool,
-      isBanned: json['isBanned'] as bool,
       isReported: json['isReported'] as bool? ?? false,
     );
 
@@ -65,7 +63,5 @@ Map<String, dynamic> _$BookToJson(_Book instance) => <String, dynamic>{
       'isComingSoon': instance.isComingSoon,
       'isPreOrder': instance.isPreOrder,
       'isSoldOut': instance.isSoldOut,
-      'isApproaved': instance.isApproaved,
-      'isBanned': instance.isBanned,
       'isReported': instance.isReported,
     };

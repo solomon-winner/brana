@@ -32,8 +32,6 @@ abstract class Book with _$Book {
     required bool isComingSoon,
     required bool isPreOrder,
     required bool isSoldOut,
-    required bool isApproaved,
-    required bool isBanned,
     @Default(false) bool isReported,
   }) = _Book;
 
