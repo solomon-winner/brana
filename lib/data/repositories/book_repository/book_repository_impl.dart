@@ -24,8 +24,9 @@ class BookRepositoryImpl implements BookRepository {
 
  @override
  Future<void> toggleFavorite(String bookId, String type) async {
-    final favorites = await getFavorites();
-  
+    // final favorites = await getFavorites();
+  print(bookId);
+  print(type);
    if (type == "remove") {
     await remoteDataSource.toggleBookLike(bookId, "remove");
     // favorites.remove(bookId);

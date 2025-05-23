@@ -74,7 +74,11 @@ Future<void> toggleFavorite(String bookId) async {
   } catch (e, stack) {
     // Rollback to original state on error
     state = AsyncValue.data(BookState(books: originalBooks));
-  
+    
+    // Consider adding error reporting here
+    print('Favorite toggle failed: $e\n$stack');
+    
+    // Re-throw if using error boundaries
     throw Exception('Failed to toggle favorite: $e');
   }
 }
