@@ -17,10 +17,10 @@ class BookNotifier extends Notifier<AsyncValue<BookState>> {
     //   error: null,
     // );
   }
+
     BookRepository get _repository => ref.read(bookRepositoryProvider);
 
   Future<void> loadInitialData() async {
-    print('Loading initial data...');
     state = const AsyncValue.loading();
     
     try {
@@ -39,39 +39,43 @@ class BookNotifier extends Notifier<AsyncValue<BookState>> {
 
 Future<void> toggleFavorite(String bookId) async {
   final current = state;
-  if (current is! AsyncData) return;
+  if (current is! AsyncData || current.value == null) return;
 
-  // Optimistically update the favorite state
-  final oldState = current.value!.books;
-  final updatedBooks = oldState.map((book) {
-    if (book.id == bookId) {
-      return book.copyWith(isFavourite: !book.isFavourite);
-    }
-    return book;
+  // Store original state for potential rollback
+  final originalBooks = current.value!.books;
+  
+  // Create optimistic update
+  final updatedBooks = originalBooks.map((book) {
+    return book.id == bookId 
+      ? book.copyWith(isFavourite: !book.isFavourite)
+      : book;
   }).toList();
 
-  // final updatedFavorites = Set<int>.from(oldState.favorites);
-  // if (updatedFavorites.contains(bookId)) {
-  //   updatedFavorites.remove(bookId);
-  // } else {
-  //   updatedFavorites.add(bookId);
-  // }
-
-
-  // Emit updated state immediately for smooth UX
+  // Immediately show optimistic update
   state = AsyncValue.data(BookState(books: updatedBooks));
 
   try {
-    await _repository.toggleFavorite(bookId);
-   // final realFavorites = await _repository.getFavorites();
+    // Find the updated book state
+    final updatedBook = updatedBooks.firstWhere(
+      (book) => book.id == bookId,
+      orElse: () => throw Exception("Book $bookId not found")
+    );
 
-    // Correct any discrepancy with backend
-    // state = AsyncValue.data(BookState(
-    //   books: _mergeFavorites(updatedBooks, realFavorites),
-    //   favorites: realFavorites,
-   // ));
+    // Make API call
+    await _repository.toggleFavorite(
+      bookId,
+      updatedBook.isFavourite ? "add" : "remove"
+    );
+
+    // Optional: Refresh from server to confirm
+    // final freshState = await _repository.getBooks();
+    // state = AsyncValue.data(freshState);
+
   } catch (e, stack) {
-    state = AsyncValue.error(e, stack);
+    // Rollback to original state on error
+    state = AsyncValue.data(BookState(books: originalBooks));
+  
+    throw Exception('Failed to toggle favorite: $e');
   }
 }
 
