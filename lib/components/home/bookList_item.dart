@@ -47,7 +47,9 @@ class BookListItem extends ConsumerWidget {
                           decoration: BoxDecoration(
                             image: DecorationImage(
                               fit: BoxFit.contain,
-                              image: AssetImage(book.img),
+                              // image: AssetImage(book.img),
+                              image: AssetImage("assets/BCNA.png"),
+                              
                             ),
                           ),
                         ),
