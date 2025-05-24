@@ -1,15 +1,34 @@
+import 'package:brana/utils/colors.dart';
 import 'package:flutter/material.dart';
 
-class Stars extends StatefulWidget {
-  const Stars({super.key});
+class StarRating extends StatelessWidget {
+  final double rating;
+  final double starSize;
+  final Color color;
 
-  @override
-  State<Stars> createState() => _StarsState();
-}
+  StarRating({
+    super.key,
+    required this.rating,
+    this.starSize = 24.0,
+    Color? color,
+  }) : color = color ?? BranaColor.StarColor;
 
-class _StarsState extends State<Stars> {
   @override
   Widget build(BuildContext context) {
-    return const Row();
+    final clampedRating = rating.clamp(0.0, 5.0);
+    final fullStars = clampedRating.floor();
+    final hasHalfStar = (clampedRating - fullStars) >= 0.5;
+
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        for (int i = 0; i < fullStars; i++)
+          Icon(Icons.star, color: color, size: starSize),
+        if (hasHalfStar)
+          Icon(Icons.star_half, color: color, size: starSize),
+        for (int i = 0; i < 5 - fullStars - (hasHalfStar ? 1 : 0); i++)
+          Icon(Icons.star_border, color: color, size: starSize),
+      ],
+    );
   }
 }

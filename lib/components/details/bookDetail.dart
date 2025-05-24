@@ -1,10 +1,30 @@
 import 'package:brana/utils/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:brana/utils/stars.dart';
 
 class BookDetail extends StatelessWidget {
-  const BookDetail({super.key});
+ final String title;
+  // final String subtitle;
+  final String author;
+  final int year;
+  final int pages;
+  final double price;
+  final String language;
+  final String publisher;
+  final double rating;
 
+  const BookDetail({
+    super.key,
+    required this.title,
+    // required this.subtitle,
+    required this.price,
+    required this.author,
+    required this.year,
+    required this.pages,
+    required this.language,
+    required this.publisher,
+    required this.rating,
+  });
   // final String Detail;
   // const BookDetail({required this.Detail});
 
@@ -35,7 +55,7 @@ class BookDetail extends StatelessWidget {
         children: [
 
           Text(
-          "Born a Crime",
+          title,
           style:TextStyle(
             fontSize: 23,
             fontWeight: FontWeight.bold,
@@ -44,8 +64,15 @@ class BookDetail extends StatelessWidget {
           overflow: TextOverflow.ellipsis,
           maxLines: 3,
         ),
+            //   Text(
+            //   "Price: \$${price.toStringAsFixed(2)}",
+            //   style: TextStyle(
+            //     fontSize: 18,
+            //     color: BranaColor.BookTitleColor
+            //   ),
+            // ),
           Text(
-          "SubTitle: Born a Crime",
+          title,
           style:TextStyle(
             fontSize: 20,
             color: BranaColor.BookTitleColor
@@ -54,27 +81,14 @@ class BookDetail extends StatelessWidget {
           maxLines: 3,
         ),
         SizedBox(height: 10,),
-          Row(
-            children: [
-              Icon(
-                Icons.star,
-                color: BranaColor.StarColor ,
-                ),
-              Icon(Icons.star,
-              color: BranaColor.StarColor,),
-              Icon(Icons.star,
-              color: BranaColor.StarColor,
-              ),
-              Icon(Icons.star,
-              color: BranaColor.StarColor,
-              ),
-             Icon(
-              Icons.star_half_outlined,
-              color: Colors.amber,)
-            ] 
-             ),
+         StarRating(
+            rating: rating,
+            starSize: 24,
+            color: BranaColor.StarColor,
+          ),
+        SizedBox(height: 10,),
           Text(
-          "Author: Trevor Noah",
+          "Author: $author",
           style:TextStyle(
             fontSize: 16,
             color: BranaColor.BookTitleColor
@@ -83,21 +97,21 @@ class BookDetail extends StatelessWidget {
           maxLines: 2,
         ),
            Text(
-          "Year: 2024",
+          "Year: $year",
           style:TextStyle(
             fontSize: 15,
             color: BranaColor.BookTitleColor
           ),
         ),
            Text(
-          "Pages: 300",
+          "Pages: $pages",
           style:TextStyle(
             fontSize: 15,
             color: BranaColor.BookTitleColor
           ),
         ),
            Text(
-          "Language: English",
+          "Language: $language",
           style:TextStyle(
             fontSize: 15,
             color: BranaColor.BookTitleColor

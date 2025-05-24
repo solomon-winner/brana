@@ -10,8 +10,9 @@ import 'package:flutter/material.dart';
 
 class Detail extends StatelessWidget {
   final Book book;
-
-  const Detail({super.key, required this.book});
+  Detail({super.key, required this.book}) {
+    // print("Book in Detail: $book");
+  }
   
   @override
   Widget build(BuildContext context) {
@@ -38,18 +39,28 @@ class Detail extends StatelessWidget {
           
           children: [
             SizedBox(
-            height: 530,
+            height: 670,
             child: Stack(
               children: [
                 Positioned(
             
-                child: BookImage(image: book.img),
+                child: BookImage(image: "assets/BCNA.png"),
                 ),
                  Positioned(
                   top: 230,
                   left: 0,
                   right: 0,
-                  child: BookDetail(),
+                  child: BookDetail(   
+                    title: book.title,
+                    // subtitle: book.?subtitle ?? "No subtitle", // Handle null
+                    author: book.author,
+                    year: book.year,
+                    pages: book.pages,
+                    price: book.price,
+                    language: book.language,
+                    publisher: book.publisher ?? "Unknown publisher",
+                    rating: book.rating,
+                       ),
                   ),
                 
               ],
@@ -86,17 +97,10 @@ class Detail extends StatelessWidget {
           SizedBox(
             height: 10,
           ),
-          Componentloader(list: [
-            book.description,
-            book.description,
-            book.description,
-            book.description,
-            book.description,
-            book.description,
-            book.description,
-            book.description,
+          Componentloader(
+          list: List.generate(4, (index) => book.description),
 
-          ],), 
+          ), 
 
         ],
       ),
