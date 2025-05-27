@@ -23,7 +23,7 @@ class Detail extends StatelessWidget {
        backgroundColor: BranaColor.AppBarTransparent,
        centerTitle: true,
         leading: Container(
-          color: BranaColor.WhiteColor, // Set the background color to white
+          color: BranaColor.WhiteColor, 
           child: IconButton(
             icon: Icon(
               Icons.arrow_back,
@@ -38,35 +38,46 @@ class Detail extends StatelessWidget {
         child: Column(
           
           children: [
-            SizedBox(
-            height: 670,
-            child: Stack(
-              children: [
-                Positioned(
-            
-                child: BookImage(image: "assets/BCNA.png"),
-                ),
-                 Positioned(
-                  top: 230,
-                  left: 0,
-                  right: 0,
-                  child: BookDetail(   
-                    title: book.title,
-                    // subtitle: book.?subtitle ?? "No subtitle", // Handle null
-                    author: book.author,
-                    year: book.year,
-                    pages: book.pages,
-                    price: book.price,
-                    language: book.language,
-                    publisher: book.publisher ?? "Unknown publisher",
-                    rating: book.rating,
-                       ),
+            Container(
+  padding: EdgeInsets.only(bottom: 16),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 100),
+                    child: Stack(
+                        clipBehavior: Clip.none,
+                        children: [
+                      BookImage(image: "assets/BCNA.png"), 
+                           Positioned(
+                            top: MediaQuery.of(context).size.height * 0.35,
+                            left: 0,
+                            right: 0,
+                            
+                            child: BookDetail(   
+                              title: book.title,
+                              // subtitle: book.?subtitle ?? "No subtitle", // Handle null
+                              author: book.author,
+                              year: book.year,
+                              pages: book.pages,
+                              price: book.price,
+                              language: book.language,
+                              publisher: book.publisher ?? "Unknown publisher",
+                              rating: book.rating,
+                              ),
+                            ),
+                          
+                        ],
+                      ),
                   ),
-                
-              ],
+                ],
+              ),
             ),
-          ),
-          SizedBox(height: 10,),
+            
+            // SizedBox(height: 40,),
+             SizedBox(height: 310,),
           Description(description: book.description,), 
           Booksbyauthor(),
           Container(

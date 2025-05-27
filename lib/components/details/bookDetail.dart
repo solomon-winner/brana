@@ -61,8 +61,7 @@ class BookDetail extends StatelessWidget {
             fontWeight: FontWeight.bold,
             color: BranaColor.BookTitleColor
           ),
-          overflow: TextOverflow.ellipsis,
-          maxLines: 3,
+          softWrap: true,
         ),
             //   Text(
             //   "Price: \$${price.toStringAsFixed(2)}",
