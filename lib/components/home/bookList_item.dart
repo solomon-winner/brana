@@ -1,4 +1,5 @@
 import "package:brana/utils/colors.dart";
+import 'package:brana/utils/stars.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:brana/models/book_model/books.dart';
 import 'package:brana/pages/details_page.dart';
@@ -90,30 +91,8 @@ class BookListItem extends ConsumerWidget {
                               SizedBox(
                                 height: 3,
                               ),
-                              Row(
-                                children: [
-                                  Icon(
-                                    Icons.star,
-                                    color: BranaColor.StarColor,
-                                  ),
-                                  Icon(
-                                    Icons.star,
-                                    color: BranaColor.StarColor,
-                                  ),
-                                  Icon(
-                                    Icons.star,
-                                    color: BranaColor.StarColor,
-                                  ),
-                                  Icon(
-                                    Icons.star,
-                                    color: BranaColor.StarColor,
-                                  ),
-                                  Icon(
-                                    Icons.star_half_outlined,
-                                    color: Colors.amber,
-                                  ),
-                                ],
-                              ),
+                              StarRating(rating: book.rating, starSize: 20, color: BranaColor.StarColor),
+
                               Text(
                                 " ${book.availableBooks} Books Left",
                                 style: TextStyle(

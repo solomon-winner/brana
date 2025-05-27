@@ -13,6 +13,7 @@ class BookDetail extends ConsumerWidget {
   final String language;
   final String publisher;
   final double rating;
+  final bool isWishlist;
 
   const BookDetail({
     super.key,
@@ -25,6 +26,7 @@ class BookDetail extends ConsumerWidget {
     required this.language,
     required this.publisher,
     required this.rating,
+    required this.isWishlist,
   });
   // final String Detail;
   // const BookDetail({required this.Detail});
@@ -146,6 +148,7 @@ class BookDetail extends ConsumerWidget {
                 ),
                 child: Row(
                   children: [
+                    
                     Icon(
                       Icons.favorite_outline,
                       color: BranaColor.BookTitleColor,

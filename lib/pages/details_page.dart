@@ -47,6 +47,8 @@ class Detail extends StatelessWidget {
                 language: book.language,
                 publisher: book.publisher ?? "Unknown publisher",
                 rating: book.rating,
+                isWishlist: book.isWishlist,
+
               ),
             
 
