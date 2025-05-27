@@ -1,8 +1,9 @@
 import 'package:brana/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:brana/utils/stars.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class BookDetail extends StatelessWidget {
+class BookDetail extends ConsumerWidget {
  final String title;
   // final String subtitle;
   final String author;
@@ -29,7 +30,7 @@ class BookDetail extends StatelessWidget {
   // const BookDetail({required this.Detail});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Container(
       width: MediaQuery.sizeOf(context).width,
       padding: const EdgeInsets.symmetric(
@@ -63,13 +64,7 @@ class BookDetail extends StatelessWidget {
           ),
           softWrap: true,
         ),
-            //   Text(
-            //   "Price: \$${price.toStringAsFixed(2)}",
-            //   style: TextStyle(
-            //     fontSize: 18,
-            //     color: BranaColor.BookTitleColor
-            //   ),
-            // ),
+             SizedBox(height: 5,),
           Text(
           title,
           style:TextStyle(
@@ -79,6 +74,7 @@ class BookDetail extends StatelessWidget {
           overflow: TextOverflow.ellipsis,
           maxLines: 3,
         ),
+        
         SizedBox(height: 10,),
          StarRating(
             rating: rating,
@@ -95,6 +91,13 @@ class BookDetail extends StatelessWidget {
           overflow: TextOverflow.ellipsis,
           maxLines: 2,
         ),
+         Text(
+              "Price: \$${price.toStringAsFixed(2)}",
+              style: TextStyle(
+                fontSize: 15,
+                color: BranaColor.BookTitleColor
+              ),
+            ),
            Text(
           "Year: $year",
           style:TextStyle(
@@ -187,12 +190,12 @@ class BookDetail extends StatelessWidget {
                     ),
                   ],
                 )
-                )
+              )
             ],
           ),
         )
-        ]
+       ]
       ),
     );
   }
-  }
+}
