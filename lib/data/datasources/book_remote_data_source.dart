@@ -65,7 +65,7 @@ class BookRemoteDataSourceImpl implements BookRemoteDataSource {
       final data = response.data;
 
       final List<dynamic> booksJson = data["data"];
-
+      
       // return bookJson.map((json) => )
     } else {
       throw Exception("Failed toload books");
