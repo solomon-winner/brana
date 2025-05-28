@@ -55,4 +55,23 @@ class BookRemoteDataSourceImpl implements BookRemoteDataSource {
       throw Exception("Error toggling like: $e");
     }
   }
+
+  @override
+  Future<void> getWishListItems() async {
+    try{
+    final response = await dio.get('/wishlist');
+
+    if (isSuccessStatus(response.statusCode)) {
+      final data = response.data;
+
+      final List<dynamic> booksJson = data["data"];
+
+      // return bookJson.map((json) => )
+    } else {
+      throw Exception("Failed toload books");
+    }
+  } catch (e) {
+    throw Exception("Error fetching wishlists: $e");
+  }
+  }
 }
