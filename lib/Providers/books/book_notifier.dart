@@ -1,7 +1,7 @@
 import 'package:brana/Providers/books/book_provider.dart';
 import 'book_state.dart';
 import 'package:brana/data/repositories/book_repository/book_repository.dart';
-import 'package:brana/models/book_model/books.dart';
+// import 'package:brana/models/book_model/books.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class BookNotifier extends Notifier<AsyncValue<BookState>> {
@@ -83,6 +83,35 @@ Future<void> toggleFavorite(String bookId) async {
   }
 }
 
+Future<void> addOrRemoveWishlist(String bookId) async {
+  final current = state;
+
+  if (current is! AsyncData || current.value == null) return;
+
+  final originalBooks = current.value!.books;
+
+  final updatedBooks = originalBooks.map((book) {
+    return book.id == bookId 
+    ? book.copyWith(isWishlist: !book.isWishlist)
+    : book;
+  }).toList();
+
+  state = AsyncValue.data(BookState(books: updatedBooks));
+
+  try {
+    final updatedBook = updatedBooks.firstWhere(
+      (book) => book.id == bookId,
+      orElse: () => throw Exception("Book $bookId not found!")
+    );
+
+
+    // await _repos
+  } catch (e, stack) {
+    state = AsyncValue.data(BookState(books: originalBooks));
+    print('Wishlist toggle failed: $e\n$stack');
+    throw Exception("Failed to add or remove a book to wishlist: $e");
+  }
+}
 
 }
 
