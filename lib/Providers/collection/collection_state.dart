@@ -4,7 +4,7 @@ class CollectionState {
   final List<UserCollection> wishlist;
   final List<UserCollection> recomended;
   final List<UserCollection> saved;
-  final List<UserCollection> favourite
+  final List<UserCollection> favourite;
 
 
   const CollectionState({
