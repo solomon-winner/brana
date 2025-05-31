@@ -2,8 +2,10 @@ import 'package:brana/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:brana/utils/stars.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../providers/books/book_provider.dart';
 
 class BookDetail extends ConsumerWidget {
+ final String bookId;
  final String title;
   // final String subtitle;
   final String author;
@@ -17,6 +19,7 @@ class BookDetail extends ConsumerWidget {
 
   const BookDetail({
     super.key,
+    required this.bookId,
     required this.title,
     // required this.subtitle,
     required this.price,
@@ -136,7 +139,7 @@ class BookDetail extends ConsumerWidget {
           child: Row(
             children: [
               FilledButton(
-                onPressed: () {},
+                onPressed: () => ref.read(bookNotifierProvider.notifier).addOrRemoveWishlist(bookId),
                 style: FilledButton.styleFrom(
                   backgroundColor: BranaColor.WhiteColor,
                   foregroundColor: BranaColor.BookTitleColor,
@@ -150,16 +153,16 @@ class BookDetail extends ConsumerWidget {
                   children: [
                     
                     Icon(
-                      Icons.favorite_outline,
+                     isWishlist? Icons.favorite: Icons.favorite_outline ,
                       color: BranaColor.BookTitleColor,
                       size: 20,
                     ),
                     SizedBox(width: 5,),
                     Text(
-                      "Add to Wishlist",
+                      isWishlist?"Add to Wishlist": "remove from wishlist",
                       style: TextStyle(
                         color: BranaColor.BookTitleColor,
-                        fontSize: 12,
+                        fontSize: 10,
                       ),
                     ),
                   ],

@@ -1,4 +1,6 @@
 import 'package:brana/Providers/books/book_provider.dart';
+import 'package:brana/Providers/collection/collection_provider.dart';
+import 'package:brana/data/repositories/user_collection_repository/collection_repository.dart';
 import 'book_state.dart';
 import 'package:brana/data/repositories/book_repository/book_repository.dart';
 // import 'package:brana/models/book_model/books.dart';
@@ -19,6 +21,7 @@ class BookNotifier extends Notifier<AsyncValue<BookState>> {
   }
 
     BookRepository get _repository => ref.read(bookRepositoryProvider);
+    CollectionRepository get _collection_repository => ref.read(collectionRepositoryProvider);
 
   Future<void> loadInitialData() async {
     state = const AsyncValue.loading();
@@ -104,7 +107,10 @@ Future<void> addOrRemoveWishlist(String bookId) async {
       orElse: () => throw Exception("Book $bookId not found!")
     );
 
-
+  await _collection_repository.addOrRemoveWishList(
+      bookId,
+      updatedBook.isWishlist ? "add" : "remove"
+    );
     // await _repos
   } catch (e, stack) {
     state = AsyncValue.data(BookState(books: originalBooks));
