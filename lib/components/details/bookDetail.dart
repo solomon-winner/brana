@@ -6,36 +6,31 @@ import '../../providers/books/book_provider.dart';
 
 class BookDetail extends ConsumerWidget {
  final String bookId;
- final String title;
-  // final String subtitle;
-  final String author;
-  final int year;
-  final int pages;
-  final double price;
-  final String language;
-  final String publisher;
-  final double rating;
-  final bool isWishlist;
 
   const BookDetail({
     super.key,
     required this.bookId,
-    required this.title,
-    // required this.subtitle,
-    required this.price,
-    required this.author,
-    required this.year,
-    required this.pages,
-    required this.language,
-    required this.publisher,
-    required this.rating,
-    required this.isWishlist,
+    
   });
   // final String Detail;
   // const BookDetail({required this.Detail});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+     final bookState = ref.watch(bookNotifierProvider);
+
+  final book = bookState.when(
+    data: (state) => state.books.firstWhere((b) => b.id == bookId),
+    loading: () => null,
+    error: (_, __) => null,
+  );
+
+  if (book == null) {
+    return Center(child: CircularProgressIndicator());
+  }
+
+  final isWishlist = book.isWishlist;
+  print("####################${book.isWishlist}");
     return Container(
       width: MediaQuery.sizeOf(context).width,
       padding: const EdgeInsets.symmetric(
@@ -61,7 +56,7 @@ class BookDetail extends ConsumerWidget {
         children: [
 
           Text(
-          title,
+          book.title,
           style:TextStyle(
             fontSize: 23,
             fontWeight: FontWeight.bold,
@@ -71,7 +66,7 @@ class BookDetail extends ConsumerWidget {
         ),
              SizedBox(height: 5,),
           Text(
-          title,
+          book.title,
           style:TextStyle(
             fontSize: 20,
             color: BranaColor.BookTitleColor
@@ -82,13 +77,13 @@ class BookDetail extends ConsumerWidget {
         
         SizedBox(height: 10,),
          StarRating(
-            rating: rating,
+            rating: book.rating,
             starSize: 24,
             color: BranaColor.StarColor,
           ),
         SizedBox(height: 10,),
           Text(
-          "Author: $author",
+          "Author: ${book.author}",
           style:TextStyle(
             fontSize: 16,
             color: BranaColor.BookTitleColor
@@ -97,28 +92,28 @@ class BookDetail extends ConsumerWidget {
           maxLines: 2,
         ),
          Text(
-              "Price: \$${price.toStringAsFixed(2)}",
+              "Price: \$${book.price.toStringAsFixed(2)}",
               style: TextStyle(
                 fontSize: 15,
                 color: BranaColor.BookTitleColor
               ),
             ),
            Text(
-          "Year: $year",
+          "Year: ${book.year}",
           style:TextStyle(
             fontSize: 15,
             color: BranaColor.BookTitleColor
           ),
         ),
            Text(
-          "Pages: $pages",
+          "Pages: ${book.pages}",
           style:TextStyle(
             fontSize: 15,
             color: BranaColor.BookTitleColor
           ),
         ),
            Text(
-          "Language: $language",
+          "Language: ${book.language}",
           style:TextStyle(
             fontSize: 15,
             color: BranaColor.BookTitleColor
@@ -159,7 +154,7 @@ class BookDetail extends ConsumerWidget {
                     ),
                     SizedBox(width: 5,),
                     Text(
-                      isWishlist?"Add to Wishlist": "remove from wishlist",
+                      isWishlist? "remove from wishlist" : "Add to Wishlist",
                       style: TextStyle(
                         color: BranaColor.BookTitleColor,
                         fontSize: 10,

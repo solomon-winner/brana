@@ -40,16 +40,6 @@ class Detail extends StatelessWidget {
             // Book Detail section (under image, not overlapping)
                BookDetail(
                 bookId: book.id,
-                title: book.title,
-                author: book.author,
-                year: book.year,
-                pages: book.pages,
-                price: book.price,
-                language: book.language,
-                publisher: book.publisher ?? "Unknown publisher",
-                rating: book.rating,
-                isWishlist: book.isWishlist,
-
               ),
             
 

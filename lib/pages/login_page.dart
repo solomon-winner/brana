@@ -67,8 +67,8 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                // Icon(Icons.library_music, size: 120,color: BranaColor.BookTitleColor),
-                // const SizedBox(height: 40),
+                Icon(Icons.library_music, size: 120,color: BranaColor.BookTitleColor),
+                const SizedBox(height: 40),
                 Text(
                   'Welcome Back',
                   style: theme.textTheme.headlineMedium?.copyWith(
