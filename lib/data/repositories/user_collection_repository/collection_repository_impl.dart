@@ -2,6 +2,7 @@ import 'package:brana/data/datasources/collection_data_source.dart';
 import 'package:brana/data/repositories/user_collection_repository/collection_repository.dart';
 import 'package:brana/models/user_collection_model/user_collection.dart';
 import 'package:dio/dio.dart'; 
+import 'package:brana/utils/operation_type.dart';
 
 
 class CollectionRepositoryImpl implements CollectionRepository {
@@ -23,12 +24,12 @@ class CollectionRepositoryImpl implements CollectionRepository {
   }
 
  @override
-    Future<void> addOrRemoveWishList(String bookId, String type) async {
+    Future<void> addOrRemoveWishList(String bookId, OperationType type) async {
 
-   if (type == "remove") {
-    await remoteDataSource.addOrRemoveWishList(bookId, "remove");
-  } else if (type == "add") {
-    await remoteDataSource.addOrRemoveWishList(bookId, "add");
+   if (type == OperationType.remove) {
+    await remoteDataSource.addOrRemoveWishList(bookId, OperationType.remove);
+  } else if (type == OperationType.add) {
+    await remoteDataSource.addOrRemoveWishList(bookId, OperationType.add);
   }
 
   }

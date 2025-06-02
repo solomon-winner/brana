@@ -1,19 +1,7 @@
 import 'package:brana/utils/isSuccess.dart';
 import 'package:dio/dio.dart';
 import 'package:brana/models/user_collection_model/user_collection.dart';
-
-enum OperationType { add, remove }
-
-extension OperationTypeExtension on OperationType {
-  String toValue() {
-    switch (this) {
-      case OperationType.add:
-        return "add";
-      case OperationType.remove:
-        return "remove";
-    }
-  }
-}
+import 'package:brana/utils/operation_type.dart';
 
 abstract class CollectionDataSource {
   Future<void> toggleBookLike(String bookId, OperationType type);
