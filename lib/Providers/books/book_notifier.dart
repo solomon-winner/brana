@@ -5,6 +5,7 @@ import 'book_state.dart';
 import 'package:brana/data/repositories/book_repository/book_repository.dart';
 // import 'package:brana/models/book_model/books.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:brana/utils/operation_type.dart';
 
 class BookNotifier extends Notifier<AsyncValue<BookState>> {
 
@@ -109,7 +110,7 @@ Future<void> addOrRemoveWishlist(String bookId) async {
 
   await _collection_repository.addOrRemoveWishList(
       bookId,
-      updatedBook.isWishlist ? "add" : "remove"
+      updatedBook.isWishlist ? OperationType.add : OperationType.remove
     );
     // await _repos
   } catch (e, stack) {
