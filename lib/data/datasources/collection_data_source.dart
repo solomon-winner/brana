@@ -9,10 +9,9 @@ abstract class CollectionDataSource {
   Future<void> addOrRemoveWishList(String bookId, OperationType type);
   Future<void> addOrRemoveShelveList({
     required String bookId,
-    required String bookCount,
-    required double price,
+    required int bookCount,
     required String to,
-    required String isPaid,
+    required bool isPaid,
     required OperationType type,
   });
   Future<void> removeBookFromShelve(String shelveId);
@@ -77,10 +76,9 @@ class CollectionDataSourceImpl implements CollectionDataSource {
   @override
   Future<void> addOrRemoveShelveList({
     required String bookId,
-    required String bookCount,
-    required double price,
+    required int bookCount,
     required String to,
-    required String isPaid,
+    required bool isPaid,
     required OperationType type,
   }) async {
     try {
@@ -91,7 +89,6 @@ class CollectionDataSourceImpl implements CollectionDataSource {
               queryParameters: {"book": bookId},
               data: {
                 "bookCount": bookCount,
-                "price": price,
                 "to": to,
                 "isPaid": isPaid,
               },

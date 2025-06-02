@@ -32,8 +32,24 @@ class CollectionRepositoryImpl implements CollectionRepository {
     await remoteDataSource.addOrRemoveWishList(bookId, OperationType.add);
   }
 
-  }
 
+  }
+ @override
+Future<void> addOrRemoveShelveList(
+  String bookId,
+  int bookCount,
+  String to,
+  bool isPaid,
+  OperationType type,
+) async {
+  await remoteDataSource.addOrRemoveShelveList(
+    bookId: bookId,
+    bookCount: bookCount,
+    to: to,
+    isPaid: isPaid,
+    type: type,
+  );
+}
 
   // @override
   // Future<Set<String>> getFavorites() async {

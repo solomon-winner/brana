@@ -3,6 +3,13 @@ import 'package:brana/utils/operation_type.dart';
 
 abstract class CollectionRepository {
   Future<List<UserCollection>> getWishListItems();
-   Future<void> addOrRemoveWishList(String bookId, OperationType type);
+  Future<void> addOrRemoveWishList(String bookId, OperationType type);
+Future<void> addOrRemoveShelveList(
+  String bookId,
+  int bookCount,
+  String to,
+  bool isPaid,
+  OperationType type
+);
 }
 
