@@ -2,18 +2,19 @@ import 'package:brana/utils/isSuccess.dart';
 import 'package:dio/dio.dart';
 import 'package:brana/models/user_collection_model/user_collection.dart';
 import 'package:brana/utils/operation_type.dart';
+import 'package:brana/models/shelve_model/shelve.dart';
 
 abstract class CollectionDataSource {
   Future<void> toggleBookLike(String bookId, OperationType type);
   Future<List<UserCollection>> getWishListItems();
   Future<void> addOrRemoveWishList(String bookId, OperationType type);
-  Future<void> addOrRemoveShelveList({
+  Future<Shelve> addShelveList({
     required String bookId,
     required int bookCount,
     required String to,
     required bool isPaid,
-    required OperationType type,
   });
+  Future<void> removeAwholeShelve();
   Future<void> removeBookFromShelve(String shelveId);
   Future<void> payForShelve(String shelveId);
   Future<void> payForAllOnce();
@@ -74,35 +75,47 @@ class CollectionDataSourceImpl implements CollectionDataSource {
   }
 
   @override
-  Future<void> addOrRemoveShelveList({
+  Future<Shelve> addShelveList({
     required String bookId,
     required int bookCount,
     required String to,
     required bool isPaid,
-    required OperationType type,
   }) async {
     try {
-      final path = "/shelve";
-      final response = type == OperationType.add
-          ? await dio.post(
-              path,
+          final response = await dio.post(
+              "/shelve",
               queryParameters: {"book": bookId},
               data: {
                 "bookCount": bookCount,
                 "to": to,
                 "isPaid": isPaid,
               },
-            )
-          : await dio.delete("/shelve/remove");
+            );
 
       if (!isSuccessStatus(response.statusCode)) {
         throw Exception("Failed to update shelve list.");
       }
+
+      return response.data;
     } catch (e) {
       throw Exception("Error updating shelve list: $e");
     }
   }
+  
+  @override
+    Future<void> removeAwholeShelve() async {
+      try {
+        final response =await dio.delete("/shelve/remove");
 
+      if (!isSuccessStatus(response.statusCode)) {
+        throw Exception("Failed to remove a shelve.");
+      }
+
+      }catch (e) {
+       throw Exception("Error removing a whole shelve: $e");
+      }
+    }
+    
   @override
   Future<void> removeBookFromShelve(String shelveId) async {
     try {

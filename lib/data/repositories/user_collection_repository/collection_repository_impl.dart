@@ -3,6 +3,7 @@ import 'package:brana/data/repositories/user_collection_repository/collection_re
 import 'package:brana/models/user_collection_model/user_collection.dart';
 import 'package:dio/dio.dart'; 
 import 'package:brana/utils/operation_type.dart';
+import 'package:brana/models/shelve_model/shelve.dart';
 
 
 class CollectionRepositoryImpl implements CollectionRepository {
@@ -34,23 +35,34 @@ class CollectionRepositoryImpl implements CollectionRepository {
 
 
   }
+  
  @override
-Future<void> addOrRemoveShelveList(
-  String bookId,
-  int bookCount,
-  String to,
-  bool isPaid,
-  OperationType type,
-) async {
-  await remoteDataSource.addOrRemoveShelveList(
+ Future<Shelve> addShelveList({
+    required String bookId,
+    required int bookCount,
+    required String to,
+    required bool isPaid,
+  }) async {
+    
+  final response = await remoteDataSource.addShelveList(
     bookId: bookId,
     bookCount: bookCount,
     to: to,
     isPaid: isPaid,
-    type: type,
   );
+
+  return response;
 }
 
+@override
+  Future<void> removeBookFromShelve(String shelveId) async{
+    await remoteDataSource.removeBookFromShelve(shelveId);
+  }
+
+@override
+  Future<void> removeAwholeShelve() async{
+    await remoteDataSource.removeAwholeShelve();
+  }
   // @override
   // Future<Set<String>> getFavorites() async {
   //   final favorites = _prefs.getStringList('favorites') ?? [];

@@ -1,17 +1,19 @@
 import 'package:brana/models/user_collection_model/user_collection.dart';
+import 'package:brana/models/shelve_model/shelve.dart';
 
 class CollectionState {
-  final List<UserCollection> wishlist;
-  final List<UserCollection> recomended;
-  final List<UserCollection> saved;
-  final List<UserCollection> favourite;
-
+  final List<UserCollection>? wishlist;
+  final List<UserCollection>? recomended;
+  final List<UserCollection>? saved;
+  final List<UserCollection>? favourite;
+  final List<Shelve>? shelve;
 
   const CollectionState({
-    required this.wishlist,
-    required this.recomended,
-    required this.saved,
-    required this.favourite,
+     this.wishlist,
+     this.recomended,
+     this.saved,
+     this.favourite,
+     this.shelve,
   });
 
   CollectionState copyWith({
@@ -19,13 +21,14 @@ class CollectionState {
     List<UserCollection>? recomended,
     List<UserCollection>? saved,
     List<UserCollection>? favourite,
-
+    List<Shelve>? shelve,
   }) {
     return CollectionState(
       wishlist: wishlist ?? this.wishlist,
       recomended: recomended ?? this.recomended,
       saved: saved ?? this.saved,
       favourite: favourite ?? this.favourite,
+      shelve: shelve ?? this.shelve,
     );
   }
 }
