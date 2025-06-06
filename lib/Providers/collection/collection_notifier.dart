@@ -94,6 +94,28 @@ Future<void> addShelveList({
   }
 }
 
+Future<void> removeBookFromShelve(String shelveId) async {
+  final current = state;
+
+  if (current is! AsyncData || current.value == null) return;
+
+  final backupState = current.value!;
+
+  try {
+    // Optimistically remove the shelve
+    final updatedShelveList = List<Shelve>.from(backupState.shelve ?? [])
+      ..removeWhere((shelve) => shelve.shelveId == shelveId);
+
+    state = AsyncData(backupState.copyWith(shelve: updatedShelveList));
+
+    // Perform the actual deletion
+    await _repository.removeBookFromShelve(shelveId);
+  } catch (e, st) {
+    // Restore the original state on error
+    state = AsyncData(backupState);
+    state = AsyncValue.error(e, st);
+  }
+}
 
   // Future<void> removeBookFromShelve(String shelveId) async {
   //   try {

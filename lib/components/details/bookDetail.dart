@@ -30,7 +30,6 @@ class BookDetail extends ConsumerWidget {
   }
 
   final isWishlist = book.isWishlist;
-  print("####################${book.isWishlist}");
     return Container(
       width: MediaQuery.sizeOf(context).width,
       padding: const EdgeInsets.symmetric(
