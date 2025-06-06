@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class ShelveDialog extends ConsumerStatefulWidget {
+  final double bookPrice;
   final void Function(int bookCount, String to, bool isPaid) onSubmit;
 
-  const ShelveDialog({super.key, required this.onSubmit});
+  const ShelveDialog({
+    super.key,
+    required this.onSubmit,
+    required this.bookPrice,
+  });
 
   @override
   ConsumerState<ShelveDialog> createState() => _ShelveDialogState();
@@ -14,6 +19,21 @@ class _ShelveDialogState extends ConsumerState<ShelveDialog> {
   final _formKey = GlobalKey<FormState>();
   int _bookCount = 1;
   String _to = '';
+  double totalPrice = 0.0;
+
+  @override
+  void initState() {
+    super.initState();
+    totalPrice = widget.bookPrice; // Set initial total
+  }
+
+  void _updateTotalPrice(String value) {
+    final count = int.tryParse(value) ?? 0;
+    setState(() {
+      _bookCount = count;
+      totalPrice = count * widget.bookPrice;
+    });
+  }
 
   void _submit({required bool isPaid}) {
     if (_formKey.currentState?.validate() ?? false) {
@@ -28,7 +48,7 @@ class _ShelveDialogState extends ConsumerState<ShelveDialog> {
     final theme = Theme.of(context);
 
     return Dialog(
-      backgroundColor: const Color(0xFFE3F2FD), // Light blue
+      backgroundColor: const Color(0xFFE3F2FD),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
       ),
@@ -37,7 +57,7 @@ class _ShelveDialogState extends ConsumerState<ShelveDialog> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            /// Top bar with title and cancel button (X)
+            // Title and Close
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -54,37 +74,51 @@ class _ShelveDialogState extends ConsumerState<ShelveDialog> {
                 ),
               ],
             ),
-
             const SizedBox(height: 8),
 
-            /// Form Fields
+            // Form
             Form(
               key: _formKey,
               child: Column(
                 children: [
-                  TextFormField(
-                    initialValue: '1',
-                    decoration: InputDecoration(
-                      labelText: 'Book Count',
-                      labelStyle: const TextStyle(color: Color(0xFF01411C)),
-                      focusedBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey.shade700),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: TextFormField(
+                          initialValue: '1',
+                          decoration: InputDecoration(
+                            labelText: 'Book Count',
+                            labelStyle: const TextStyle(color: Color(0xFF01411C)),
+                            focusedBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.grey.shade700),
+                            ),
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.grey.shade500),
+                            ),
+                          ),
+                          keyboardType: TextInputType.number,
+                          validator: (value) {
+                            final num = int.tryParse(value ?? '');
+                            if (num == null || num <= 0) {
+                              return 'Enter a valid number';
+                            }
+                            return null;
+                          },
+                          onSaved: (value) {
+                            _bookCount = int.parse(value!);
+                          },
+                          onChanged: _updateTotalPrice,
+                        ),
                       ),
-                      enabledBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey.shade500),
+                      const SizedBox(width: 12),
+                      Text(
+                        'Total: \$${totalPrice.toStringAsFixed(2)}',
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF01411C),
+                        ),
                       ),
-                    ),
-                    keyboardType: TextInputType.number,
-                    validator: (value) {
-                      final num = int.tryParse(value ?? '');
-                      if (num == null || num <= 0) {
-                        return 'Enter a valid number';
-                      }
-                      return null;
-                    },
-                    onSaved: (value) {
-                      _bookCount = int.parse(value!);
-                    },
+                    ],
                   ),
                   const SizedBox(height: 16),
                   TextFormField(
@@ -105,10 +139,9 @@ class _ShelveDialogState extends ConsumerState<ShelveDialog> {
                 ],
               ),
             ),
-
             const SizedBox(height: 24),
 
-            /// Buttons Row
+            // Action Buttons
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -119,13 +152,9 @@ class _ShelveDialogState extends ConsumerState<ShelveDialog> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 16, vertical: 10),
+                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
                   ),
-                  child: const Text(
-                    "Pay Here",
-                    style: TextStyle(color: Colors.white),
-                  ),
+                  child: const Text("Pay Here", style: TextStyle(color: Colors.white)),
                 ),
                 ElevatedButton(
                   onPressed: () => _submit(isPaid: false),
@@ -135,8 +164,7 @@ class _ShelveDialogState extends ConsumerState<ShelveDialog> {
                       borderRadius: BorderRadius.circular(8),
                       side: const BorderSide(color: Color(0xFF01411C), width: 1.5),
                     ),
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 16, vertical: 10),
+                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
                   ),
                   child: const Text(
                     "Just Add to Shelve!",

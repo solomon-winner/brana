@@ -170,6 +170,7 @@ class BookDetail extends ConsumerWidget {
                       showDialog(
                         context: context,
                         builder: (_) => ShelveDialog(
+                           bookPrice: book.price,
                           onSubmit: (bookCount, to, isPaid) {
                             final notifier = ref.read(collectionNotifierProvider.notifier);
                             notifier.addShelveList(
