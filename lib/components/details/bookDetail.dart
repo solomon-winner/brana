@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:brana/utils/stars.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../providers/books/book_provider.dart';
+import '../../providers/collection/collection_provider.dart';
+import 'shelve_dialog.dart';
 
 class BookDetail extends ConsumerWidget {
  final String bookId;
@@ -164,7 +166,27 @@ class BookDetail extends ConsumerWidget {
                 ),
                 SizedBox(width: 10,),
               FilledButton(
-                onPressed: () {},
+                onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: (_) => ShelveDialog(
+                          onSubmit: (bookCount, to, isPaid) {
+                            final notifier = ref.read(collectionNotifierProvider.notifier);
+                            notifier.addShelveList(
+                              bookId: bookId,
+                              bookCount: bookCount,
+                              to: to,
+                              isPaid: isPaid,
+                              title: book.title,
+                              img: book.img,
+                              author: book.author,
+                              price: book.price,
+                            );
+                          },
+                        ),
+                      );
+                    },
+
                 style: FilledButton.styleFrom(
                   backgroundColor: BranaColor.WhiteColor,
                   foregroundColor: BranaColor.BookTitleColor,
