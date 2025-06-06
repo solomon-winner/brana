@@ -10,10 +10,55 @@ class CollectionNotifier extends Notifier<AsyncValue<CollectionState>> {
   CollectionRepository get _repository => ref.read(collectionRepositoryProvider);
 
   @override
-  AsyncValue<CollectionState> build() {
-    // _loadAllCollections(); // async call
-    return const AsyncValue.loading();
+  // AsyncValue<CollectionState> build() {
+  //   _loadAllCollections(); // async call
+  //   return const AsyncValue.loading();
+  // }
+
+  // @override
+AsyncValue<CollectionState> build()  {
+   Future.delayed(const Duration(seconds: 1)); // simulate network delay
+
+  try {
+    // Dummy data
+    final wishlist = [
+      UserCollection(bookId: '1', title: 'Dummy Wishlist Book', author: 'Author A', img: '', price: 10.0),
+    ];
+    final recommended = [
+      UserCollection(bookId: '2', title: 'Dummy Recommended Book', author: 'Author B', img: '', price: 15.0),
+    ];
+    final saved = [
+      UserCollection(bookId: '3', title: 'Dummy Saved Book', author: 'Author C', img: '', price: 12.0),
+    ];
+    final favourite = [
+      UserCollection(bookId: '4', title: 'Dummy Favourite Book', author: 'Author D', img: '', price: 18.0),
+    ];
+    final shelve = [
+      Shelve(
+        shelveId: 'sh1',
+        bookId: '5',
+        title: 'Dummy Shelve Book',
+        author: 'Author E',
+        img: '',
+        price: 20.0,
+        bookCount: 1,
+        to: 'Someone',
+        isPaied: false,
+      ),
+    ];
+
+    return AsyncValue.data(CollectionState(
+      wishlist: wishlist,
+      recomended: recommended,
+      saved: saved,
+      favourite: favourite,
+      shelve: shelve,
+    ));
+  } catch (e, st) {
+    return AsyncValue.error(e, st);
   }
+}
+
 
   // Future<void> _loadAllCollections() async {
   //   try {
@@ -52,22 +97,14 @@ Future<void> addShelveList({
   required double price,
 }) async {
   final current = state;
-  print({
-   bookId,
-   bookCount,
-   to,
-   isPaid,
-   title,
-   img,
-   author,
-   price,
-});
   if (current is! AsyncData || current.value == null) return;
 
   //  Backup current state
   final backupState = current.value!;
 
   try {
+
+    
     // Optimistically update the shelve list
     final updatedShelveList = List<Shelve>.from(backupState.shelve ?? [])..add(
       Shelve(
@@ -97,6 +134,8 @@ Future<void> addShelveList({
     final cleanedList = List<Shelve>.from(backupState.shelve ?? [])..add(newShelve);
     state = AsyncData(backupState.copyWith(shelve: cleanedList));
   } catch (e, st) {
+    print("Error adding shelve: $e");
+    print("Stack trace: $st");
     // Restore original state on error
     state = AsyncData(backupState);
     state = AsyncValue.error(e, st);
