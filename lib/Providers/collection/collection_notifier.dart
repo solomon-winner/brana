@@ -52,7 +52,16 @@ Future<void> addShelveList({
   required double price,
 }) async {
   final current = state;
-
+  print({
+   bookId,
+   bookCount,
+   to,
+   isPaid,
+   title,
+   img,
+   author,
+   price,
+});
   if (current is! AsyncData || current.value == null) return;
 
   //  Backup current state

@@ -170,8 +170,9 @@ class BookDetail extends ConsumerWidget {
                       showDialog(
                         context: context,
                         builder: (_) => ShelveDialog(
-                           bookPrice: book.price,
-                          onSubmit: (bookCount, to, isPaid) {
+                          bookPrice: book.price,
+                          maxCount: book.availableBooks,
+                          onSubmit: (bookCount, to, isPaid, totalPrice) {
                             final notifier = ref.read(collectionNotifierProvider.notifier);
                             notifier.addShelveList(
                               bookId: bookId,
@@ -181,7 +182,7 @@ class BookDetail extends ConsumerWidget {
                               title: book.title,
                               img: book.img,
                               author: book.author,
-                              price: book.price,
+                              price: totalPrice,
                             );
                           },
                         ),
