@@ -14,6 +14,7 @@ abstract class CollectionDataSource {
     required String to,
     required bool isPaid,
   });
+  Future<List<Shelve>> getShelveList();
   Future<void> removeAwholeShelve();
   Future<void> removeBookFromShelve(String shelveId);
   Future<void> payForShelve(String shelveId);
@@ -48,8 +49,8 @@ class CollectionDataSourceImpl implements CollectionDataSource {
 
       if (isSuccessStatus(response.statusCode)) {
         final data = response.data;
-        final List<dynamic> wishListJson = data["data"];
-        return wishListJson.map((json) => UserCollection.fromJson(json)).toList();
+        final List<dynamic> shelveJson = data["data"];
+        return shelveJson.map((json) => UserCollection.fromJson(json)).toList();
       } else {
         throw Exception("Failed to load wishlist items.");
       }
@@ -73,7 +74,24 @@ class CollectionDataSourceImpl implements CollectionDataSource {
       throw Exception("Error updating wishlist: $e");
     }
   }
+  @override
+    Future<List<Shelve>> getShelveList() async {
+      try {
+        final response = await dio.get("/shelve");
 
+    if (isSuccessStatus(response.statusCode)) {
+      final data = response.data;
+
+      final List<dynamic> shelveJson = data["data"];
+
+      return shelveJson.map((json) =>  Shelve.fromJson(json)).toList();
+    } else {
+      throw Exception("Failed to load shelve lists!");
+    }        
+      } catch (e) {
+        throw Exception("Error fetching the shelve list!");
+      }
+    }
   @override
   Future<Shelve> addShelveList({
     required String bookId,
@@ -84,7 +102,7 @@ class CollectionDataSourceImpl implements CollectionDataSource {
     try {
           final response = await dio.post(
               "/shelve",
-              queryParameters: {"book": bookId},
+              queryParameters: {"bookId": bookId},
               data: {
                 "bookCount": bookCount,
                 "to": to,

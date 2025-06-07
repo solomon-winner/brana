@@ -1,3 +1,4 @@
+import 'package:brana/models/shelve_model/shelve.dart';
 import 'package:brana/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:brana/utils/stars.dart';
@@ -20,6 +21,7 @@ class BookDetail extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
      final bookState = ref.watch(bookNotifierProvider);
+     final shelveState = ref.watch(collectionNotifierProvider);
 
   final book = bookState.when(
     data: (state) => state.books.firstWhere((b) => b.id == bookId),
@@ -30,6 +32,23 @@ class BookDetail extends ConsumerWidget {
   if (book == null) {
     return Center(child: CircularProgressIndicator());
   }
+final shelveList = shelveState.asData?.value.shelve ?? [];
+
+Shelve? shelved;
+try {
+  shelved = shelveList.firstWhere((s) => s.bookId == bookId);
+} catch (e) {
+  shelved = null;
+}
+final inShelve = shelved != null;
+
+// final inShelve = shelveState.when(
+//   data: (state) {
+//     return state.shelve?.any((s) => s.bookId == bookId) ?? false;
+//   },
+//   loading: () => false,
+//   error: (_, __) => false,
+// );
 
   final isWishlist = book.isWishlist;
     return Container(

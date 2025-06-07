@@ -11,6 +11,7 @@ abstract class CollectionRepository {
     required String to,
     required bool isPaid,
   });
+  Future<List<Shelve>> getShelveList();
   Future<void> removeAwholeShelve();
   Future<void> removeBookFromShelve(String shelveId);
 }

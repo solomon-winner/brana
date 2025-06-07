@@ -43,7 +43,7 @@ class CollectionRepositoryImpl implements CollectionRepository {
     required String to,
     required bool isPaid,
   }) async {
-    
+    print("#####################$bookId");
   final response = await remoteDataSource.addShelveList(
     bookId: bookId,
     bookCount: bookCount,
@@ -54,6 +54,12 @@ class CollectionRepositoryImpl implements CollectionRepository {
   return response;
 }
 
+@override
+  Future<List<Shelve>> getShelveList() async {
+    final response = await remoteDataSource.getShelveList();
+    return response;
+
+  }
 @override
   Future<void> removeBookFromShelve(String shelveId) async{
     await remoteDataSource.removeBookFromShelve(shelveId);
